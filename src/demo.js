@@ -16,5 +16,8 @@ artist.id = '0TnOYISbd1XYRBk9myaseg';
 
 Client.search(artist)
 	.then((response) => {
-		console.log(response);
+		artist = new Artist(response, Client);
+		artist.getRelatedArtists().then((a) => {
+			console.log(a)
+		});
 	});

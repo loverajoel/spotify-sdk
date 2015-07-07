@@ -14,15 +14,15 @@ class Artist extends ArtistEntity {
 	}
 
 	getAlbums() {
-		return `https://api.spotify.com/v1/artists/${this.id}/albums`;
+		return this._client.request(`/artists/${this.id}/albums`);
 	}
 
 	getTopTracks() {
-		return `https://api.spotify.com/v1/artists/${this.id}/top-tracks`;
+		return this._client.request(`/artists/${this.id}/top-tracks`);
 	}
 
 	getRelatedArtists() {
-		return `https://api.spotify.com/v1/artists/${this.id}/related-artists`;
+		return this._client.request(`/artists/${this.id}/related-artists`);
 	}
 
 	client(client) {
