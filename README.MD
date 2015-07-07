@@ -23,8 +23,10 @@ Import the client
 
 Import handlers
 
-```import Artist from './handlers/Artist';
-import Track from './handlers/Track';```
+```javascript
+import Artist from './handlers/Artist';
+import Track from './handlers/Track';
+```
 
 Set token
 
@@ -40,7 +42,8 @@ Client.search(artist)
 	.then((response) => {
 		// log(response);
 	});
-});```
+});
+```
 
 
 ## Entity Oriented
