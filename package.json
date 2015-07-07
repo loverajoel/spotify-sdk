@@ -1,0 +1,23 @@
+{
+  "name": "Spotify",
+  "version": "0.0.0",
+  "devDependencies": {
+    "babelify": "latest",
+    "browser-sync": "latest",
+    "browserify": "latest",
+    "gulp": "latest",
+    "gulp-rename": "latest",
+    "lodash": "latest",
+    "rimraf": "latest",
+    "watchify": "latest",
+    "vinyl-source-stream": "latest"
+  },
+  "dependencies": {
+    "object-assign": "^3.0.0",
+    "request": "latest",
+    "request-promise": "latest",
+    "xhttp": "latest"
+  },
+  "author": "loverajoel",
+  "license": "MIT"
+}

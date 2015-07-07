@@ -1,0 +1,7 @@
+node_modules
+dist
+.tmp
+demo
+scr/demo.js
+.DS_Store
+npm-debug.log
