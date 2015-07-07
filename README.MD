@@ -1,4 +1,4 @@
-# Spotify Client
+# Spotify Client | WIP | PROPOSAL
 OOP wrapper write in ECMA6. Allow you use all [Spotify Web API](https://developer.spotify.com/web-api/) endpoints.
 This wrapper is Entity oriented.
 
@@ -6,6 +6,12 @@ It's inlude helpers for all API endpoints.
 
 ## Installation
 ```npm install spotify-sdk```
+
+## Development
+```git clone git@github.com:loverajoel/spotify-client.git```
+```npm install```
+```grunt watch```
+Open the demo.html
 
 ## Simple usage
 Import the client

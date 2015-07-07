@@ -10,7 +10,7 @@ var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
 var config = {
-  entryFile: './src/demo.js',
+  entryFile: './demo/demo.js',
   outputDir: './dist/',
   outputFile: 'app.js'
 };
