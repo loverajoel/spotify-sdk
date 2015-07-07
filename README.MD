@@ -2,7 +2,7 @@
 OOP wrapper write in ECMA6. Allow you use all [Spotify Web API](https://developer.spotify.com/web-api/) endpoints.
 This wrapper is Entity oriented.
 
-It's inlude helpers for all API endpoints.
+It's included helpers for all API endpoints.
 
 ## Installation
 ```npm install spotify-sdk```
