@@ -34,11 +34,12 @@ Set token
 
 Make a search
 
-```var artist = new Artist({name: 'Muse'});
+```javascript
+var artist = new Artist({name: 'Muse'});
 Client.search(artist)
-		.then((response) => {
-			// log(response);
-		});
+	.then((response) => {
+		// log(response);
+	});
 });```
 
 
