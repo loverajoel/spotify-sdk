@@ -1,12 +1,11 @@
 "user strict";
 
-// import Fetch from 'node-fetch';
 import xhttp from 'xhttp';
 
 class Client {
 	
-	constructor() {
-		this._token = '';
+	constructor(token = null) {
+		this._token = token;
 	}
 
 	set token(data) {
@@ -29,21 +28,23 @@ class Client {
 
 	search(data) {
 		if (this._isEntity(data) > -1) {
-			data.client(this.request);
+			data.client(this);
 			return this._searchByEntity(data);
 		} else {
-			return false;
+			return this.request(`/search?q=${data}`)
 		}
 	}
 
 	request(url) {
+		var headers = { 'Accept': 'application/json'};
+		if (this._token) {
+			headers.Authorization = `Bearer ${this._token}`;
+		}
+
 		return xhttp({
             url: `https://api.spotify.com/v1${url}`,
             method: 'GET',
-            headers: {
-				'Accept': 'application/json',
-				'Authorization': `Bearer ${this._token}`
-			}
+            headers
         });
     }
 }

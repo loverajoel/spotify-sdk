@@ -10,7 +10,7 @@ class Artist extends ArtistEntity {
 	}
 
 	getArtist() {
-		return this._client(`/artists/${this.id}`);
+		return this._client.request(`/artists/${this.id}`);
 	}
 
 	getAlbums() {
