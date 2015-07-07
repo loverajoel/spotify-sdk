@@ -2,15 +2,15 @@
 
 class Artist {
 
-	constructor(data) {
-		this._id = data.id;
-		this._followers = data.followers.total;
-		this._genres = data.genres;
-		this._images = data.images;
-		this._name = data.name;
-		this._popularity = data.popularity;
-		this._type = data.type;
-		this._uri = data.uri;
+	constructor(data = {}) {
+		this._id = data.id || null;
+		this._followers = data.followers || null;
+		this._genres = data.genres || null;
+		this._images = data.images || null;
+		this._name = data.name || null;
+		this._popularity = data.popularity || null;
+		this._type = 'artist';
+		this._uri = data.uri || null;
 	}
 
 	get followers() {

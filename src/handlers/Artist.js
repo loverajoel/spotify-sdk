@@ -9,8 +9,11 @@ class Artist extends ArtistEntity {
 		this._client = client;
 	}
 
+	getArtist() {
+		return this._client(`/artists/${this.id}`);
+	}
+
 	getAlbums() {
-		console.log(this._client.search())
 		return `https://api.spotify.com/v1/artists/${this.id}/albums`;
 	}
 
@@ -20,6 +23,10 @@ class Artist extends ArtistEntity {
 
 	getRelatedArtists() {
 		return `https://api.spotify.com/v1/artists/${this.id}/related-artists`;
+	}
+
+	client(client) {
+		this._client = client;
 	}
 
 }
