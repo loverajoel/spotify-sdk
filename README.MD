@@ -9,8 +9,11 @@ It's inlude helpers for all API endpoints.
 
 ## Development
 ```git clone git@github.com:loverajoel/spotify-client.git```
+
 ```npm install```
+
 ```grunt watch```
+
 Open the demo.html
 
 ## Simple usage
@@ -24,7 +27,9 @@ Import handlers
 import Track from './handlers/Track';```
 
 Set token
+
 *That's not necessary if you don't will use private endpoints*
+
 ```var client = new Client('token')```
 
 Make a search
