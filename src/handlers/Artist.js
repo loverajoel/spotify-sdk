@@ -9,7 +9,7 @@ class Artist extends ArtistEntity {
 		this._client = client;
 	}
 
-	getArtist() {
+	get() {
 		return this._client.request(`/artists/${this.id}`);
 	}
 
@@ -18,7 +18,7 @@ class Artist extends ArtistEntity {
 	}
 
 	getTopTracks() {
-		return this._client.request(`/artists/${this.id}/top-tracks`);
+		return this._client.request(`/artists/${this.id}/top-tracks`);	
 	}
 
 	getRelatedArtists() {
