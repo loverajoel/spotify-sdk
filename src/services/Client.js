@@ -1,25 +1,7 @@
 "user strict";
 
 import xhttp from 'xhttp';
-
-class Collection extends Array {
-
-	set type(data) {
-		this._type = data;
-	}
-
-	get type() {
-		return this._type;
-	}
-
-	set extras(data) {
-		this._extras = data;
-	}
-
-	get extras() {
-		return this._extras;
-	}
-}
+import Collection from '../handlers/Collection';
 
 class Client {
 	

@@ -3,6 +3,8 @@
 Spority Client is a [Spotify Web API](https://developer.spotify.com/web-api/) wrapper for work with Collections and Entities.
 It differs from the other clients becouse you don't have to work with JSON response, always the client will to return entity collections or entities.
 
+Each Entity/Collection have your own methods for work easily. ej: ```getAlbums()``` is a method of Artist Entity.
+
 
 ## Example
 ```javascript
