@@ -17,6 +17,9 @@ class Client {
         return this._token;
     }
 
+    /*
+    * This method is in charge of convert responses to entities.
+    */
     _magic(data, entity) {
         var _self = this;
         return new Promise((resolve, reject) => {
