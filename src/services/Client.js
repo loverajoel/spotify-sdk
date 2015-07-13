@@ -32,13 +32,13 @@ class Client {
 	}
 
 	_magic(data, entity) {
-		var joel = this;
+		var _self = this;
 		return new Promise((resolve, reject) => {
 			data.then((data) => {
 				let collection = new Collection();
 				collection.type = entity.type;
 				data[Object.keys(data)[0]].items.map((item) => {
-					collection.push(new entity.__proto__.constructor(item, joel));
+					collection.push(new entity.__proto__.constructor(item, _self));
 				});
 				collection.extras = data[Object.keys(data)[0]];
 				delete collection.extras.items;
