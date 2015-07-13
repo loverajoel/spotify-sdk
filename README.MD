@@ -1,11 +1,15 @@
-# Spotify Client | WIP | PROPOSAL
-OOP wrapper write in ECMA6. Allow you use all [Spotify Web API](https://developer.spotify.com/web-api/) endpoints.
-This wrapper is Entity oriented.
+Spotify Client | WIP | Propopsal
+Spority Client is a [Spotify Web API](https://developer.spotify.com/web-api/) wrapper for work with Collections and Entities.
+It differs form the other clients becouse you don't have to work with JSON response, always the client will to return entity collections or entities.
 
-It's inlude helpers for all API endpoints.
+## Example
+```javascript
+var myArtist = new Artist({name: 'Muse'});
 
-## Installation
-```npm install spotify-sdk```
+client.search(myArtist).then((artistsCollection) => {
+	artistsCollection[0].getAlbums(); // return a list of Albums entities
+});
+````
 
 ## Development
 ```git clone git@github.com:loverajoel/spotify-client.git```
@@ -14,36 +18,3 @@ It's inlude helpers for all API endpoints.
 
 ```grunt watch```
 
-Open the demo.html
-
-## Simple usage
-Import the client
-
-```import Client from './services/Client';```
-
-Import handlers
-
-```javascript
-import Artist from './handlers/Artist';
-import Track from './handlers/Track';
-```
-
-Set token
-
-*That's not necessary if you don't will use private endpoints*
-
-```var client = new Client('token')```
-
-Make a search
-
-```javascript
-var artist = new Artist({name: 'Muse'});
-Client.search(artist)
-	.then((response) => {
-		// log(response);
-	});
-});
-```
-
-
-## Entity Oriented
