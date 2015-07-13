@@ -44,7 +44,7 @@ class Client {
         } else if (entity.name) {
             return this._magic(this.request(`/search?q=${entity.name}&type=${entity.type}`), entity);
         } else {
-            return 'Entity don\'t have info';
+            return throw new Error('The Entity doesn\'t have data for search.');
         }
     }
 
