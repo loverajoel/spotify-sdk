@@ -20,6 +20,9 @@
     "whatwg-fetch": "^0.9.0",
     "xhttp": "latest"
   },
+  "scripts": {
+    "watch": "gulp watch"
+  },
   "author": "loverajoel",
   "license": "MIT"
 }
