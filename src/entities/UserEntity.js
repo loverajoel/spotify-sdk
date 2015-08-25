@@ -1,8 +1,8 @@
 "use strict";
 
-class User {
+class UserEntity {
 
-    constructor(data = {}) {
+    constructor(data = {}, handler) {
         this._id = data.id || null;
         this._birthdate = data.birthdate || null;
         this._country = data.country || null;
@@ -15,6 +15,8 @@ class User {
         this._product = data.product || null;
         this._type = 'user';
         this._uri = data.uri || null;
+        // @private
+        this._handler = handler;
     }
 
     get birthdate() {
@@ -109,6 +111,10 @@ class User {
         this._id = data;
     }
 
+    playlists() {
+        return this._handler.playlists(this);
+    }
+
 }
 
-export default User;
+export default UserEntity;

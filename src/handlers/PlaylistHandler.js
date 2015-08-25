@@ -1,9 +1,11 @@
-"use strict";
+'use strict';
+
+import PlaylistEntity from '../entities/PlaylistEntity';
 
 /*
 * TODO: add more methods
 */
-class Playlist {
+class PlaylistHandler {
 
     constructor(client) {
         this._client = client;
@@ -29,19 +31,25 @@ class Playlist {
     * userPlaylists
     * @require: OAuth
     */
-    userPlaylists(user_id) {
-        return this._client.request(`/users/${user_id}/playlists`);
+    userPlaylists(user) {
+        return this._client.magic(this._client.request(`/users/${user.id}/playlists`), PlaylistEntity, this);
     }
 
     /*
     * addTrack
     * @require: OAuth
+    * @private
     */
-    addTrack(user_id, id, tracks) {
-        return this._client.request(`/users/${user_id}/playlists/${id}/tracks`, 'POST', tracks);
+    addTracks(playlist, tracks) {
+        return this._client.request(
+            `/users/${playlist.owner.id}/playlists/${playlist.id}/tracks`,
+            'POST', {'uris': tracks.map((track) => {
+                return track.uri;
+            })}
+            );
     }
 
 
 }
 
-export default Playlist;
+export default PlaylistHandler;

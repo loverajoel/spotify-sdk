@@ -37,50 +37,35 @@ class Client {
         });
     }
 
-    /*
-    * This method is in charge of convert responses to entities.
-    */
-    _magic(data, entity) {
+    magic(data, entity, handler, key) {
         var _self = this;
         return new Promise((resolve, reject) => {
             data.then((data) => {
-                let collection = new Collection();
-                collection.type = entity.type;
-                data[Object.keys(data)[0]].items.map((item) => {
-                    let instance = Object.getPrototypeOf(entity);
-                    collection.push(new instance.constructor(item, _self));
-                });
-                collection.extras = data[Object.keys(data)[0]];
-                delete collection.extras.items;
-                resolve(collection);
+
+                if(key) {
+                    data = data[key];
+                }
+
+                if (data.items) {
+                    let collection = new Collection();
+                    data.items.map((item) => {
+                        var newEntity = new entity(item, handler);
+                        collection.push(newEntity);
+                        // TODO: improve this, set every each type 0_0
+                        collection.type = newEntity.type;
+                    });
+                    collection.extras = data.items;
+                    delete collection.extras.items;
+                    resolve(collection);
+                } else {
+                    var newEntity = new entity(data, handler);
+                    resolve(newEntity);
+                }
             });
         });
     }
 
-    _isEntity(entity) {
-        return ['artist', 'album', 'playlist'].indexOf(entity.type);
-    }
-
-    _searchByEntity(entity) {
-        if (entity.id) {
-            return entity.get();
-        } else if (entity.name) {
-            return this._magic(this.request(`/search?q=${entity.name}&type=${entity.type}`), entity);
-        } else {
-            // return throw new Error(`The Entity doesn't have data for search.`);
-        }
-    }
-
-    search(data) {
-        if (this._isEntity(data) > -1) {
-            data.client(this);
-            return this._searchByEntity(data);
-        } else {
-            return this.request(`/search?q=${data}`);
-        }
-    }
-
-    request(url, method, more) {
+    request(url, method, data) {
         var headers = { 'Accept': 'application/json'};
         if (this._token) {
             headers.Authorization = `Bearer ${this._token}`;
@@ -91,7 +76,7 @@ class Client {
         return xhttp({
             url: `https://api.spotify.com/v1${url}`,
             method: method,
-            data: {'uris': more},
+            data: data,
             headers: headers
         });
     };

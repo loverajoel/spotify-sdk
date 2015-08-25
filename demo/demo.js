@@ -3,8 +3,9 @@
 // Import client
 import Spotify from '../src/services/Client';
 // Import handlers
-import User from '../src/handlers/User';
-import Playlist from '../src/handlers/Playlist';
+import UserHandler from '../src/handlers/UserHandler';
+import PlaylistHandler from '../src/handlers/PlaylistHandler';
+import TrackHandler from '../src/handlers/TrackHandler';
 
 /*
 // New client
@@ -33,18 +34,21 @@ let client = new Spotify({
 	secretId: '540176b5c66241c59eac65d6f8c1b4c0',
 	scopes: 'user-read-private playlist-read-collaborative playlist-modify-public playlist-modify-private',
 	redirect_uri: 'http://localhost:3000/demo/demo.html',
-	token: 'BQAeDAxI5X5obYbB1GgXjnv4fPcPZdLiqEgCvWG9WzPnQykguFPS9I_WOG-jUpZFvlbAkSWz5cummHX_HqtFkyMXUpL-3umjB90QZEhCzSl58ggstWXq9DNStJLicPMK5erUV_9QCW4d7BrLotosC5Z0Zqoakb0e_1ekREJnoHfKXHNasNjDSx7hIDVCMMtqlFaIJtXyar2_lcOefwAjYGADwD_QcjvThyTTgKLOro5j-VBHjDNz1OHmkR0'
+	token: 'BQABQaTbfG9Mm92pn9GopqovvIGtORXSf1caGAN4AluaVnx6BN1p4VwwAN2vmUkE3DHNJZBJdd-JvyqmJ6xm8n2tEXJz0B-wlmjMuiUQWSQfAuKpllmQ6LE2DWLDY_59G8nXH6DiNRBOUWMm8KGACLQGeN33orgfFyT-9XKPDIq4H4Pf5oBGzrvrxIEojcgSqbZ_UJ6UMDUIkhSjc8ra3q5u1MecZOiz6HpHQuo8g-Q7qewVwQv4A-dxv1o'
 });
 
-let myUser;
+var myUser;
+var myTrack;
 
 document.querySelector('#loginBtn').onclick = function() {login()};
 document.querySelector('#getUserInfoBtn').onclick = function() {getUserInfo()};
 document.querySelector('#getUserPlaylistBtn').onclick = function() {getUserPlaylist()};
 document.querySelector('#addTrackBtn').onclick = function() {addTrackToPlaylist()};
+document.querySelector('#searchBtn').onclick = function() {searchTrack()};
 
-var user = new User(client);
-var playlist = new Playlist(client);
+var user = new UserHandler(client);
+var playlist = new PlaylistHandler(client);
+var track = new TrackHandler(client);
 
 var login = function() {
 	client.login()
@@ -56,8 +60,11 @@ var login = function() {
 var getUserInfo = function() {
 	user.me()
 		.then((response) => {
-			console.log('---user.me()----', response);
+			// console.log('---user.me()----', response);
 			myUser = response;
+			myUser.playlists().then(function(playlists) {
+				playlists[0].addTracks([myTrack]);
+			})
 		});
 };
 
@@ -71,8 +78,15 @@ var getUserPlaylist = function() {
 var addTrackToPlaylist = function() {
 	console.log('addTrackToPlaylist')
 	var traks = ['spotify:track:4iV5W9uYEdYUVa79Axb7Rh'];
-	playlist.addTrack(myUser.id, '4kkmtjnPyHhjKZghURophv', traks)
+	playlist.addTracks(myUser.id, '4kkmtjnPyHhjKZghURophv', traks)
 		.then((response) => {
 			console.log('---playlist.addTrack()----', response);
 		});
 };
+
+var searchTrack = function() {
+	track.search('Nena', 'Marama').then((response) => {
+		console.log('---track.search()----', response);
+		myTrack = response[0];
+	});
+}
