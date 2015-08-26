@@ -15,9 +15,9 @@ class TrackHandler {
     * featuredPlaylists 
     * @require: OAuth
     */
-    search(track, artist) {
+    search(track) {
         return this._client.magic(
-            this._client.request(`/search?type=track&q=track:${track} artist:${artist}`),
+            this._client.request(`/search?type=track&q=${track}`),
             TrackEntity,
             this,
             'tracks'

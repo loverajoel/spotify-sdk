@@ -1,8 +1,8 @@
 import Client from './src/services/Client';
-import PlaylistHandler from './src/handlers/Playlist';
-import UserHandler from './src/handlers/User';
-import TrackHandler from './src/handlers/Track';
-import UserEntity from './src/entities/User';
+import PlaylistHandler from './src/handlers/PlaylistHandler';
+import UserHandler from './src/handlers/UserHandler';
+import TrackHandler from './src/handlers/TrackHandler';
+import UserEntity from './src/entities/UserEntity';
 import PlaylistEntity from './src/entities/PlaylistEntity';
 
 export default {

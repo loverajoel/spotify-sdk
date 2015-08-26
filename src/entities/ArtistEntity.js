@@ -1,6 +1,6 @@
 "user strict";
 
-class Artist {
+class ArtistEntity {
 
     constructor(data = {}) {
         this._id = data.id || null;
@@ -75,4 +75,4 @@ class Artist {
 
 }
 
-export default Artist;
+export default ArtistEntity;
