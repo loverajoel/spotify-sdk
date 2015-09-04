@@ -2,10 +2,11 @@
 
 > This is under development mode
 
-Library to consume the [Spotify Web API](https://developer.spotify.com/web-api/) for work with Collections and Entities.:dance:
-It differs from the other clients beacouse you don't have to work with JSON response, always the client will return entity collections or entities.
+Use the [Spotify Web API](https://developer.spotify.com/web-api/) and always obtain Collections or Entities.
 
 ### An awesome example
+
+> Too simple like: Get my User then retrive my Playlist, then add a Track to one Playlist.
 
 ```js
 user.me().then((myUser) => { // -> return a User entity with helpers
@@ -16,7 +17,7 @@ user.me().then((myUser) => { // -> return a User entity with helpers
 });
 ```
 
-## Examples
+## More Examples
 
 [Basic example](https://github.com/loverajoel/spotify-js/blob/master/examples/basic.js)
 
