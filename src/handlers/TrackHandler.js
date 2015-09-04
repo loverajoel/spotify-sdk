@@ -25,8 +25,8 @@ class TrackHandler {
     }
 
     /*
-     * Get a single pr collection track identified by its unique/list of Spotify ID.
-     * Doc: https://developer.spotify.com/web-api/get-albums-tracks/
+     * Get a single/collection of track/s identified by its unique/list of Spotify ID.
+     * Doc: https://developer.spotify.com/web-api/get-albums-tracks/ FIXME: check the url
      *
      * @public 
      * @param {string|array} ids Track id/ids to retrive

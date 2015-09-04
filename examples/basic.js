@@ -8,6 +8,7 @@
 import Spotify from '../src/services/Client';
 import TrackHandler from '../src/handlers/TrackHandler';
 import PlaylistHandler from '../src/handlers/PlaylistHandler';
+import ArtistHandler from '../src/handlers/ArtistHandler';
 
 let client = Spotify.instance;
 
@@ -54,13 +55,28 @@ client.settings = {
  * PlaylistHandler Examples
  *
  */
-var playlist = new PlaylistHandler();
+// var playlist = new PlaylistHandler();
 
 /*
  * #4 example
  * Get playlists with the name 'Previon De Fiesta', shoud return a Collection of playlists.
  */
 // console.log('-----#4 Example-----');
-playlist.search('Previon De Fiesta').then((response) => {
+// playlist.search('Previon De Fiesta').then((response) => {
+// 	console.log(response);
+// });
+
+/*
+ * PlaylistHandler Examples
+ *
+ */
+var artist = new ArtistHandler();
+
+/*
+ * #4 example
+ * Get artit with the name 'Muse', shoud return a Collection of artists.
+ */
+// console.log('-----#5 Example-----');
+artist.search('Muse').then((response) => {
 	console.log(response);
 });
