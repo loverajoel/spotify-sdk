@@ -1,46 +1,64 @@
+/*
+ * PlaylistHandler
+ * Methods for retrieving information about playlists and for managing playlists.
+ *
+ * Doc: https://developer.spotify.com/web-api/playlist-endpoints/
+ */
 'use strict';
 
-import PlaylistEntity from '../entities/PlaylistEntity';
+import Playlist from '../models/Playlist';
+import Client from '../services/Client';
 
 class PlaylistHandler {
 
     /*
-    * @public 
-    * @return {Collection} PlaylistCollection
-    */
-    featuredPlaylists() {
-        return this._client.request(`/browse/featured-playlists`);
+     * Get a collection of playlists that match a keyword string.
+     * Doc: https://developer.spotify.com/web-api/search-item/
+     *
+     * @public
+     * @param {string} name Name of the playlist.
+     * @param {object} query Optional query parameters.
+     * @return {Collection} playlistCollection
+     */
+    search(name, query) {
+        return Client.instance.request(`/search?type=playlist&q=${name}`);
     }
 
     /*
-    * @public 
-    * @param {int} id Id of the category to retrive playlists
-    * @return {Collection} PlaylistCollection
-    */
-    categoryPlaylists(id) {
-        return this._client.request(`/browse/categories/${id}/playlists`);
+     * Get a list of Spotify featured playlists.
+     * Doc: https://developer.spotify.com/web-api/get-list-featured-playlists/
+     *
+     * @public
+     * @required {OAuth}
+     * @param {object} query Optional query parameters.
+     * @return {Collection} playlistCollection
+     */
+    featuredPlaylists(query) {
+        return Client.instance.request(`/browse/featured-playlists`);
     }
 
     /*
-    * @public 
-    * @require {scopes} playlist-read-collaborative TODO: add more scopes
-    * @param {int} id Id of the user to retrive playlists
-    * @return {Collection} PlaylistCollection
-    */
-    userPlaylists(id) {
-        return this._client.get(`/users/${id}/playlists`, this);
+     * Get a list of Spotify playlists tagged with a particular category.
+     * Doc: https://developer.spotify.com/web-api/get-categorys-playlists/
+     *
+     * @public
+     * @required {OAuth}
+     * @param {int} id Category id
+     * @param {object} query Optional query parameters.
+     * @return {Collection} playlistCollection
+     */
+    categoriesPlaylists(id, query) {
+        return Client.instance.request(`/browse/categories/${id}/playlists`);
     }
 
-    // 
-    addTracks(playlist, tracks) {
-        return this._client.request(
-            `/users/${playlist.owner.id}/playlists/${playlist.id}/tracks`,
-            'POST', {'uris': tracks.map((track) => {
-                return track.uri;
-            })}
-            );
+    /*
+     * @public 
+     * @param {object} item Object to convert in entity
+     * @return {Playlist}
+     */
+    convert(item) {
+        return new Playlist(item);
     }
-
 
 }
 

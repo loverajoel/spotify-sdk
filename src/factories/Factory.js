@@ -2,6 +2,7 @@
 
 import ArtistHandler from '../handlers/ArtistHandler';
 import TrackHandler from '../handlers/TrackHandler';
+import PlaylistHandler from '../handlers/PlaylistHandler';
 import CollectionHandler from '../handlers/CollectionHandler';
 
 var Factory = function(data) {
@@ -25,10 +26,16 @@ var Factory = function(data) {
             return new TrackHandler().convert(_items);
             break;
         case 'tracks':
-            return new CollectionHandler(_items, TrackHandler, data);
+            return new CollectionHandler(_items, TrackHandler);
+            break;
+        case 'playlist':
+            return new PlaylistHandler().convert(_items);
+            break;
+        case 'playlists':
+            return new CollectionHandler(_items, PlaylistHandler);
             break;
         case 'artists':
-            return new CollectionHandler(_items, ArtistHandler, data);
+            return new CollectionHandler(_items, ArtistHandler);
             break;
     }
 
