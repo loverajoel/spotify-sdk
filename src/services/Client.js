@@ -1,6 +1,5 @@
-"use strict";
+'use strict';
 
-import xhttp from 'xhttp';
 import Factory from '../factories/Factory';
 
 var singleton = Symbol();
@@ -66,18 +65,18 @@ class Client {
     }
 
     fetch(url, method, data) {
-        var headers = { 'Accept': 'application/json'};
+        let headers = { 'Accept': 'application/json'};
+
         if (this._token) {
             headers.Authorization = `Bearer ${this._token}`;
         }
 
-        var method = method || 'GET';
-
-        return xhttp({
-            url: `https://api.spotify.com/v1${url}`,
-            method: method,
-            data: data,
-            headers: headers
+        return fetch(`https://api.spotify.com/v1${url}`, {
+            method: method || 'GET',
+            headers: headers,
+            body: JSON.stringify(data)
+        }).then((response) => {
+            return response.json();
         });
     };
 }

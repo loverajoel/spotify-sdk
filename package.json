@@ -17,8 +17,7 @@
     "object-assign": "^3.0.0",
     "request": "latest",
     "request-promise": "latest",
-    "whatwg-fetch": "^0.9.0",
-    "xhttp": "latest"
+    "whatwg-fetch": "^0.9.0"
   },
   "scripts": {
     "watch": "gulp watch"
