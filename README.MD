@@ -22,7 +22,9 @@ user.me().then((myUser) => { // -> return a User entity with helpers
 
 [Complex example](https://github.com/loverajoel/spotify-js/blob/master/examples/oauth.js)
 
-## Installation | TODO
+## Installation
+
+> TODO: do it;
 
 You can get it on npm.
 
@@ -67,9 +69,14 @@ client.token = 'TOKEN';
 
 Here are a suggested login implementation. TODO: add url
 
+### Generals
+
+> TODO: Explain Collections properties and Entities;
+
 ### Playlists
 
 Methods for retrieving information about playlists and for managing playlists.
+
 [API Doc](https://developer.spotify.com/web-api/playlist-endpoints/)
 
 `import {playlistHandler} from 'spotify-js';`
@@ -81,6 +88,24 @@ Get a collection of playlists that match a keyword string.
 ```js
 let playlists = playlistHandler();
 playlists.search('Dance 2015').then(...); // -> Should return a playlistCollection
+```
+
+#### .featuredPlaylists()
+
+Get a list of Spotify featured playlists.
+
+```js
+let playlists = playlistHandler();
+playlists.featuredPlaylists().then(...); // -> Should return a playlistCollection
+```
+
+#### .categoriesPlaylists()
+
+Get a list of Spotify playlists tagged with a particular category.
+
+```js
+let playlists = playlistHandler();
+playlists.categoriesPlaylists(CATEGORY_ID).then(...); // -> Should return a playlistCollection
 ```
 
 ## Development
