@@ -10,12 +10,12 @@ class Collection extends Array {
         return this._type;
     }
 
-    set extras(data) {
-        this._extras = data;
+    set source(data) {
+        this._source = data;
     }
 
-    get extras() {
-        return this._extras;
+    get source() {
+        return this._source;
     }
 }
 

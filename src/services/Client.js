@@ -1,7 +1,7 @@
 "use strict";
 
 import xhttp from 'xhttp';
-import Factory from '../handlers/Factory';
+import Factory from '../factories/Factory';
 
 var singleton = Symbol();
 var singletonEnforcer = Symbol();

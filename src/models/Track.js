@@ -2,7 +2,7 @@
 
 import TrackEntity from '../entities/TrackEntity';
 import TrackHandler from '../handlers/TrackHandler';
-import Factory from '../handlers/Factory';
+import Factory from '../factories/Factory';
 
 class Track extends TrackEntity {
 
@@ -11,17 +11,19 @@ class Track extends TrackEntity {
     }
 
     /*
-    * @public 
-    * @return {Collection} artistCollection
-    */
+     * @public 
+     * @override
+     * @return {Collection} artistCollection
+     */
     get artists() {
         return Factory(this._artists);
     }
 
     /*
-     * Convert from ms to m
+     * Convert duration from ms to m
      *
      * @public 
+     * @override
      * @return {string} mm:ss
      */
     get durationM() {
