@@ -2,44 +2,36 @@
 
 import PlaylistEntity from '../entities/PlaylistEntity';
 
-/*
-* TODO: add more methods
-*/
 class PlaylistHandler {
 
-    constructor(client) {
-        this._client = client;
-    }
-
     /*
-    * featuredPlaylists 
-    * @require: OAuth
+    * @public 
+    * @return {Collection} PlaylistCollection
     */
     featuredPlaylists() {
         return this._client.request(`/browse/featured-playlists`);
     }
 
     /*
-    * categoryPlaylists
-    * @require: OAuth
+    * @public 
+    * @param {int} id Id of the category to retrive playlists
+    * @return {Collection} PlaylistCollection
     */
     categoryPlaylists(id) {
         return this._client.request(`/browse/categories/${id}/playlists`);
     }
 
     /*
-    * userPlaylists
-    * @require: OAuth
+    * @public 
+    * @require {scopes} playlist-read-collaborative TODO: add more scopes
+    * @param {int} id Id of the user to retrive playlists
+    * @return {Collection} PlaylistCollection
     */
-    userPlaylists(user) {
-        return this._client.magic(this._client.request(`/users/${user.id}/playlists`), PlaylistEntity, this);
+    userPlaylists(id) {
+        return this._client.get(`/users/${id}/playlists`, this);
     }
 
-    /*
-    * addTrack
-    * @require: OAuth
-    * @private
-    */
+    // 
     addTracks(playlist, tracks) {
         return this._client.request(
             `/users/${playlist.owner.id}/playlists/${playlist.id}/tracks`,

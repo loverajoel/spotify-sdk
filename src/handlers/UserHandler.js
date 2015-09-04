@@ -3,20 +3,20 @@
 // Entities
 import UserEntity from '../entities/UserEntity';
 // Handlers
-import PlaylistHandler from './PlaylistHandler';
+// import PlaylistHandler from './PlaylistHandler';
+import Client from '../services/Client';
 
 class UserHandler {
 
-    constructor(client) {
-        this._client = client;
+    constructor() {
     }
 
     get() {
-        return this._client.request(`/users/${this.id}`);
+        return Client.instance.request(`/users/${this.id}`);
     }
 
     me() {
-        return this._client.magic(this._client.request(`/me`), UserEntity, this);
+        return Client.instance.get(this._client.request(`/me`), UserEntity, this);
     }
 
     playlists(user) {

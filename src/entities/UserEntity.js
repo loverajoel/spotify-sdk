@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
 class UserEntity {
 
-    constructor(data = {}, handler) {
+    constructor(data = {}) {
         this._id = data.id || null;
         this._birthdate = data.birthdate || null;
         this._country = data.country || null;
@@ -15,8 +15,6 @@ class UserEntity {
         this._product = data.product || null;
         this._type = 'user';
         this._uri = data.uri || null;
-        // @private
-        this._handler = handler;
     }
 
     get birthdate() {
@@ -109,10 +107,6 @@ class UserEntity {
 
     set id(data) {
         this._id = data;
-    }
-
-    playlists() {
-        return this._handler.playlists(this);
     }
 
 }

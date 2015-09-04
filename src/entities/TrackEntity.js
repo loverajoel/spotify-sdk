@@ -1,10 +1,6 @@
-"user strict";
+'use strict';
 
-import Collection from '../handlers/Collection';
-import ArtistEntity from './ArtistEntity';
-import AlbumEntity from './AlbumEntity';
-
-class TrackEntity {
+class TrackEntity{
 
     constructor(data = {}) {
         this._id = data.id || null;
@@ -25,7 +21,7 @@ class TrackEntity {
     }
 
     get album() {
-        return new AlbumEntity(this._album);
+        return this._album;
     }
 
     set album(data) {
@@ -33,7 +29,7 @@ class TrackEntity {
     }
 
     get artists() {
-        return new Collection(this._artists, ArtistEntity);
+        return this._artists;
     }
 
     set artists(data) {
@@ -61,12 +57,7 @@ class TrackEntity {
     }
 
     get duration() {
-        let x = ~~( Number( this._duration_ms ) / 1000 );
-        let seconds = x % 60;
-        seconds = `${ seconds }`.length == 1? `0${ seconds }`: seconds;
-        x = ~~( x / 60 );
-        let minutes = x % 60;
-        return `${ minutes }:${ seconds }`;
+        return this._duration_ms;
     }
 
     set duration(data) {

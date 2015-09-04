@@ -1,8 +1,8 @@
-'user strict';
+'use strict';
 
 class PlaylistEntity {
 
-    constructor(data = {}, handler) {
+    constructor(data = {}) {
         this._id = data.id || null;
         this._collaborative = data.collaborative || null;
         this._followers = data.followers || null;
@@ -12,9 +12,6 @@ class PlaylistEntity {
         this._owner = data.owner || null;
         this._type = 'playlist';
         this._uri = data.uri || null;
-
-        // @private
-        this._handler = handler;
     }
 
     get collaborative() {

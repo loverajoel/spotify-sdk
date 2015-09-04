@@ -1,27 +1,26 @@
 'use strict';
 
-import TrackEntity from '../entities/TrackEntity';
+import Track from '../models/Track';
+import Client from '../services/Client';
 
-/*
-* TODO: add more methods
-*/
 class TrackHandler {
 
-    constructor(client) {
-        this._client = client;
+    /*
+    * @public 
+    * @param {string} track Name of the track
+    * @return {promise}
+    */
+    search(track) {
+        return Client.instance.request(`/search?type=track&q=${track}`);
     }
 
     /*
-    * featuredPlaylists 
-    * @require: OAuth
+    * @public 
+    * @param {object} item Simple or Full object api
+    * @return {Track}
     */
-    search(track) {
-        return this._client.magic(
-            this._client.request(`/search?type=track&q=${track}`),
-            TrackEntity,
-            this,
-            'tracks'
-        );
+    convert(item) {
+        return new Track(item);
     }
 
 }
