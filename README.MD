@@ -7,7 +7,7 @@ It differs from the other clients beacouse you don't have to work with JSON resp
 
 ## An awesome example
 
-```javascript
+```js
 user.me().then((myUser) => {
 	myUser.playlists().then((playlistsCollection) => {
 		playlistsCollection[0].tracks // -> tracksCollections
