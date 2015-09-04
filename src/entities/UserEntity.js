@@ -1,20 +1,26 @@
+/*
+ * UserEntity
+ * Properties and methods of the User Entity.
+ *
+ * API Doc: https://developer.spotify.com/web-api/object-model/#user-object-private
+ */
 'use strict';
 
 class UserEntity {
 
     constructor(data = {}) {
-        this._id = data.id || null;
-        this._birthdate = data.birthdate || null;
-        this._country = data.country || null;
-        this._display_name = data.display_name || null;
-        this._email = data.email || null;
-        this._external_urls = data.external_urls || null;
-        this._followers = data.followers || null;
-        this._href = data.href || null;
-        this._images = data.images || null;
-        this._product = data.product || null;
+        this._id = data.id;
+        this._birthdate = data.birthdate;
+        this._country = data.country;
+        this._display_name = data.display_name;
+        this._email = data.email;
+        this._external_urls = data.external_urls;
+        this._followers = data.followers;
+        this._href = data.href;
+        this._images = data.images;
+        this._product = data.product;
         this._type = 'user';
-        this._uri = data.uri || null;
+        this._uri = data.uri;
     }
 
     get birthdate() {
@@ -108,7 +114,6 @@ class UserEntity {
     set id(data) {
         this._id = data;
     }
-
 }
 
 export default UserEntity;

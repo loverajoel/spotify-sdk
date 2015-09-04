@@ -1,28 +1,62 @@
-"use strict";
+/*
+ * UserHandler
+ * Methods for retrieving information about one or more user/s from the Spotify catalog.
+ *
+ * API Doc: https://developer.spotify.com/web-api/user-profile-endpoints/
+ */
+'use strict';
 
-// Entities
-import UserEntity from '../entities/UserEntity';
-// Handlers
-// import PlaylistHandler from './PlaylistHandler';
+import User from '../models/User';
 import Client from '../services/Client';
 
 class UserHandler {
 
-    constructor() {
-    }
-
-    get() {
-        return Client.instance.request(`/users/${this.id}`);
-    }
-
+    /*
+     * Get detailed profile information about the current user.
+     * Doc: https://developer.spotify.com/web-api/get-current-users-profile/
+     *
+     * @public 
+     * @required {OAuth}
+     * @return {User} User
+     */
     me() {
-        return Client.instance.get(this._client.request(`/me`), UserEntity, this);
+        return Client.instance.request(`/me`);
     }
 
-    playlists(user) {
-    	return new PlaylistHandler(this._client).userPlaylists(user);
+    /*
+     * Get public profile information about a Spotify user.
+     * Doc: https://developer.spotify.com/web-api/get-users-profile/
+     *
+     * @public 
+     * @param {string} id User id to retrive
+     * @required {OAuth}
+     * @return {User} User
+     */
+    get(id) {
+        return Client.instance.request(`/users/${id}`);
     }
 
+    /*
+     * Get a list of the playlists owned or followed by a Spotify user.
+     * Doc: https://developer.spotify.com/web-api/get-list-users-playlists/
+     *
+     * @public 
+     * @param {string} id User id to retrive playlists
+     * @required {OAuth}
+     * @return {Collectoin} playlistCollection
+     */
+    playlists(id) {
+        return Client.instance.request(`/users/${id}/playlists`);
+    }
+
+    /*
+     * @public 
+     * @param {object} item Object to convert in entity
+     * @return {User}
+     */
+    convert(item) {
+        return new User(item);
+    }
 }
 
 export default UserHandler;

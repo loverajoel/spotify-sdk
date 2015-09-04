@@ -3,6 +3,7 @@
 import ArtistHandler from '../handlers/ArtistHandler';
 import TrackHandler from '../handlers/TrackHandler';
 import PlaylistHandler from '../handlers/PlaylistHandler';
+import UserHandler from '../handlers/UserHandler';
 import CollectionHandler from '../handlers/CollectionHandler';
 
 var Factory = function(data) {
@@ -11,14 +12,20 @@ var Factory = function(data) {
 
     // a lot of magic happens here :D
     if (data.type) {
+        console.log(1)
         _type = data.type;
         _items = data;
-    } else if (typeof Object.keys(data)[0] === 'string' && !Array.isArray(data)) {
+    } else if (typeof Object.keys(data)[0] === 'string' && !Array.isArray(data) && !data.items) {
+        console.log(2)
         _type = Object.keys(data)[0];
         _items = data[_type].items || data[_type];
     } else if (Array.isArray(data)){
+        console.log(3)
         _type = data[0].type+'s';
         _items = data;
+    } else if (Array.isArray(data.items)) {
+        _type = data.items[0].type+'s';
+        _items = data.items;
     }
 
     switch(_type) {
@@ -36,6 +43,9 @@ var Factory = function(data) {
             break;
         case 'artists':
             return new CollectionHandler(_items, ArtistHandler);
+            break;
+        case 'user':
+            return new UserHandler().convert(_items);
             break;
     }
 

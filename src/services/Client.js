@@ -43,18 +43,9 @@ class Client {
     }
     
     login() {
-        // FIXME: review all of this method, mix ui with client :s
-        var _self = this;
         return new Promise((resolve, reject) => {
             var url_login = 'https://accounts.spotify.com/en/authorize?response_type=token&client_id='+this._clientId+'&redirect_uri='+encodeURIComponent(this._redirect_uri)+ ( this._scopes ? '&scope=' + encodeURIComponent( this._scopes) : '');
-            var login_window = window.open(url_login, "Spotify", "menubar=no,location=no,resizable=yes,scrollbars=yes,status=no,width=350,height=150");
-            login_window.onload = function() {
-                // FIXME: imporove this split
-                var token = login_window.location.hash.split('&')[0].split('=')[1];
-                _self._token = token;
-                login_window.close();
-                resolve(token);
-            }
+            resolve(url_login);
         });
     }
 
