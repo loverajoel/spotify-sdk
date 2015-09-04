@@ -1,6 +1,6 @@
 /*
  * TrackHandler
- * Methods for retrive information about tracks.
+ * Methods for retrieving information about one or more tracks from the Spotify catalog.
  *
  * API Doc: https://developer.spotify.com/web-api/track-endpoints/
  */
@@ -12,13 +12,28 @@ import Client from '../services/Client';
 class TrackHandler {
 
     /*
+     * Get a collection of tracks that match a keyword string.
+     * Doc: https://developer.spotify.com/web-api/search-item/
+     *
+     * @public
+     * @param {string} name Name of the track.
+     * @param {object} query Optional query parameters.
+     * @return {Collection} trackCollection
+     */
+    search(name, query) {
+        return Client.instance.request(`/search?type=track&q=${name}`);
+    }
+
+    /*
      * Get a single pr collection track identified by its unique/list of Spotify ID.
+     * Doc: https://developer.spotify.com/web-api/get-albums-tracks/
      *
      * @public 
      * @param {string|array} ids Track id/ids to retrive
+     * @param {object} query Optional query parameters.
      * @return {Track|Collection} Track|trackCollection
      */
-    get(ids) {
+    get(ids, query) {
         if (Array.isArray(ids)) {
             return Client.instance.request(`/tracks/?ids=${ids}`); 
         } else {
@@ -27,19 +42,10 @@ class TrackHandler {
     }
 
     /*
-    * @public 
-    * @param {string} track Name of the track
-    * @return {Collection} trackCollection
-    */
-    search(track) {
-        return Client.instance.request(`/search?type=track&q=${track}`);
-    }
-
-    /*
-    * @public 
-    * @param {object}
-    * @return {Track}
-    */
+     * @public 
+     * @param {object} item Object to convert in entity
+     * @return {Playlist}
+     */
     convert(item) {
         return new Track(item);
     }

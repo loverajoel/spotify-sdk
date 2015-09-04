@@ -1,6 +1,6 @@
 /*
  * TrackEntity
- * Class that contains all proporties of the original object.
+ * Properties and methods of the Track Entity.
  *
  * API Doc: https://developer.spotify.com/web-api/object-model/#track-object-full
  */
