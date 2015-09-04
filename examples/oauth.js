@@ -49,17 +49,17 @@ var user = new UserHandler();
  * #1 example
  * Get the current user.
  */
-// user.me().then((response) => {
-//     console.log(response);
-// });
+user.me().then((response) => {
+    console.log(response);
+});
 
 /*
  * #2 example
  * Get the user by id, should return a User entity.
  */
-// user.get('1258448899').then((response) => {
-//     console.log(response);
-// });
+user.get('1258448899').then((response) => {
+    console.log(response);
+});
 
 /*
  * #3 example
@@ -76,3 +76,12 @@ user.playlists('1258448899').then((response) => {
  * artists = tracks[0].artists();
  * albums = artists[0].albums();
  */
+
+user.me().then((user) => {
+
+    user.playlists().then((playlistCollection) => {
+        console.log(playlistCollection)
+        
+    });
+
+});

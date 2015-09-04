@@ -12,15 +12,12 @@ var Factory = function(data) {
 
     // a lot of magic happens here :D
     if (data.type) {
-        console.log(1)
         _type = data.type;
         _items = data;
     } else if (typeof Object.keys(data)[0] === 'string' && !Array.isArray(data) && !data.items) {
-        console.log(2)
         _type = Object.keys(data)[0];
         _items = data[_type].items || data[_type];
     } else if (Array.isArray(data)){
-        console.log(3)
         _type = data[0].type+'s';
         _items = data;
     } else if (Array.isArray(data.items)) {
