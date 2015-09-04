@@ -32,7 +32,56 @@ Or bower.
 
 `bower install spotify-js --save`
 
+## Wrappers
+That's library is develpment in plain JS, so you can use or create a wrapper for the framework that 
+you want. (Angular, Backbone, ...)
+
 ## Documentation
+
+After install, you should add the library to your project.
+
+`import {Client} from 'spotify-js';`
+
+You can import all entities, handlers and resources of the library.
+
+### Credentials
+
+```js
+client.settings = {
+    clientId: 'CLIENT_ID', 
+    secretId: 'SECRET_ID'
+};
+```
+
+If your applications required methods that need authentication.
+
+```js
+client.settings = {
+    clientId: 'CLIENT_ID', 
+    secretId: 'SECRET_ID',
+    redirect_uri: 'REDIRECT_URL'
+};
+
+client.token = 'TOKEN';
+```
+
+Here are a suggested login implementation. TODO: add url
+
+### Playlists
+
+Methods for retrieving information about playlists and for managing playlists.
+[API Doc](https://developer.spotify.com/web-api/playlist-endpoints/)
+
+`import {playlistHandler} from 'spotify-js';`
+
+#### .search()
+
+Get a collection of playlists that match a keyword string.
+
+```js
+let playlists = playlistHandler();
+playlists.search('Dance 2015').then(...); // -> Should return a playlistCollection
+```
 
 ## Development
 
