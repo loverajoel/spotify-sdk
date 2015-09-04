@@ -1,4 +1,5 @@
 {
     "indent": 4,
-    "esnext": true
+    "esnext": true,
+    "sourceType": "module"
 }

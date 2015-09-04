@@ -1,5 +1,5 @@
 {
-  "name": "Spotify",
+  "name": "spotify-js",
   "version": "0.0.0",
   "devDependencies": {
     "babelify": "latest",
@@ -20,6 +20,10 @@
     "whatwg-fetch": "^0.9.0",
     "xhttp": "latest"
   },
+  "scripts": {
+    "watch": "gulp watch"
+  },
   "author": "loverajoel",
-  "license": "MIT"
+  "license": "MIT",
+  "main": "index.js"
 }
