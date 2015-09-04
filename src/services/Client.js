@@ -64,17 +64,17 @@ class Client {
         }.bind(this));
     }
 
-    fetch(url, method, data) {
+    fetch(endpoint, method, body, format) {
         let headers = { 'Accept': 'application/json'};
 
         if (this._token) {
             headers.Authorization = `Bearer ${this._token}`;
         }
 
-        return fetch(`https://api.spotify.com/v1${url}`, {
+        return fetch(`https://api.spotify.com/v1${endpoint}`, {
             method: method || 'GET',
             headers: headers,
-            body: JSON.stringify(data)
+            body: JSON.stringify(body)
         }).then((response) => {
             return response.json();
         });
