@@ -43,13 +43,15 @@ you want. (Angular, Backbone, ...)
 
 After install, you should add the library to your project.
 
-`import {Client} from 'spotify-js';`
+`import {Spotify} from 'spotify-js';`
 
 You can import all entities, handlers and resources of the library.
 
-### Credentials
+### Init the client
 
 ```js
+let client = Spotify.instance;
+
 client.settings = {
     clientId: 'CLIENT_ID', 
     secretId: 'SECRET_ID'
@@ -62,6 +64,7 @@ If your applications required methods that need authentication.
 client.settings = {
     clientId: 'CLIENT_ID', 
     secretId: 'SECRET_ID',
+    scopes: [SCOPE, SCOPE2],
     redirect_uri: 'REDIRECT_URL'
 };
 
@@ -80,14 +83,18 @@ Methods for retrieving information about playlists and for managing playlists.
 
 [API Doc](https://developer.spotify.com/web-api/playlist-endpoints/)
 
-`import {playlistHandler} from 'spotify-js';`
+```js
+import {PlaylistHandler} from 'spotify-js';
+
+let playlists = new PlaylistHandler();
+
+```
 
 #### .search()
 
 Get a collection of playlists that match a keyword string.
 
 ```js
-let playlists = playlistHandler();
 playlists.search('Dance 2015').then(...); // -> Should return a playlistCollection
 ```
 
@@ -96,7 +103,6 @@ playlists.search('Dance 2015').then(...); // -> Should return a playlistCollecti
 Get a list of Spotify featured playlists.
 
 ```js
-let playlists = playlistHandler();
 playlists.featuredPlaylists().then(...); // -> Should return a playlistCollection
 ```
 
@@ -105,9 +111,10 @@ playlists.featuredPlaylists().then(...); // -> Should return a playlistCollectio
 Get a list of Spotify playlists tagged with a particular category.
 
 ```js
-let playlists = playlistHandler();
 playlists.categoriesPlaylists(CATEGORY_ID).then(...); // -> Should return a playlistCollection
 ```
+
+
 
 ## Development
 
