@@ -12,6 +12,10 @@ var Factory = function(data) {
     var _type;
     var _items;
 
+    if (data.error) {
+        return data.error;
+    }
+
     // a lot of magic happens here :D
     if (data.type) {
         _type = data.type;
