@@ -5,6 +5,7 @@ import TrackHandler from '../handlers/TrackHandler';
 import PlaylistHandler from '../handlers/PlaylistHandler';
 import UserHandler from '../handlers/UserHandler';
 import CollectionHandler from '../handlers/CollectionHandler';
+import Client from '../services/Client';
 
 var Factory = function(data) {
     var _type;
@@ -20,9 +21,12 @@ var Factory = function(data) {
     } else if (Array.isArray(data)){
         _type = data[0].type+'s';
         _items = data;
-    } else if (Array.isArray(data.items)) {
+    } else if (Array.isArray(data.items) && data.items[0].type) {
         _type = data.items[0].type+'s';
         _items = data.items;
+    } else if (Array.isArray(data.items) && !data.items[0].type) {
+        _items = data.items;
+        _type = Object.keys(data.items[0])[3]+'s';
     }
 
     switch(_type) {
@@ -44,6 +48,8 @@ var Factory = function(data) {
         case 'user':
             return new UserHandler().convert(_items);
             break;
+        default:
+            return Client.instance.request(data.href);
     }
 
 };

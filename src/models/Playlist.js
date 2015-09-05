@@ -10,6 +10,15 @@ class Playlist extends PlaylistEntity {
         super(data);
     }
 
+    /*
+     * @public 
+     * @override
+     * @return {Collection} trackCollection
+     */
+    get tracks() {
+        return Factory(this._tracks);
+    }
+
 }
 
 export default Playlist;

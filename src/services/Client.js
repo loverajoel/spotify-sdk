@@ -51,18 +51,25 @@ class Client {
 
     request(url) {
         return this.fetch(url).then((data) => {
-            return Factory(data)
+            return Factory(data);
         }.bind(this));
     }
 
     fetch(endpoint, method, body, format) {
         let headers = { 'Accept': 'application/json'};
+        let url;
 
         if (this._token) {
             headers.Authorization = `Bearer ${this._token}`;
         }
 
-        return fetch(`https://api.spotify.com/v1${endpoint}`, {
+        if (endpoint.indexOf('https') > -1) {
+            url = endpoint;
+        } else {
+            url = `https://api.spotify.com/v1${endpoint}`;
+        }
+
+        return fetch(url, {
             method: method || 'GET',
             headers: headers,
             body: JSON.stringify(body)

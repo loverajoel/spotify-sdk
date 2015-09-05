@@ -52,6 +52,19 @@ class PlaylistHandler {
     }
 
     /*
+     * Get a single playlist identified by its unique of Spotify ID.
+     * Doc: https://developer.spotify.com/web-api/get-playlist/
+     *
+     * @public 
+     * @param {string} id Playlit id to retrive
+     * @param {object} query Optional query parameters.
+     * @return {Track} Plalist
+     */
+    get(id) {
+        return Client.instance.request(`/tracks/${id}`);
+    }
+
+    /*
      * @public 
      * @param {object} item Object to convert in entity
      * @return {Playlist}

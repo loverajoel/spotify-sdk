@@ -47,7 +47,11 @@ class TrackHandler {
      * @return {Playlist}
      */
     convert(item) {
-        return new Track(item);
+        if (item.uri) {
+            return new Track(item);
+        } else {
+            return new Track(item.track);
+        }
     }
 
 }

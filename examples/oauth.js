@@ -49,25 +49,25 @@ var user = new UserHandler();
  * #1 example
  * Get the current user.
  */
-user.me().then((response) => {
-    console.log(response);
-});
+// user.me().then((response) => {
+//     console.log(response);
+// });
 
 /*
  * #2 example
  * Get the user by id, should return a User entity.
  */
-user.get('1258448899').then((response) => {
-    console.log(response);
-});
+// user.get('1258448899').then((response) => {
+//     console.log(response);
+// });
 
 /*
  * #3 example
  * Get the playlists by user id, should return a Playlist collection.
  */
-user.playlists('1258448899').then((response) => {
-    console.log(response);
-});
+// user.playlists('1258448899').then((response) => {
+//     console.log(response);
+// });
 
 /*
  * me()
@@ -80,8 +80,9 @@ user.playlists('1258448899').then((response) => {
 user.me().then((user) => {
 
     user.playlists().then((playlistCollection) => {
-        console.log(playlistCollection)
-        
+        playlistCollection[0].tracks.then(TrackEntity => {
+            console.log(TrackEntity)
+        });
     });
 
 });
