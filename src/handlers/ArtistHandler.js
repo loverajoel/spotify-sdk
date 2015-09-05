@@ -42,6 +42,19 @@ class ArtistHandler {
     }
 
     /*
+     * Get Spotify catalog information about an artist’s albums.
+     * Doc: https://developer.spotify.com/web-api/get-artists-albums/
+     *
+     * @public 
+     * @param {string} id Artist id to retrive
+     * @param {object} query Optional query parameters.
+     * @return {Collection} albumsCollection
+     */
+    albums(id, query) {
+        return Client.instance.request(`/artists/${id}/albums`);
+    }
+
+    /*
      * @public 
      * @param {object} item Object to convert in entity
      * @return {Playlist}

@@ -70,6 +70,8 @@ var user = new UserHandler();
 // });
 
 /*
+ * Awesome Exmaple
+ *
  * me()
  * playlists = me.playlists()
  * tracks = playlists[0].tracks();
@@ -78,13 +80,13 @@ var user = new UserHandler();
  */
 
 user.me().then((user) => {
-
     user.playlists().then((playlistCollection) => {
         playlistCollection[0].tracks.then( TrackEntity => {
             TrackEntity[0].artists().then( artistsCollection => {
-                console.log(artistsCollection)
+                artistsCollection[0].albums().then(albumsCollection => {
+                    console.log(albumsCollection); // Wooo!!!
+                });
             });
         });
     });
-
 });

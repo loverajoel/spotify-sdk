@@ -10,6 +10,15 @@ class Artist extends ArtistEntity {
         super(data);
     }
 
+    /*
+     * @public 
+     * @override
+     * @return {Collection} albumsCollection
+     */
+    albums() {
+        return new ArtistHandler().albums(this.id);
+    }
+
 }
 
 export default Artist;

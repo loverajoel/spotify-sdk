@@ -1,6 +1,7 @@
 'use strict';
 
 import ArtistHandler from '../handlers/ArtistHandler';
+import AlbumHandler from '../handlers/AlbumHandler';
 import TrackHandler from '../handlers/TrackHandler';
 import PlaylistHandler from '../handlers/PlaylistHandler';
 import UserHandler from '../handlers/UserHandler';
@@ -44,6 +45,12 @@ var Factory = function(data) {
             break;
         case 'artists':
             return new CollectionHandler(_items, ArtistHandler);
+            break;
+        case 'album':
+            return new AlbumHandler().convert(_items);
+            break;
+        case 'albums':
+            return new CollectionHandler(_items, AlbumHandler);
             break;
         case 'user':
             return new UserHandler().convert(_items);

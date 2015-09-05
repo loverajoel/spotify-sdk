@@ -26,7 +26,7 @@ class Track extends TrackEntity {
      * @override
      * @return {string} mm:ss
      */
-    get durationM() {
+    durationM() {
         let x = ~~( Number( this._duration_ms ) / 1000 );
         let seconds = x % 60;
         seconds = `${ seconds }`.length == 1? `0${ seconds }`: seconds;
