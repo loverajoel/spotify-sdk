@@ -55,5 +55,7 @@ var Factory = function(data) {
 };
 
 export default function(data) {
-    return new Factory(data);
+    return new Promise((resolve) => {
+        resolve(new Factory(data));
+    })
 };

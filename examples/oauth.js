@@ -80,8 +80,10 @@ var user = new UserHandler();
 user.me().then((user) => {
 
     user.playlists().then((playlistCollection) => {
-        playlistCollection[0].tracks.then(TrackEntity => {
-            console.log(TrackEntity)
+        playlistCollection[0].tracks.then( TrackEntity => {
+            TrackEntity[0].artists().then( artistsCollection => {
+                console.log(artistsCollection)
+            });
         });
     });
 

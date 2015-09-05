@@ -15,7 +15,7 @@ class Track extends TrackEntity {
      * @override
      * @return {Collection} artistCollection
      */
-    get artists() {
+    artists() {
         return Factory(this._artists);
     }
 
