@@ -10,8 +10,8 @@ class User extends UserEntity {
         super(data);
     }
 
-    playlists() {
-    	return new UserHandler().playlists(this.id);
+    playlists(id) {
+    	return new UserHandler().playlists(this.id, id);
     }
 
 }

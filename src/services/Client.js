@@ -49,8 +49,8 @@ class Client {
         });
     }
 
-    request(url) {
-        return this.fetch(url).then((data) => {
+    request(url, method, body) {
+        return this.fetch(url, method, body).then((data) => {
             return Factory(data);
         }.bind(this));
     }

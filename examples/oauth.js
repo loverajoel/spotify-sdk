@@ -79,14 +79,38 @@ var user = new UserHandler();
  * albums = artists[0].albums();
  */
 
-user.me().then((user) => {
-    user.playlists().then((playlistCollection) => {
-        playlistCollection[0].tracks.then( TrackEntity => {
-            TrackEntity[0].artists().then( artistsCollection => {
-                artistsCollection[0].albums().then(albumsCollection => {
-                    console.log(albumsCollection); // Wooo!!!
-                });
-            });
-        });
-    });
-});
+// user.me().then((user) => {
+//     user.playlists().then((playlistCollection) => {
+//         playlistCollection[0].tracks.then( TrackEntity => {
+//             TrackEntity[0].artists().then( artistsCollection => {
+//                 artistsCollection[0].albums().then(albumsCollection => {
+//                     console.log(albumsCollection); // Wooo!!!
+//                 });
+//             });
+//         });
+//     });
+// });
+
+
+/*
+ * Add track to playlist
+ *
+ * me()
+ * playlist = me.playlists()
+ * track = tracks.search();
+ * add = playlist.addTrack(track);
+ * remove = playlist.removeTrack(track);
+ */
+// let myTrack;
+
+// new TrackHandler().search('Ginza').then(trackCollection => {
+//     myTrack = trackCollection.first();
+// });
+
+// user.me().then((user) => {
+//     user.playlists('5ViEO6BLk3KN1W6PkkS4TQ').then((playlistEntity) => { 
+//         playlistEntity.addTrack([myTrack]).then(() => {
+//             playlistEntity.removeTrack([myTrack]);
+//         });
+//     });
+// });

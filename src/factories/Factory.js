@@ -14,6 +14,8 @@ var Factory = function(data) {
 
     if (data.error) {
         return data.error;
+    } else if (Object.keys(data).length === 1 && data.snapshot_id) {
+        return data;
     }
 
     // a lot of magic happens here :D

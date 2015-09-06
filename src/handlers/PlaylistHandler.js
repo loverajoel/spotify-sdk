@@ -65,6 +65,42 @@ class PlaylistHandler {
     }
 
     /*
+     * Add one or more tracks to a user’s playlist
+     * Doc: https://developer.spotify.com/web-api/add-tracks-to-playlist/
+     *
+     * @public 
+     * @param {array} tracks List of uri tracks
+     * @param {object} query Optional query parameters.
+     * @return {} 
+     */
+    addTracks(tracks, playlist, query) {
+        return Client.instance
+            .request(
+                `/users/${playlist.owner.id}/playlists/${playlist.id}/tracks`,
+                'POST',
+                {uris: tracks}
+            );
+    }
+
+    /*
+     * Add one or more tracks to a user’s playlist
+     * Doc: https://developer.spotify.com/web-api/add-tracks-to-playlist/
+     *
+     * @public 
+     * @param {array} tracks List of uri tracks
+     * @param {object} query Optional query parameters.
+     * @return {} 
+     */
+    removeTracks(tracks, playlist, query) {
+        return Client.instance
+            .request(
+                `/users/${playlist.owner.id}/playlists/${playlist.id}/tracks`,
+                'DELETE',
+                {uris: tracks}
+            );
+    }
+
+    /*
      * @public 
      * @param {object} item Object to convert in entity
      * @return {Playlist}

@@ -17,6 +17,14 @@ class Collection extends Array {
     get source() {
         return this._source;
     }
+
+    first() {
+        return this[0];
+    }
+
+    last() {
+        return this[this.length-1];
+    }
 }
 
 export default Collection;

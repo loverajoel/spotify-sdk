@@ -45,8 +45,12 @@ class UserHandler {
      * @required {OAuth}
      * @return {Collectoin} playlistCollection
      */
-    playlists(id) {
-        return Client.instance.request(`/users/${id}/playlists`);
+    playlists(id, playlistId) {
+        if (playlistId) {
+            return Client.instance.request(`/users/${id}/playlists/${playlistId}`);
+        } else {
+            return Client.instance.request(`/users/${id}/playlists`);
+        }
     }
 
     /*
