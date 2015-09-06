@@ -1,11 +1,11 @@
 "user strict";
 
-import CollectionEntity from '../entities/CollectionEntity';
+import Collection from '../helpers/Collection';
 
 class CollectionHandler {
 
 	constructor(items, handler, source) {
-		var collection = new CollectionEntity();
+		var collection = new Collection(source);
 		
 		items.map((item) => {
 			return collection.push(new handler().convert(item));

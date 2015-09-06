@@ -2,6 +2,16 @@
 
 class Collection extends Array {
 
+    constructor(data = {}) {
+        super()
+        this._href = data.href;
+        this._limit = data.limit;
+        this._next = data.next;
+        this._offset = data.offset;
+        this._previous = data.previous;
+        this._total = data.total;
+    }
+
     set type(data) {
         this._type = `${data}Collection`;
     }
@@ -10,25 +20,54 @@ class Collection extends Array {
         return this._type;
     }
 
-    set source(data) {
-        this._source = data;
+    set href(data) {
+        this._href = data.href;
     }
 
-    get source() {
-        return this._source;
+    get href() {
+        return this._href;
     }
 
-    first() {
-        return this[0];
+    set limit(data) {
+        this._limit = data.limit;
     }
 
-    last() {
-        return this[this.length-1];
+    get limit() {
+        return this._limit;
     }
 
-    get(id) {
-        return this[id];
+    set next(data) {
+        this._next = data.next;
     }
+
+    get next() {
+        return this._next;
+    }
+    
+    set offset(data) {
+        this._offset = data.offset
+    }
+
+    get offset() {
+        return this._offset;
+    }
+
+    set previous(data) {
+        this._previous = data.previous;
+    }
+
+    get previous() {
+        return this._previous;
+    }
+
+    set total(data) {
+        this._total = data.total;
+    }
+
+    get total() {
+        return this._total;
+    }
+    
 }
 
 export default Collection;

@@ -143,12 +143,12 @@ class PlaylistHandler {
      * @param {object} query Optional query parameters.
      * @return {} 
      */
-    create(userId, name, public) {
+    create(userId, name, is_public) {
         return Client.instance
             .request(
                 `/users/${userId}/playlists`,
                 'POST',
-                {name: name, public: public}
+                {name: name, public: is_public}
             );
     }
 
@@ -165,12 +165,12 @@ class PlaylistHandler {
      * @param {object} query Optional query parameters.
      * @return {} 
      */
-    create(userId, playlistId, name, public) {
+    create(userId, playlistId, name, is_public) {
         return Client.instance
             .request(
                 `/users/${userId}/playlists`,
                 'PUT',
-                {name: name, public: public}
+                {name: name, public: is_public}
             );
     }
 
