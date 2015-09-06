@@ -19,6 +19,12 @@ class Playlist extends PlaylistEntity {
         return Factory(this._tracks);
     }
 
+    /*
+     * @public 
+     * @param {array} tracks Tracks list
+     * @param {object} query Optional query parameters.
+     * @return {object}
+     */
     addTrack(tracks, query) {
         let trackList = tracks.map(track => {
             return track.uri;
@@ -26,6 +32,12 @@ class Playlist extends PlaylistEntity {
         return new PlaylistHandler().addTracks(trackList, this, query);
     }
 
+    /*
+     * @public 
+     * @param {array} tracks Tracks list
+     * @param {object} query Optional query parameters.
+     * @return {object}
+     */
     removeTrack(tracks, query) {
         let trackList = tracks.map(track => {
             return track.uri;

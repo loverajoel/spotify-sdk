@@ -56,7 +56,7 @@ class PlaylistHandler {
      * Doc: https://developer.spotify.com/web-api/get-playlist/
      *
      * @public 
-     * @param {string} id Playlit id to retrive
+     * @param {string} id Playlit id to retrive.
      * @param {object} query Optional query parameters.
      * @return {Track} Plalist
      */
@@ -65,7 +65,7 @@ class PlaylistHandler {
     }
 
     /*
-     * Add one or more tracks to a user’s playlist
+     * Add one or more tracks to a user’s playlist.
      * Doc: https://developer.spotify.com/web-api/add-tracks-to-playlist/
      *
      * @public 
@@ -83,8 +83,8 @@ class PlaylistHandler {
     }
 
     /*
-     * Add one or more tracks to a user’s playlist
-     * Doc: https://developer.spotify.com/web-api/add-tracks-to-playlist/
+     * Remove one or more tracks from a user’s playlist.
+     * Doc: https://developer.spotify.com/web-api/remove-tracks-playlist/
      *
      * @public 
      * @param {array} tracks List of uri tracks
