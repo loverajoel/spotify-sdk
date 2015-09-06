@@ -6,7 +6,7 @@
  */
 'use strict';
 
-import Playlist from '../models/Playlist';
+import Playlist from '../helpers/Playlist';
 import Client from '../services/Client';
 
 class PlaylistHandler {

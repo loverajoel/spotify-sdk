@@ -6,7 +6,7 @@
  */
 'use strict';
 
-import User from '../models/User';
+import User from '../helpers/User';
 import Client from '../services/Client';
 
 class UserHandler {

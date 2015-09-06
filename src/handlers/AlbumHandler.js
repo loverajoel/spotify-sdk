@@ -6,7 +6,7 @@
  */
 'use strict';
 
-import Album from '../models/Album';
+import Album from '../helpers/Album';
 import Client from '../services/Client';
 
 class AlbumHandler {

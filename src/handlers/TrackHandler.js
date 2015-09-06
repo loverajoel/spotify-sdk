@@ -6,7 +6,7 @@
  */
 'use strict';
 
-import Track from '../models/Track';
+import Track from '../helpers/Track';
 import Client from '../services/Client';
 
 class TrackHandler {
