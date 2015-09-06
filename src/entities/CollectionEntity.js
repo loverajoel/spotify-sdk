@@ -25,6 +25,10 @@ class Collection extends Array {
     last() {
         return this[this.length-1];
     }
+
+    get(id) {
+        return this[id];
+    }
 }
 
 export default Collection;

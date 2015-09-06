@@ -88,12 +88,18 @@ Methods for retrieving and manage information about entities.
 * `featuredPlaylists()`
 * `categoriesPlaylists(int)`
 * `get(int)`
-* `addTracks([TrackEntity], PlaylistEntity)`
-* `removeTracks([TrackEntity], PlaylistEntity)`
+* `addTracks(array, PlaylistEntity)`
+* `removeTracks(array, PlaylistEntity)`
  
 ### Entities Helpers
 
 Helpers add functionality to Entities
+
+##### Collection
+
+* `first()`
+* `last()`
+* `get(int)`
 
 ##### Playlist
 
