@@ -8,12 +8,12 @@ Use the [Spotify Web API](https://developer.spotify.com/web-api/) and always obt
 
 > Too simple like: Get my User then retrive my Playlist, then add a Track to one Playlist.
 
-```js
+```javascript
 user.me().then((myUser) => { // -> return a User entity with helpers
-	myUser.playlists().then((playlistsCollection) => {
-		playlistsCollection[0].tracks // -> tracksCollections
-		playlistsCollection[0].addTrack(trackEntity) // -> add a track to the playlist
-	});
+    myUser.playlists().then((playlistsCollection) => {
+        playlistsCollection[0].tracks // -> tracksCollections
+        playlistsCollection[0].addTrack(trackEntity) // -> add a track to the playlist
+    });
 });
 ```
 
@@ -43,13 +43,15 @@ you want. (Angular, Backbone, ...)
 
 After install, you should add the library to your project.
 
-`import {Spotify} from 'spotify-js';`
+```javascript
+    import {Spotify} from 'spotify-js';
+```
 
 You can import all entities, handlers and resources of the library.
 
 ### Init the client
 
-```js
+```javascript
 let client = Spotify.instance;
 
 client.settings = {
@@ -60,7 +62,7 @@ client.settings = {
 
 If your applications required methods that need authentication.
 
-```js
+```javascript
 client.settings = {
     clientId: 'CLIENT_ID', 
     secretId: 'SECRET_ID',
@@ -70,22 +72,33 @@ client.settings = {
 
 client.token = 'TOKEN';
 ```
-
 Here are a suggested login implementation. TODO: add url
-
-### Generals
-
-> TODO: Explain Collections properties and Entities;
 
 ### Handlers
 
-#### Playlist
-* search(string)
-* featuredPlaylists()
-* categoriesPlaylists(int)
-* get(int)
-* addTracks([TrackEntity], PlaylistEntity)
-* removeTracks([TrackEntity], PlaylistEntity)
+Methods for retrieving and manage information about entities.
+
+Commons methods:
+
+* `convert(object)`
+
+##### Playlist
+
+* `search(string)`
+* `featuredPlaylists()`
+* `categoriesPlaylists(int)`
+* `get(int)`
+* `addTracks([TrackEntity], PlaylistEntity)`
+* `removeTracks([TrackEntity], PlaylistEntity)`
+ 
+### Entities Helpers
+
+Helpers add functionality to Entities
+
+##### Playlist
+
+* `addTrack([Track])`
+* `removeTrack([Track])`
 
 ## Development
 
