@@ -77,44 +77,15 @@ Here are a suggested login implementation. TODO: add url
 
 > TODO: Explain Collections properties and Entities;
 
-### Playlists
+### Handlers
 
-Methods for retrieving information about playlists and for managing playlists.
-
-[API Doc](https://developer.spotify.com/web-api/playlist-endpoints/)
-
-```js
-import {PlaylistHandler} from 'spotify-js';
-
-let playlists = new PlaylistHandler();
-
-```
-
-#### .search()
-
-Get a collection of playlists that match a keyword string.
-
-```js
-playlists.search('Dance 2015').then(...); // -> Should return a playlistCollection
-```
-
-#### .featuredPlaylists()
-
-Get a list of Spotify featured playlists.
-
-```js
-playlists.featuredPlaylists().then(...); // -> Should return a playlistCollection
-```
-
-#### .categoriesPlaylists()
-
-Get a list of Spotify playlists tagged with a particular category.
-
-```js
-playlists.categoriesPlaylists(CATEGORY_ID).then(...); // -> Should return a playlistCollection
-```
-
-
+#### Playlist
+* search(string)
+* featuredPlaylists()
+* categoriesPlaylists(int)
+* get(int)
+* addTracks([TrackEntity], PlaylistEntity)
+* removeTracks([TrackEntity], PlaylistEntity)
 
 ## Development
 
