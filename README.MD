@@ -126,7 +126,9 @@ Helpers add functionality to Entities
 
 * `first()`
 * `last()`
-* `get(index)`
+* `index(index)`
+* `next()`
+* `previous()`
 
 ##### Playlist
 
