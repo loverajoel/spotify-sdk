@@ -111,6 +111,11 @@ Helpers add functionality to Entities
 
 * `addTrack([TrackEntity])`
 * `removeTrack([TrackEntity])`
+* `follow()` TODO
+* `unfollow()` TODO
+* `edit()` TODO
+* `reorder()` TODO
+* `replace()` TODO
 
 ## Development
 
