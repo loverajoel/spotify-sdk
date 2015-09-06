@@ -68,8 +68,5 @@ var Factory = function(data) {
 };
 
 export default function(data) {
-    // return new Promise((resolve) => {
-        // resolve(new Factory(data));
-    // })
     return new Factory(data);
 };
