@@ -55,6 +55,31 @@ class ArtistHandler {
     }
 
     /*
+     * Get Spotify catalog information about an artist’s top tracks by country.
+     * Doc: https://developer.spotify.com/web-api/get-artists-top-tracks/
+     *
+     * @public 
+     * @param {string} id Artist id to retrive top tracks
+     * @param {string} country country iso
+     * @return {Collection} tracksCollection
+     */
+    topTracks(id, country) {
+        return Client.instance.request(`/artists/${id}/top-tracks`, 'GET', {country:country});
+    }
+
+    /*
+     * Get Spotify catalog information about artists similar to a given artist.
+     * Doc: https://developer.spotify.com/web-api/get-related-artists/
+     *
+     * @public 
+     * @param {string} id Artist id to retrive related artists
+     * @return {Collection} albumsCollection
+     */
+    relatedArtists(id) {
+        return Client.instance.request(`/artists/${id}/related-artists`);
+    }
+
+    /*
      * @public 
      * @param {object} item Object to convert in entity
      * @return {Playlist}

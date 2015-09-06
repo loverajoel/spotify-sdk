@@ -107,6 +107,16 @@ Methods for retrieving and manage information about entities.
 * `search(name)`
 * `get(id|[ids])`
 * `newReleases()`
+
+##### Artist
+
+* `search(name)`
+* `get(id|[ids])`
+* `albums(id)`
+* `topTracks(user_id, country_iso)`
+* `relatedArtists(user_id)`
+* `follow()` TODO
+* `unfollow()` TODO
  
 ### Entities Helpers
 
@@ -133,6 +143,14 @@ Helpers add functionality to Entities
 * `durationM()`
 
 ##### Album
+
+##### Artist
+
+* `albums()`
+* `topTracks(country_iso)`
+* `relatedArtists()`
+* `follow()` TODO
+* `unfollow()` TODO
 
 ## Development
 

@@ -22,6 +22,22 @@ class Artist extends ArtistEntity {
         return new ArtistHandler().albums(this.id);
     }
 
+    /*
+     * @public 
+     * @return {Collection} tracksCollection
+     */
+    topTracks(country) {
+        return new ArtistHandler().topTracks(this.id, country);
+    }
+
+    /*
+     * @public 
+     * @return {Collection} artistsCollection
+     */
+    relatedArtists(country) {
+        return new ArtistHandler().relatedArtists(this.id);
+    }
+
 }
 
 export default Artist;
