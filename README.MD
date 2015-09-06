@@ -96,6 +96,17 @@ Methods for retrieving and manage information about entities.
 * `reorder()` TODO
 * `replace()` TODO
 * `isFollowing()` TODO
+
+##### Track
+
+* `search(name)`
+* `get(id|[ids])`
+
+##### Album
+
+* `search(name)`
+* `get(id|[ids])`
+* `newReleases()`
  
 ### Entities Helpers
 
@@ -116,6 +127,12 @@ Helpers add functionality to Entities
 * `edit()`
 * `reorder()` TODO
 * `replace()` TODO
+
+##### Track
+
+* `durationM()`
+
+##### Album
 
 ## Development
 

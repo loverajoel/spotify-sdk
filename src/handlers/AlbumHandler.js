@@ -42,6 +42,19 @@ class AlbumHandler {
     }
 
     /*
+     * Get a list of new album releases featured in Spotify.
+     * Doc: https://developer.spotify.com/web-api/get-list-new-releases/
+     *
+     * @public 
+     * @required {OAuth}
+     * @param {object} query Optional query parameters.
+     * @return {Collection} albumsCollection
+     */
+    newReleases(query) {
+        return Client.instance.request(`/browse/new-releases`);
+    }
+
+    /*
      * @public 
      * @param {object} item Object to convert in entity
      * @return {Album}
