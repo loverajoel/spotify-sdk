@@ -1,6 +1,6 @@
 'use strict';
 
-import Factory from '../factories/Factory';
+import Factory from './Factory';
 
 var singleton = Symbol();
 var singletonEnforcer = Symbol();

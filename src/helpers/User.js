@@ -2,7 +2,7 @@
 
 import UserEntity from '../entities/UserEntity';
 import UserHandler from '../handlers/UserHandler';
-import Factory from '../factories/Factory';
+import Factory from '../Factory';
 
 class User extends UserEntity {
 

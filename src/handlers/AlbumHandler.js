@@ -7,7 +7,7 @@
 'use strict';
 
 import Album from '../helpers/Album';
-import Client from '../services/Client';
+import Client from '../Client';
 
 class AlbumHandler {
 

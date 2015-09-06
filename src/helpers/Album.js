@@ -2,7 +2,7 @@
 
 import AlbumEntity from '../entities/AlbumEntity';
 import AlbumHandler from '../handlers/AlbumHandler';
-import Factory from '../factories/Factory';
+import Factory from '../Factory';
 
 class Album extends AlbumEntity {
 

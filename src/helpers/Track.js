@@ -2,7 +2,7 @@
 
 import TrackEntity from '../entities/TrackEntity';
 import TrackHandler from '../handlers/TrackHandler';
-import Factory from '../factories/Factory';
+import Factory from '../Factory';
 
 class Track extends TrackEntity {
 

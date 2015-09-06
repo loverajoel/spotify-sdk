@@ -6,7 +6,7 @@ import TrackHandler from '../handlers/TrackHandler';
 import PlaylistHandler from '../handlers/PlaylistHandler';
 import UserHandler from '../handlers/UserHandler';
 import CollectionHandler from '../handlers/CollectionHandler';
-import Client from '../services/Client';
+import Client from './Client';
 
 var Factory = function(data) {
     var _type;

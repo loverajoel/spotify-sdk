@@ -7,7 +7,7 @@
 'use strict';
 
 import User from '../helpers/User';
-import Client from '../services/Client';
+import Client from '../Client';
 
 class UserHandler {
 

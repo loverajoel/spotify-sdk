@@ -2,7 +2,7 @@
 
 import ArtistEntity from '../entities/ArtistEntity';
 import ArtistHandler from '../handlers/ArtistHandler';
-import Factory from '../factories/Factory';
+import Factory from '../Factory';
 
 class Artist extends ArtistEntity {
 

@@ -2,7 +2,7 @@
 
 import PlaylistEntity from '../entities/PlaylistEntity';
 import PlaylistHandler from '../handlers/PlaylistHandler';
-import Factory from '../factories/Factory';
+import Factory from '../Factory';
 
 class Playlist extends PlaylistEntity {
 

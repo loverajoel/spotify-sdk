@@ -7,7 +7,7 @@
 'use strict';
 
 import Artist from '../helpers/Artist';
-import Client from '../services/Client';
+import Client from '../Client';
 
 class ArtistHandler {
 
