@@ -1,3 +1,7 @@
+/*
+ * User
+ * Add methods to UserEntity
+ */
 'use strict';
 
 import UserEntity from '../entities/UserEntity';

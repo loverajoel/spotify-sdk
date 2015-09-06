@@ -1,4 +1,4 @@
-import Client from './src/services/Client';
+import Client from './src/Client';
 import PlaylistHandler from './src/handlers/PlaylistHandler';
 import UserHandler from './src/handlers/UserHandler';
 import TrackHandler from './src/handlers/TrackHandler';

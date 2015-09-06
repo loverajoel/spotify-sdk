@@ -1,3 +1,7 @@
+/*
+ * Track
+ * Add methods to TrackEntity
+ */
 'use strict';
 
 import TrackEntity from '../entities/TrackEntity';

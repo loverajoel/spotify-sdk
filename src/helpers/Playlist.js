@@ -1,3 +1,7 @@
+/*
+ * Plalist
+ * Add methods to PlalistEntity
+ */
 'use strict';
 
 import PlaylistEntity from '../entities/PlaylistEntity';

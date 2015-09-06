@@ -1,3 +1,7 @@
+/*
+ * Artist
+ * Add methods to ArtistEntity
+ */
 'use strict';
 
 import ArtistEntity from '../entities/ArtistEntity';

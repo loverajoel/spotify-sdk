@@ -1,3 +1,7 @@
+/*
+ * Album
+ * Add methods to AlbumEntity
+ */
 'use strict';
 
 import AlbumEntity from '../entities/AlbumEntity';
