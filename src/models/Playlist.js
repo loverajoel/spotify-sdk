@@ -29,7 +29,7 @@ class Playlist extends PlaylistEntity {
         let trackList = tracks.map(track => {
             return track.uri;
         });
-        return new PlaylistHandler().addTracks(trackList, this, query);
+        return new PlaylistHandler().addTracks(trackList, this.owner.id, this.id, query);
     }
 
     /*
@@ -42,7 +42,7 @@ class Playlist extends PlaylistEntity {
         let trackList = tracks.map(track => {
             return track.uri;
         });
-        return new PlaylistHandler().removeTracks(trackList, this, query);
+        return new PlaylistHandler().removeTracks(trackList, this.owner.id, this.id, query);
     }
 
 }

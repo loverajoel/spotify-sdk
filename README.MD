@@ -72,7 +72,7 @@ client.settings = {
 
 client.token = 'TOKEN';
 ```
-Here are a suggested login implementation. TODO: add url
+[Here](https://github.com/loverajoel/spotify-js/blob/master/examples/oauth.js) are a suggested login implementation.
 
 ### Handlers
 
@@ -84,12 +84,18 @@ Methods for retrieving and manage information about entities.
 
 ##### Playlist
 
-* `search(string)`
+* `search(name)`
 * `featuredPlaylists()`
-* `categoriesPlaylists(int)`
-* `get(int)`
-* `addTracks(array, PlaylistEntity)`
-* `removeTracks(array, PlaylistEntity)`
+* `categoriesPlaylists(id)`
+* `addTracks([uris], user_id, playlist_id)`
+* `removeTracks([uris], user_id, playlist_id)`
+* `follow()` TODO
+* `unfollow()` TODO
+* `create()` TODO
+* `edit()` TODO
+* `reorder()` TODO
+* `replace()` TODO
+* `isFollowing()` TODO
  
 ### Entities Helpers
 
@@ -99,12 +105,12 @@ Helpers add functionality to Entities
 
 * `first()`
 * `last()`
-* `get(int)`
+* `get(index)`
 
 ##### Playlist
 
-* `addTrack([Track])`
-* `removeTrack([Track])`
+* `addTrack([TrackEntity])`
+* `removeTrack([TrackEntity])`
 
 ## Development
 

@@ -52,31 +52,20 @@ class PlaylistHandler {
     }
 
     /*
-     * Get a single playlist identified by its unique of Spotify ID.
-     * Doc: https://developer.spotify.com/web-api/get-playlist/
-     *
-     * @public 
-     * @param {string} id Playlit id to retrive.
-     * @param {object} query Optional query parameters.
-     * @return {Track} Plalist
-     */
-    get(id) {
-        return Client.instance.request(`/tracks/${id}`);
-    }
-
-    /*
      * Add one or more tracks to a user’s playlist.
      * Doc: https://developer.spotify.com/web-api/add-tracks-to-playlist/
      *
      * @public 
      * @param {array} tracks List of uri tracks
+     * @param {string} userId User id
+     * @param {string} playlistId Playlist id
      * @param {object} query Optional query parameters.
      * @return {} 
      */
-    addTracks(tracks, playlist, query) {
+    addTracks(tracks, userId, playlistId, query) {
         return Client.instance
             .request(
-                `/users/${playlist.owner.id}/playlists/${playlist.id}/tracks`,
+                `/users/${userId}/playlists/${playlistId}/tracks`,
                 'POST',
                 {uris: tracks}
             );
@@ -88,13 +77,15 @@ class PlaylistHandler {
      *
      * @public 
      * @param {array} tracks List of uri tracks
+     * @param {string} userId User id
+     * @param {string} playlistId Playlist id
      * @param {object} query Optional query parameters.
      * @return {} 
      */
-    removeTracks(tracks, playlist, query) {
+    addTracks(tracks, userId, playlistId, query) {
         return Client.instance
             .request(
-                `/users/${playlist.owner.id}/playlists/${playlist.id}/tracks`,
+                `/users/${userId}/playlists/${playlistId}/tracks`,
                 'DELETE',
                 {uris: tracks}
             );
