@@ -44,7 +44,7 @@ you want. (Angular, Backbone, ...)
 After install, you should add the library to your project.
 
 ```javascript
-    import {Spotify} from 'spotify-js';
+import {Spotify} from 'spotify-js';
 ```
 
 You can import all entities, handlers and resources of the library.
@@ -78,7 +78,7 @@ Here are a suggested login implementation. TODO: add url
 
 Methods for retrieving and manage information about entities.
 
-Commons methods:
+##### Commons methods
 
 * `convert(object)`
 
