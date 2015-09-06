@@ -89,10 +89,10 @@ Methods for retrieving and manage information about entities.
 * `categoriesPlaylists(id)`
 * `addTracks([uris], user_id, playlist_id)`
 * `removeTracks([uris], user_id, playlist_id)`
-* `follow()` TODO
-* `unfollow()` TODO
-* `create()` TODO
-* `edit()` TODO
+* `follow()`
+* `unfollow()`
+* `create()`
+* `edit()`
 * `reorder()` TODO
 * `replace()` TODO
 * `isFollowing()` TODO
@@ -111,9 +111,9 @@ Helpers add functionality to Entities
 
 * `addTrack([TrackEntity])`
 * `removeTrack([TrackEntity])`
-* `follow()` TODO
-* `unfollow()` TODO
-* `edit()` TODO
+* `follow()`
+* `unfollow()`
+* `edit()`
 * `reorder()` TODO
 * `replace()` TODO
 

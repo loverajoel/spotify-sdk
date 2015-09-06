@@ -56,6 +56,7 @@ class PlaylistHandler {
      * Doc: https://developer.spotify.com/web-api/add-tracks-to-playlist/
      *
      * @public 
+     * @required {OAuth}
      * @param {array} tracks List of uri tracks
      * @param {string} userId User id
      * @param {string} playlistId Playlist id
@@ -76,6 +77,7 @@ class PlaylistHandler {
      * Doc: https://developer.spotify.com/web-api/remove-tracks-playlist/
      *
      * @public 
+     * @required {OAuth}
      * @param {array} tracks List of uri tracks
      * @param {string} userId User id
      * @param {string} playlistId Playlist id
@@ -88,6 +90,87 @@ class PlaylistHandler {
                 `/users/${userId}/playlists/${playlistId}/tracks`,
                 'DELETE',
                 {uris: tracks}
+            );
+    }
+
+    /*
+     * Add a user as a follower of a playlist.
+     * Doc: https://developer.spotify.com/web-api/follow-playlist/
+     *
+     * @public 
+     * @required {OAuth}
+     * @param {string} userId User id
+     * @param {string} playlistId Playlist id
+     * @param {object} query Optional query parameters.
+     * @return {} 
+     */
+    follow(userId, playlistId, query) {
+        return Client.instance
+            .request(
+                `/users/${userId}/playlists/${playlistId}/followers`,
+                'PUT'
+            );
+    }
+
+    /*
+     * Remove a user as a follower of a playlist.
+     * Doc: https://developer.spotify.com/web-api/unfollow-playlist/
+     *
+     * @public 
+     * @required {OAuth}
+     * @param {string} userId User id
+     * @param {string} playlistId Playlist id
+     * @param {object} query Optional query parameters.
+     * @return {} 
+     */
+    unfollow(userId, playlistId, query) {
+        return Client.instance
+            .request(
+                `/users/${userId}/playlists/${playlistId}/followers`,
+                'DELETE'
+            );
+    }
+
+    /*
+     * Create a playlist for a Spotify user.
+     * Doc: https://developer.spotify.com/web-api/create-playlist/
+     *
+     * @public 
+     * @required {OAuth}
+     * @param {string} userId User id
+     * @param {string} name Name of the future playlist
+     * @param {bool} public public or private
+     * @param {object} query Optional query parameters.
+     * @return {} 
+     */
+    create(userId, name, public) {
+        return Client.instance
+            .request(
+                `/users/${userId}/playlists`,
+                'POST',
+                {name: name, public: public}
+            );
+    }
+
+    /*
+     * Change a playlist’s name and public/private state.
+     * Doc: https://developer.spotify.com/web-api/change-playlist-details/
+     *
+     * @public 
+     * @required {OAuth}
+     * @param {string} userId User id
+     * @param {string} playlistId Playlist id
+     * @param {string} name Name of the future playlist
+     * @param {bool} public public or private
+     * @param {object} query Optional query parameters.
+     * @return {} 
+     */
+    create(userId, playlistId, name, public) {
+        return Client.instance
+            .request(
+                `/users/${userId}/playlists`,
+                'PUT',
+                {name: name, public: public}
             );
     }
 

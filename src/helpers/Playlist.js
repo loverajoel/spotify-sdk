@@ -49,6 +49,32 @@ class Playlist extends PlaylistEntity {
         return new PlaylistHandler().removeTracks(trackList, this.owner.id, this.id, query);
     }
 
+    /*
+     * @public 
+     * @param {object} query Optional query parameters.
+     * @return {object}
+     */
+    follow(query) {
+        return new PlaylistHandler().follow(this.owner.id, this.id, query);
+    }
+
+    /*
+     * @public 
+     * @param {object} query Optional query parameters.
+     * @return {object}
+     */
+    unfollow(query) {
+        return new PlaylistHandler().unfollow(this.owner.id, this.id, query);
+    }
+
+    /*
+     * @public 
+     * @return {object}
+     */
+    edit() {
+        return new PlaylistHandler().unfollow(this.owner.id, this.id, this.name, this.public);
+    }
+
 }
 
 export default Playlist;
