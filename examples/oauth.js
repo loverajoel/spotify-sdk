@@ -49,25 +49,25 @@ var user = new UserHandler();
  * #1 example
  * Get the current user.
  */
-// user.me().then((response) => {
-//     console.log(response);
-// });
+user.me().then((response) => {
+    console.log(response);
+});
 
 /*
  * #2 example
  * Get the user by id, should return a User entity.
  */
-// user.get('1258448899').then((response) => {
-//     console.log(response);
-// });
+user.get('1258448899').then((response) => {
+    console.log(response);
+});
 
 /*
  * #3 example
  * Get the playlists by user id, should return a Playlist collection.
  */
-// user.playlists('1258448899').then((response) => {
-//     console.log(response);
-// });
+user.playlists('1258448899').then((response) => {
+    console.log(response);
+});
 
 /*
  * Awesome Exmaple
@@ -79,17 +79,17 @@ var user = new UserHandler();
  * albums = artists[0].albums();
  */
 
-// user.me().then((user) => {
-//     user.playlists().then((playlistCollection) => {
-//         playlistCollection[0].tracks.then( TrackEntity => {
-//             TrackEntity[0].artists().then( artistsCollection => {
-//                 artistsCollection[0].albums().then(albumsCollection => {
-//                     console.log(albumsCollection); // Wooo!!!
-//                 });
-//             });
-//         });
-//     });
-// });
+user.me().then((user) => {
+    user.playlists().then((playlistCollection) => {
+        let PlaylistEntity = playlistCollection.first();
+        PlaylistEntity.tracks.then(tracksCollection => {
+            let ArtistEntity = tracksCollection[0].artists[0];
+            ArtistEntity.albums().then(albumsCollection => {
+                console.log(albumsCollection); // Wooo!!!
+            });
+        });
+    });
+});
 
 
 /*
@@ -101,16 +101,16 @@ var user = new UserHandler();
  * add = playlist.addTrack(track);
  * remove = playlist.removeTrack(track);
  */
-// let myTrack;
+let myTrack;
 
-// new TrackHandler().search('Ginza').then(trackCollection => {
-//     myTrack = trackCollection.first();
-// });
+new TrackHandler().search('Ginza').then(trackCollection => {
+    myTrack = trackCollection.first();
+});
 
-// user.me().then((user) => {
-//     user.playlists('5ViEO6BLk3KN1W6PkkS4TQ').then((playlistEntity) => { 
-//         playlistEntity.addTrack([myTrack]).then(() => {
-//             playlistEntity.removeTrack([myTrack]);
-//         });
-//     });
-// });
+user.me().then((user) => {
+    user.playlists('5ViEO6BLk3KN1W6PkkS4TQ').then((playlistEntity) => { 
+        playlistEntity.addTrack([myTrack]).then(() => {
+            playlistEntity.removeTrack([myTrack]);
+        });
+    });
+});

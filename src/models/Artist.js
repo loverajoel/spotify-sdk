@@ -12,7 +12,6 @@ class Artist extends ArtistEntity {
 
     /*
      * @public 
-     * @override
      * @return {Collection} albumsCollection
      */
     albums() {

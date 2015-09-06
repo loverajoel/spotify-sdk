@@ -15,7 +15,7 @@ class Track extends TrackEntity {
      * @override
      * @return {Collection} artistCollection
      */
-    artists() {
+    get artists() {
         return Factory(this._artists);
     }
 
@@ -23,10 +23,9 @@ class Track extends TrackEntity {
      * Convert duration from ms to m
      *
      * @public 
-     * @override
      * @return {string} mm:ss
      */
-    durationM() {
+    get durationM() {
         let x = ~~( Number( this._duration_ms ) / 1000 );
         let seconds = x % 60;
         seconds = `${ seconds }`.length == 1? `0${ seconds }`: seconds;

@@ -7,7 +7,6 @@
     "browserify": "latest",
     "gulp": "latest",
     "gulp-rename": "latest",
-    "lodash": "latest",
     "rimraf": "latest",
     "watchify": "latest",
     "vinyl-source-stream": "latest"
