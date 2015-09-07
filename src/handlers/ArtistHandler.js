@@ -21,7 +21,7 @@ class ArtistHandler {
      * @return {Collection} artistCollection
      */
     search(name, query) {
-        return Client.instance.request(`/search?type=artist&q=${name}`);
+        return Client.instance.request(`/search?type=artist&q=${name}`, 'GET', query);
     }
 
     /*
@@ -35,9 +35,9 @@ class ArtistHandler {
      */
     get(ids, query) {
         if (Array.isArray(ids)) {
-            return Client.instance.request(`/artists/?ids=${ids}`); 
+            return Client.instance.request(`/artists/?ids=${ids}`, 'GET', query);
         } else {
-            return Client.instance.request(`/artists/${ids}`);
+            return Client.instance.request(`/artists/${ids}`, 'GET', query);
         }
     }
 
@@ -51,7 +51,7 @@ class ArtistHandler {
      * @return {Collection} albumsCollection
      */
     albums(id, query) {
-        return Client.instance.request(`/artists/${id}/albums`);
+        return Client.instance.request(`/artists/${id}/albums`, 'GET', query);
     }
 
     /*
@@ -76,7 +76,7 @@ class ArtistHandler {
      * @return {Collection} albumsCollection
      */
     relatedArtists(id) {
-        return Client.instance.request(`/artists/${id}/related-artists`);
+        return Client.instance.request(`/artists/${id}/related-artists`, 'GET', query);
     }
 
     /*

@@ -21,7 +21,7 @@ class PlaylistHandler {
      * @return {Collection} playlistCollection
      */
     search(name, query) {
-        return Client.instance.request(`/search?type=playlist&q=${name}`);
+        return Client.instance.request(`/search?type=playlist&q=${name}`, 'GET', query);
     }
 
     /*
@@ -34,7 +34,7 @@ class PlaylistHandler {
      * @return {Collection} playlistCollection
      */
     featuredPlaylists(query) {
-        return Client.instance.request(`/browse/featured-playlists`);
+        return Client.instance.request(`/browse/featured-playlists`, 'GET', query);
     }
 
     /*
@@ -48,7 +48,7 @@ class PlaylistHandler {
      * @return {Collection} playlistCollection
      */
     categoriesPlaylists(id, query) {
-        return Client.instance.request(`/browse/categories/${id}/playlists`);
+        return Client.instance.request(`/browse/categories/${id}/playlists`, 'GET', query);
     }
 
     /*

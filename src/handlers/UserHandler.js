@@ -47,9 +47,9 @@ class UserHandler {
      */
     playlists(id, playlistId) {
         if (playlistId) {
-            return Client.instance.request(`/users/${id}/playlists/${playlistId}`);
+            return Client.instance.request(`/users/${id}/playlists/${playlistId}`, 'GET', query);
         } else {
-            return Client.instance.request(`/users/${id}/playlists`);
+            return Client.instance.request(`/users/${id}/playlists`, 'GET', query);
         }
     }
 

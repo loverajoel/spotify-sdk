@@ -35,9 +35,9 @@ class TrackHandler {
      */
     get(ids, query) {
         if (Array.isArray(ids)) {
-            return Client.instance.request(`/tracks/?ids=${ids}`); 
+            return Client.instance.request(`/tracks/?ids=${ids}`, 'GET', query);
         } else {
-            return Client.instance.request(`/tracks/${ids}`);
+            return Client.instance.request(`/tracks/${ids}`, 'GET', query);
         }
     }
 

@@ -21,7 +21,7 @@ class AlbumHandler {
      * @return {Collection} albumsCollection
      */
     search(name, query) {
-        return Client.instance.request(`/search?type=album&q=${name}`);
+        return Client.instance.request(`/search?type=album&q=${name}`, 'GET', query);
     }
 
     /*
@@ -35,9 +35,9 @@ class AlbumHandler {
      */
     get(ids, query) {
         if (Array.isArray(ids)) {
-            return Client.instance.request(`/albums/?ids=${ids}`); 
+            return Client.instance.request(`/albums/?ids=${ids}`, 'GET', query);
         } else {
-            return Client.instance.request(`/albums/${ids}`);
+            return Client.instance.request(`/albums/${ids}`, 'GET', query);
         }
     }
 
@@ -51,7 +51,7 @@ class AlbumHandler {
      * @return {Collection} albumsCollection
      */
     newReleases(query) {
-        return Client.instance.request(`/browse/new-releases`);
+        return Client.instance.request(`/browse/new-releases`, 'GET', query);
     }
 
     /*
