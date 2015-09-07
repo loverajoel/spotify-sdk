@@ -44,7 +44,9 @@ class Client {
     
     login() {
         return new Promise((resolve, reject) => {
-            var url_login = 'https://accounts.spotify.com/en/authorize?response_type=token&client_id='+this._clientId+'&redirect_uri='+encodeURIComponent(this._redirect_uri)+ ( this._scopes ? '&scope=' + encodeURIComponent( this._scopes) : '');
+            let url_login = 'https://accounts.spotify.com/en/authorize?response_type=token&client_id='+
+                this._clientId+'&redirect_uri='+encodeURIComponent(this._redirect_uri)+
+                ( this._scopes ? '&scope=' + encodeURIComponent( this._scopes) : '');
             resolve(url_login);
         });
     }
