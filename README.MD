@@ -2,7 +2,8 @@
 
 > This is under development mode
 
-Use the [Spotify Web API](https://developer.spotify.com/web-api/) and always obtain Collections or Entities.
+SDK entity oriented for work with the [Spotify Web API](https://developer.spotify.com/web-api/).
+Enitity oriented? whats? Yes, allways you will recibe entities+helpers how response of the API.
 
 ### An awesome example
 
@@ -35,13 +36,9 @@ Or bower.
 
 `bower install spotify-js --save`
 
-## Wrappers
-That's library is develpment in plain JS, so you can use or create a wrapper for the framework that 
-you want. (Angular, Backbone, ...)
-
 ## Documentation
 
-After install, you should add the library to your project.
+After install, you should add the SDK to your project.
 
 ```javascript
 import {Spotify} from 'spotify-js';
@@ -120,7 +117,7 @@ Methods for retrieving and manage information about entities.
  
 ### Entities Helpers
 
-Helpers add functionality to Entities
+Helpers add functionality to Entities.
 
 ##### Collection
 
