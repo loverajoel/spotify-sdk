@@ -55,24 +55,44 @@ class Client {
         }.bind(this));
     }
 
-    fetch(endpoint, method, body, format) {
-        let headers = { 'Accept': 'application/json'};
-        let url;
+    toQueryString(obj) {
+      var str = [];
+      for(var p in obj)
+        if (obj.hasOwnProperty(p)) {
+          str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+        }
+      return str.join("&");
+    }
+
+
+    fetch(endpoint, method, body) {
+        let _headers = { 'Accept': 'application/json'};
+        let _url;
+        let _body;
 
         if (this._token) {
-            headers.Authorization = `Bearer ${this._token}`;
+            _headers.Authorization = `Bearer ${this._token}`;
         }
 
         if (endpoint.indexOf('https') > -1) {
-            url = endpoint;
+            _url = endpoint;
         } else {
-            url = `https://api.spotify.com/v1${endpoint}`;
+            _url = `https://api.spotify.com/v1${endpoint}`;
         }
 
-        return fetch(url, {
+        if (method === 'GET') {
+            if (body) {
+                let separator = _url.indexOf('?') !== -1 ? "&" : "?";
+                _url = _url+separator+this.toQueryString(body);
+            }
+        } else {
+            _body = JSON.stringify(body);
+        }
+
+        return fetch(_url, {
             method: method || 'GET',
-            headers: headers,
-            body: JSON.stringify(body)
+            headers: _headers,
+            body: _body
         }).then((response) => {
             return response.json();
         });
