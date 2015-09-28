@@ -49,24 +49,24 @@ var user = new UserHandler();
  * #1 example
  * Get the current user.
  */
-user.me().then((response) => {
-    console.log(response);
+user.me().then((userEntity) => {
+    console.log(userEntity);
 });
 
 /*
  * #2 example
  * Get the user by id, should return a User entity.
  */
-user.get('1258448899').then((response) => {
-    console.log(response);
+user.get('1258448899').then((userEntity) => {
+    console.log(userEntity);
 });
 
 /*
  * #3 example
  * Get the playlists by user id, should return a Playlist collection.
  */
-user.playlists('1258448899').then((response) => {
-    console.log(response);
+user.playlists('1258448899').then((playlistCollection) => {
+    console.log(playlistCollection);
 });
 
 /*

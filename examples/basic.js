@@ -27,27 +27,24 @@ var track = new TrackHandler();
  * #1 example
  * Get tracks with the name 'R U mine?', shoud return a Collection of tracks.
  */
-track.search('R U mine?', {limit: 5}).then((response) => {
-	console.log('-----TrackHandler - #1 Example-----');
-	console.log(response);
+track.search('R U mine?', {limit: 5}).then((trackCollection) => {
+	console.log(trackCollection);
 });
 
 /*
  * #2 example
- * Get tracks with by single Id, shoud return a Track.
+ * Get tracks with by single Id, shoud return a Track entity with his helpers.
  */
-track.get('2UzMpPKPhbcC8RbsmuURAZ').then((response) => {
-	console.log('-----TrackHandler - #2 Example-----');
-	console.log(response);
+track.get('2UzMpPKPhbcC8RbsmuURAZ').then((TrackEntity) => {
+	console.log(TrackEntity);
 });
 
 /*
  * #3 example
  * Get tracks with by a list of Ids, shoud return a Collection.
  */
-track.get(['4kTd0TND65MUY4BlcmJ2cM', '7iqTu4OPL3KYs4FMdtLZsy']).then((response) => {
-	console.log('-----TrackHandler - #3 Example-----');
-	console.log(response);
+track.get(['4kTd0TND65MUY4BlcmJ2cM', '7iqTu4OPL3KYs4FMdtLZsy']).then((trackCollection) => {
+	console.log(trackCollection);
 });
 
 /*
@@ -60,9 +57,8 @@ var playlist = new PlaylistHandler();
  * #4 example
  * Get playlists with the name 'Previon De Fiesta', shoud return a Collection of playlists.
  */
-playlist.search('Previon De Fiesta').then((response) => {
-	console.log('-----PlaylistHandler - #4 Example-----');
-	console.log(response);
+playlist.search('Previon De Fiesta').then((playlistCollection) => {
+	console.log(playlistCollection);
 });
 
 /*
@@ -75,7 +71,6 @@ var artist = new ArtistHandler();
  * #4 example
  * Get artit with the name 'Muse', shoud return a Collection of artists.
  */
-artist.search('Muse').then((response) => {
-	console.log('-----ArtistHandler - #5 Example-----');
-	console.log(response);
+artist.search('Muse').then((artistCollection) => {
+	console.log(artistCollection);
 });
