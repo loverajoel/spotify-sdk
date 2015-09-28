@@ -10,8 +10,10 @@ class CollectionHandler {
 		items.map((item) => {
 			return collection.push(new handler().convert(item));
 		});
-
-		collection.type = collection[0].type;
+		
+		if (collection.length) {
+			collection.type = collection[0].type;
+		}
 		// collection.source = source; FIXME: review this
 		return collection;
 	}
