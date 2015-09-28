@@ -1,7 +1,5 @@
 #Spotify Js
 
-> This is under development mode
-
 SDK entity oriented for work with the [Spotify Web API](https://developer.spotify.com/web-api/).
 
 Enitity oriented? whats? Yes, allways you will recibe entities+helpers how response of the API.
@@ -26,8 +24,6 @@ user.me().then((myUser) => { // -> return a User entity with helpers
 [Complex example](https://github.com/loverajoel/spotify-js/blob/master/examples/oauth.js)
 
 ## Installation
-
-> TODO: do it;
 
 You can get it on npm.
 
