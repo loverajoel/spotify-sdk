@@ -1,4 +1,4 @@
-#Spotify Js
+#Spotify SDK
 
 SDK entity oriented for work with the [Spotify Web API](https://developer.spotify.com/web-api/).
 
