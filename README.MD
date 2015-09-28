@@ -3,6 +3,7 @@
 > This is under development mode
 
 SDK entity oriented for work with the [Spotify Web API](https://developer.spotify.com/web-api/).
+
 Enitity oriented? whats? Yes, allways you will recibe entities+helpers how response of the API.
 
 ### An awesome example
