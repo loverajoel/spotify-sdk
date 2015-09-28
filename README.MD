@@ -19,26 +19,26 @@ user.me().then((myUser) => { // -> return a User entity with helpers
 
 ## More Examples
 
-[Basic example](https://github.com/loverajoel/spotify-js/blob/master/examples/basic.js)
+[Basic example](https://github.com/loverajoel/spotify-sdk/blob/master/examples/basic.js)
 
-[Complex example](https://github.com/loverajoel/spotify-js/blob/master/examples/oauth.js)
+[Complex example](https://github.com/loverajoel/spotify-sdk/blob/master/examples/oauth.js)
 
 ## Installation
 
 You can get it on npm.
 
-`npm install spotify-js --save`
+`npm install spotify-sdk --save`
 
 Or bower.
 
-`bower install spotify-js --save`
+`bower install spotify-sdk --save`
 
 ## Documentation
 
 After install, you should add the SDK to your project.
 
 ```javascript
-import {Spotify} from 'spotify-js';
+import {Spotify} from 'spotify-sdk';
 ```
 
 You can import all entities, handlers and resources of the library.
@@ -66,7 +66,7 @@ client.settings = {
 
 client.token = 'TOKEN';
 ```
-[Here](https://github.com/loverajoel/spotify-js/blob/master/examples/oauth.js) are a suggested login implementation.
+[Here](https://github.com/loverajoel/spotify-sdk/blob/master/examples/oauth.js) are a suggested login implementation.
 
 ### Handlers
 
@@ -150,7 +150,7 @@ Helpers add functionality to Entities.
 
 ## Development
 
-`git clone git@github.com:loverajoel/spotify-js.git`
+`git clone git@github.com:loverajoel/spotify-sdk.git`
 
 `npm install`
 
