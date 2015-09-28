@@ -1,0 +1,24 @@
+{
+  "name": "spotify-sdk",
+  "main": "index.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/loverajoel/spotify-sdk",
+  "authors": [
+    "Joel <joelalovera@gmail.com>"
+  ],
+  "description": "SDK entity oriented for work with the Spotify Web API",
+  "moduleType": [],
+  "keywords": [
+    "spotify",
+    "es6",
+    "sdk"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "dist"
+  ]
+}
