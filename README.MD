@@ -13,8 +13,8 @@ Enitity oriented? whats? Yes, allways you will recibe entities+helpers how respo
 ```javascript
 user.me().then((myUser) => { // -> return a User entity with helpers
     myUser.playlists().then((playlistsCollection) => {
-        playlistsCollection[0].tracks // -> tracksCollections
-        playlistsCollection[0].addTrack(trackEntity) // -> add a track to the playlist
+        playlistsCollection.first().tracks // -> tracksCollections
+        playlistsCollection.first().addTrack(trackEntity) // -> add a track to the playlist
     });
 });
 ```
@@ -31,7 +31,7 @@ You can get it on npm.
 
 `npm install spotify-sdk --save`
 
-Or
+or bower.
 
 `bower install spotify-sdk`
 
