@@ -5,13 +5,13 @@
  */
 'use strict'
 
-import Spotify from '../src/services/Client';
+import Client from '../src/services/Client';
 import UserHandler from '../src/handlers/UserHandler';
 import TrackHandler from '../src/handlers/TrackHandler';
 import PlaylistHandler from '../src/handlers/PlaylistHandler';
 import ArtistHandler from '../src/handlers/ArtistHandler';
 
-let client = Spotify.instance;
+let client = Client.instance;
 
 client.settings = {
     clientId: '9b32d53872a446b8854a95d0cfccbf43', 
