@@ -21,7 +21,7 @@ client.settings = {
 
 /*
  * Login user
- * This is a way, you can do it how you want
+ * This is a way, you can do it however you want
  */
 function session() {
     if (sessionStorage.token) {

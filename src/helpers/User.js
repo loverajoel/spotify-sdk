@@ -17,7 +17,7 @@ class User extends UserEntity {
     /*
      * @public 
      * @param {object} id Optional Playlist id.
-     * @return {Collection} playlsitCollection
+     * @return {Collection} playlistCollection
      */
     playlists(id) {
     	return new UserHandler().playlists(this.id, id);
