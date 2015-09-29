@@ -1,5 +1,7 @@
 #Spotify SDK
 
+[![npm version](https://badge.fury.io/js/spotify-sdk.svg)](http://badge.fury.io/js/spotify-sdk)
+
 SDK entity oriented for work with the [Spotify Web API](https://developer.spotify.com/web-api/).
 
 Enitity oriented? whats? Yes, allways you will recibe entities+helpers how response of the API.
@@ -29,16 +31,13 @@ You can get it on npm.
 
 `npm install spotify-sdk --save`
 
-Or bower.
-
-`bower install spotify-sdk --save`
 
 ## Documentation
 
 After install, you should add the SDK to your project.
 
 ```javascript
-import {Spotify} from 'spotify-sdk';
+import {Client, TrackHandler, PlaylistHandler} from 'spotify-sdk';
 ```
 
 You can import all entities, handlers and resources of the library.

@@ -1,6 +1,6 @@
 {
   "name": "spotify-sdk",
-  "version": "0.0.1",
+  "version": "0.0.21",
   "devDependencies": {
     "babelify": "latest",
     "browser-sync": "latest",
@@ -13,9 +13,11 @@
     "lodash": "latest"
   },
   "scripts": {
-    "watch": "gulp watch"
+    "watch": "gulp watch",
+    "build": "babel -d lib/ src/",
+    "prepublish": "npm run build"
   },
   "author": "loverajoel",
   "license": "MIT",
-  "main": "index.js"
+  "main": "lib/index.js"
 }

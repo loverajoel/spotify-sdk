@@ -1,6 +1,7 @@
 node_modules
+examples
+src
 dist
-lib
 .tmp
 .DS_Store
 npm-debug.log
