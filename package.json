@@ -1,6 +1,7 @@
 {
   "name": "spotify-sdk",
   "version": "0.0.21",
+  "repository": "loverajoel/spotify-sdk",
   "devDependencies": {
     "babelify": "latest",
     "browser-sync": "latest",
