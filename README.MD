@@ -45,7 +45,7 @@ You can import all entities, handlers and resources of the library.
 ### Init the client
 
 ```javascript
-let client = Spotify.instance;
+let client = Client.instance;
 
 client.settings = {
     clientId: 'CLIENT_ID', 
