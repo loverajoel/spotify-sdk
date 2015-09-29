@@ -3,13 +3,13 @@
 [![npm version](https://badge.fury.io/js/spotify-sdk.svg)](http://badge.fury.io/js/spotify-sdk)
 [![Bower version](https://badge.fury.io/bo/spotify-sdk.svg)](http://badge.fury.io/bo/spotify-sdk)
 
-SDK entity oriented for work with the [Spotify Web API](https://developer.spotify.com/web-api/).
+Entity oriented SDK to work with the [Spotify Web API](https://developer.spotify.com/web-api/).
 
-Entity oriented? whats? Yes, allways you will recibe entities+helpers how response of the API.
+Entity oriented? What? Yes, you will always receive entities+helpers as the API's response.
 
 ### An awesome example
 
-> Too simple like: Get my User then retrive my Playlist, then add a Track to one Playlist.
+> Too simple like: Get my User then retrieve my Playlist, then add a Track to one Playlist.
 
 ```javascript
 user.me().then((myUser) => { // -> return a User entity with helpers
@@ -39,7 +39,7 @@ or bower.
 
 ## Documentation
 
-After install, you should add the SDK to your project.
+After installing, you should add the SDK to your project.
 
 ```javascript
 import {Client, TrackHandler, PlaylistHandler} from 'spotify-sdk';
@@ -53,16 +53,16 @@ You can import all entities, handlers and resources of the library.
 let client = Client.instance;
 
 client.settings = {
-    clientId: 'CLIENT_ID', 
+    clientId: 'CLIENT_ID',
     secretId: 'SECRET_ID'
 };
 ```
 
-If your applications required methods that need authentication.
+If your applications require methods that need authentication:
 
 ```javascript
 client.settings = {
-    clientId: 'CLIENT_ID', 
+    clientId: 'CLIENT_ID',
     secretId: 'SECRET_ID',
     scopes: [SCOPE, SCOPE2],
     redirect_uri: 'REDIRECT_URL'
@@ -70,11 +70,11 @@ client.settings = {
 
 client.token = 'TOKEN';
 ```
-[Here](https://github.com/loverajoel/spotify-sdk/blob/master/examples/oauth.js) are a suggested login implementation.
+[Here](examples/oauth.js) there is a suggested implementation for login.
 
 ### Handlers
 
-Methods for retrieving and manage information about entities.
+Methods for retrieving and managing information about entities.
 
 ##### Commons methods
 
@@ -115,10 +115,10 @@ Methods for retrieving and manage information about entities.
 * `relatedArtists(user_id)`
 * `follow()` TODO
 * `unfollow()` TODO
- 
+
 ### Entities Helpers
 
-Helpers add functionality to Entities.
+Helpers add functionality for Entities.
 
 ##### Collection
 
@@ -160,6 +160,6 @@ Helpers add functionality to Entities.
 
 `grunt watch`
 
-## Licence
+## License
 
 MIT

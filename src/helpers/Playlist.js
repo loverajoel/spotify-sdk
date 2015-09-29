@@ -1,6 +1,6 @@
 /*
  * Plalist
- * Add methods to PlalistEntity
+ * Add methods to PlaylistEntity
  */
 'use strict';
 
