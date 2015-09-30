@@ -13,8 +13,8 @@ import ArtistHandler from '../src/handlers/ArtistHandler';
 let client = Client.instance;
 
 client.settings = {
-	clientId: '9b32d53872a446b8854a95d0cfccbf43', 
-	secretId: '540176b5c66241c59eac65d6f8c1b4c0'
+	clientId: 'CLIENT_ID', 
+    secretId: 'SECRET_ID'
 };
 
 /*
