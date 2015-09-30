@@ -26,5 +26,9 @@
   },
   "author": "loverajoel",
   "license": "MIT",
-  "main": "lib/index.js"
+  "main": "lib/index.js",
+  "dependencies": {
+    "core-js": "^1.2.0",
+    "whatwg-fetch": "^0.9.0"
+  }
 }
