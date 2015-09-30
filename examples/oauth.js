@@ -5,7 +5,7 @@
  */
 'use strict'
 
-import Client from '../src/services/Client';
+import Client from '../src/Client';
 import UserHandler from '../src/handlers/UserHandler';
 import TrackHandler from '../src/handlers/TrackHandler';
 import PlaylistHandler from '../src/handlers/PlaylistHandler';
@@ -14,8 +14,9 @@ import ArtistHandler from '../src/handlers/ArtistHandler';
 let client = Client.instance;
 
 client.settings = {
-    clientId: '9b32d53872a446b8854a95d0cfccbf43', 
-    secretId: '540176b5c66241c59eac65d6f8c1b4c0',
+    clientId: 'CLIENT_ID', 
+    secretId: 'SECRET_ID',
+    scopes: ['SCOPE'],
     redirect_uri: 'http://localhost:3000/examples/oauth.html'
 };
 
@@ -90,7 +91,6 @@ user.me().then((user) => {
         });
     });
 });
-
 
 /*
  * Add track to playlist
