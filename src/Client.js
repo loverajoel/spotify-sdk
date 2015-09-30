@@ -66,7 +66,6 @@ class Client {
       return str.join("&");
     }
 
-
     fetch(endpoint, method, body) {
         let _headers = { 'Accept': 'application/json'};
         let _url;

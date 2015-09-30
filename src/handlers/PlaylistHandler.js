@@ -84,7 +84,7 @@ class PlaylistHandler {
      * @param {object} query Optional query parameters.
      * @return {} 
      */
-    addTracks(tracks, userId, playlistId, query) {
+    removeTracks(tracks, userId, playlistId, query) {
         return Client.instance
             .request(
                 `/users/${userId}/playlists/${playlistId}/tracks`,

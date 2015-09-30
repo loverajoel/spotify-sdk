@@ -45,7 +45,7 @@ class UserHandler {
      * @required {OAuth}
      * @return {Collectoin} playlistCollection
      */
-    playlists(id, playlistId) {
+    playlists(id, playlistId, query) {
         if (playlistId) {
             return Client.instance.request(`/users/${id}/playlists/${playlistId}`, 'GET', query);
         } else {
