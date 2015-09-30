@@ -80,6 +80,42 @@ class ArtistHandler {
     }
 
     /*
+     * Add the current user as a follower of one or more artists.
+     * Doc: https://developer.spotify.com/web-api/follow-artists-users/
+     *
+     * @public 
+     * @required {OAuth}
+     * @param {array} artists List of artists ids
+     * @return {} 
+     */
+    follow(artists) {
+        return Client.instance
+            .request(
+                `/me/following?type=artist`,
+                'PUT',
+                {ids: artists}
+            );
+    }
+
+     /*
+     * Remove the current user as a follower of one or more artists.
+     * Doc: https://developer.spotify.com/web-api/unfollow-artists-users/
+     *
+     * @public 
+     * @required {OAuth}
+     * @param {array} artists List of artists ids
+     * @return {} 
+     */
+    unfollow(artists) {
+        return Client.instance
+            .request(
+                `/me/following?type=artist`,
+                'DELETE',
+                {ids: artists}
+            );
+    }
+
+    /*
      * @public 
      * @param {object} item Object to convert in entity
      * @return {Playlist}

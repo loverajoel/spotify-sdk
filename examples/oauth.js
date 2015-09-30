@@ -16,7 +16,7 @@ let client = Client.instance;
 client.settings = {
     clientId: 'CLIENT_ID', 
     secretId: 'SECRET_ID',
-    scopes: ['SCOPE'],
+    scopes: ['user-follow-modify'],
     redirect_uri: 'http://localhost:3000/examples/oauth.html'
 };
 
@@ -113,4 +113,19 @@ user.me().then((user) => {
             playlistEntity.removeTrack([myTrack]);
         });
     });
+});
+
+/*
+ * Follow a artist
+ */
+var artist = new ArtistHandler();
+
+/*
+ * #4 example
+ * Get artit with the name 'Muse', follow and unfollow.
+ */
+artist.search('Muse').then((artistCollection) => {
+    var muse = artistCollection.first();
+    muse.follow();
+    muse.unfollow();
 });

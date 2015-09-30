@@ -38,6 +38,23 @@ class Artist extends ArtistEntity {
         return new ArtistHandler().relatedArtists(this.id);
     }
 
+    /*
+     * @public 
+     * @param {object} query Optional query parameters.
+     * @return {object}
+     */
+    follow(query) {
+        return new ArtistHandler().follow([this.id], query);
+    }
+
+    /*
+     * @public 
+     * @param {object} query Optional query parameters.
+     * @return {object}
+     */
+    unfollow(query) {
+        return new ArtistHandler().unfollow([this.id], query);
+    }
 }
 
 export default Artist;
