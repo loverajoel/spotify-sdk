@@ -158,7 +158,7 @@ Helpers add functionality for Entities.
 
 `npm install`
 
-`grunt watch`
+`npm run watch`
 
 ## License
 
