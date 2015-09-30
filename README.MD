@@ -113,8 +113,8 @@ Methods for retrieving and managing information about entities.
 * `albums(id)`
 * `topTracks(user_id, country_iso)`
 * `relatedArtists(user_id)`
-* `follow()` TODO
-* `unfollow()` TODO
+* `follow()`
+* `unfollow()`
 
 ### Entities Helpers
 
@@ -149,8 +149,8 @@ Helpers add functionality for Entities.
 * `albums()`
 * `topTracks(country_iso)`
 * `relatedArtists()`
-* `follow()` TODO
-* `unfollow()` TODO
+* `follow()`
+* `unfollow()`
 
 ## Development
 
@@ -158,7 +158,7 @@ Helpers add functionality for Entities.
 
 `npm install`
 
-`grunt watch`
+`npm run watch`
 
 ## License
 
