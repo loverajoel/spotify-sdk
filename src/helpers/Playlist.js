@@ -72,7 +72,7 @@ class Playlist extends PlaylistEntity {
      * @return {object}
      */
     edit() {
-        return new PlaylistHandler().unfollow(this.owner.id, this.id, this.name, this.public);
+        return new PlaylistHandler().edit(this.owner.id, this.id, this.name, this.public);
     }
 
 }

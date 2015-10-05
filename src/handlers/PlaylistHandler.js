@@ -165,7 +165,7 @@ class PlaylistHandler {
      * @param {object} query Optional query parameters.
      * @return {} 
      */
-    create(userId, playlistId, name, is_public) {
+    edit(userId, playlistId, name, is_public) {
         return Client.instance
             .request(
                 `/users/${userId}/playlists`,
