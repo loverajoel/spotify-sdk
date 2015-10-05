@@ -60,11 +60,11 @@ class ArtistHandler {
      *
      * @public 
      * @param {string} id Artist id to retrive top tracks
-     * @param {string} country country iso
+     * @param {object} query Optional query parameters. * country is required
      * @return {Collection} tracksCollection
      */
-    topTracks(id, country) {
-        return Client.instance.request(`/artists/${id}/top-tracks`, 'GET', {country:country});
+    topTracks(id, query) {
+        return Client.instance.request(`/artists/${id}/top-tracks`, 'GET', query);
     }
 
     /*
@@ -75,7 +75,7 @@ class ArtistHandler {
      * @param {string} id Artist id to retrive related artists
      * @return {Collection} albumsCollection
      */
-    relatedArtists(id) {
+    relatedArtists(id, query) {
         return Client.instance.request(`/artists/${id}/related-artists`, 'GET', query);
     }
 

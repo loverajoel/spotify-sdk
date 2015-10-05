@@ -24,18 +24,20 @@ class Artist extends ArtistEntity {
 
     /*
      * @public 
+     * @param {object} query Optional query parameters.
      * @return {Collection} tracksCollection
      */
-    topTracks(country) {
-        return new ArtistHandler().topTracks(this.id, country);
+    topTracks(query) {
+        return new ArtistHandler().topTracks(this.id, query);
     }
 
     /*
      * @public 
+     * @param {object} query Optional query parameters.
      * @return {Collection} artistsCollection
      */
-    relatedArtists(country) {
-        return new ArtistHandler().relatedArtists(this.id);
+    relatedArtists(query) {
+        return new ArtistHandler().relatedArtists(this.id, query);
     }
 
     /*
