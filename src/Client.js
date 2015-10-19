@@ -90,13 +90,26 @@ class Client {
             _body = JSON.stringify(body);
         }
 
+        let checkStatus = (response) => {
+            if (response.status >= 200 && response.status < 300) {
+                return response;
+            } else {
+                var error = new Error(response.statusText);
+                error.response = response;
+                throw error;
+            }
+        }
+
+        let parseJSON = (response) => {
+            return response.json();
+        }
+
         return fetch(_url, {
             method: method || 'GET',
             headers: _headers,
             body: _body
-        }).then((response) => {
-            return response.json();
-        });
+        }).then(checkStatus)
+        .then(parseJSON)
     };
 }
 
