@@ -1,7 +1,6 @@
 #Spotify SDK
 
 [![npm version](https://badge.fury.io/js/spotify-sdk.svg)](http://badge.fury.io/js/spotify-sdk)
-[![Bower version](https://badge.fury.io/bo/spotify-sdk.svg)](http://badge.fury.io/bo/spotify-sdk)
 
 Entity oriented SDK to work with the [Spotify Web API](https://developer.spotify.com/web-api/).
 
@@ -25,6 +24,10 @@ user.me().then((myUser) => { // -> return a User entity with helpers
 [Basic example](https://github.com/loverajoel/spotify-sdk/blob/master/examples/basic.js)
 
 [Complex example](https://github.com/loverajoel/spotify-sdk/blob/master/examples/oauth.js)
+
+## Showcase
+
+![MagicPlaylist](https://raw.githubusercontent.com/loverajoel/magicplaylist/master/app/img/meta-logo.jpg)
 
 ## Installation
 

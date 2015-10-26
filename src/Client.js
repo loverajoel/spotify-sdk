@@ -42,13 +42,17 @@ class Client {
         return this._token;
     }
     
-    login() {
-        return new Promise((resolve, reject) => {
-            let url_login = 'https://accounts.spotify.com/en/authorize?response_type=token&client_id='+
+    login(callback) {
+        let url_login = 'https://accounts.spotify.com/en/authorize?response_type=token&client_id='+
                 this._clientId+'&redirect_uri='+encodeURIComponent(this._redirect_uri)+
                 ( this._scopes ? '&scope=' + encodeURIComponent( this._scopes) : '');
-            resolve(url_login);
-        });
+        if (callback) {
+            return callback(url_login);
+        } else {
+            return new Promise((resolve) => {
+                resolve(url_login);
+            });
+        }
     }
 
     request(url, method, body) {
