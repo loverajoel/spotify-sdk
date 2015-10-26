@@ -27,11 +27,10 @@ user.me().then((myUser) => { // -> return a User entity with helpers
 
 ## Showcase
 
-### MagicPlaylist
-
-[Go to the site](http://magicplaylist.co/)
+#### MagicPlaylist
 
 ![MagicPlaylist](https://github.com/loverajoel/magicplaylist/blob/master/app/img/iphone%402x.png)
+[Go to the site](http://magicplaylist.co/)
 
 ## Installation
 
