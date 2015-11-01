@@ -21,7 +21,7 @@ class PlaylistHandler {
      * @return {Collection} playlistCollection
      */
     search(name, query) {
-        return Client.instance.request(`/search?type=playlist&q=${name}`, 'GET', query);
+        return Client.instance.request(`/search?type=playlist&q=${encodeURIComponent(name)}`, 'GET', query);
     }
 
     /*

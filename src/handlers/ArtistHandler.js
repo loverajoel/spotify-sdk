@@ -21,7 +21,7 @@ class ArtistHandler {
      * @return {Collection} artistCollection
      */
     search(name, query) {
-        return Client.instance.request(`/search?type=artist&q=${name}`, 'GET', query);
+        return Client.instance.request(`/search?type=artist&q=${encodeURIComponent(name)}`, 'GET', query);
     }
 
     /*
