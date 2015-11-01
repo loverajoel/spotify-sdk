@@ -8,16 +8,16 @@
     "es6"
   ],
   "devDependencies": {
-    "babel": "latest",
-    "babelify": "latest",
-    "browser-sync": "latest",
-    "browserify": "latest",
+    "babel": "5.8.23",
+    "babelify": "6.3.0",
+    "browser-sync": "2.9.7",
+    "browserify": "11.2.0",
     "gulp": "latest",
     "gulp-rename": "latest",
-    "rimraf": "latest",
-    "watchify": "latest",
-    "vinyl-source-stream": "latest",
-    "lodash": "latest"
+    "rimraf": "2.4.3",
+    "watchify": "3.4.0",
+    "vinyl-source-stream": "1.1.0",
+    "lodash": "3.10.1"
   },
   "scripts": {
     "watch": "gulp watch",
