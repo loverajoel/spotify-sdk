@@ -21,7 +21,7 @@ class TrackHandler {
      * @return {Collection} trackCollection
      */
     search(name, query) {
-        return Client.instance.request(`/search?type=track&q=${name}`, 'GET', query);
+        return Client.instance.request(`/search?type=track&q=${encodeURIComponent(name)}`, 'GET', query);
     }
 
     /*

@@ -21,7 +21,7 @@ class AlbumHandler {
      * @return {Collection} albumsCollection
      */
     search(name, query) {
-        return Client.instance.request(`/search?type=album&q=${name}`, 'GET', query);
+        return Client.instance.request(`/search?type=album&q=${encodeURIComponent(name)}`, 'GET', query);
     }
 
     /*
