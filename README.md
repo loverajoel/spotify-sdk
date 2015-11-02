@@ -39,10 +39,6 @@ You can get it on npm.
 
 `npm install spotify-sdk --save`
 
-or bower.
-
-`bower install spotify-sdk`
-
 
 ## How to start?
 
