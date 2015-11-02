@@ -44,7 +44,7 @@ or bower.
 `bower install spotify-sdk`
 
 
-## Documentation
+## How to start?
 
 After installing, you should add the SDK to your project.
 
@@ -79,85 +79,9 @@ client.token = 'TOKEN';
 ```
 [Here](examples/oauth.js) there is a suggested implementation for login.
 
-### Handlers
+## Documentation
 
-Methods for retrieving and managing information about entities.
-
-##### Commons methods
-
-* `convert(object)`
-
-##### Playlist
-
-* `search(name)`
-* `featuredPlaylists()`
-* `categoriesPlaylists(id)`
-* `addTracks([uris], user_id, playlist_id)`
-* `removeTracks([uris], user_id, playlist_id)`
-* `follow()`
-* `unfollow()`
-* `create()`
-* `edit()`
-* `reorder()` TODO
-* `replace()` TODO
-* `isFollowing()` TODO
-
-##### Track
-
-* `search(name)`
-* `get(id|[ids])`
-
-##### Album
-
-* `search(name)`
-* `get(id|[ids])`
-* `newReleases()`
-
-##### Artist
-
-* `search(name)`
-* `get(id|[ids])`
-* `albums(id)`
-* `topTracks(user_id, country_iso)`
-* `relatedArtists(user_id)`
-* `follow()`
-* `unfollow()`
-
-### Entities Helpers
-
-Helpers add functionality for Entities.
-
-##### Collection
-
-* `first()`
-* `last()`
-* `index(index)`
-* `next()`
-* `previous()`
-
-##### Playlist
-
-* `addTrack([TrackEntity])`
-* `removeTrack([TrackEntity])`
-* `follow()`
-* `unfollow()`
-* `edit()`
-* `reorder()` TODO
-* `replace()` TODO
-
-##### Track
-
-* `durationM()`
-
-##### Album
-
-##### Artist
-
-* `albums()`
-* `topTracks(country_iso)`
-* `relatedArtists()`
-* `follow()`
-* `unfollow()`
+[Read the documentation here](https://doc.esdoc.org/github.com/loverajoel/spotify-sdk/)
 
 ## Development
 
