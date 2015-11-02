@@ -1,4 +1,4 @@
-#Spotify SDK
+# Spotify SDK
 
 [![npm version](https://badge.fury.io/js/spotify-sdk.svg)](http://badge.fury.io/js/spotify-sdk)  [![Documentation Status](https://doc.esdoc.org/github.com/loverajoel/spotify-sdk/badge.svg)](https://doc.esdoc.org/github.com/loverajoel/spotify-sdk/)
 
@@ -33,7 +33,7 @@ user.me().then((myUser) => { // -> return a User entity with helpers
 
 [Go to the site](http://magicplaylist.co/)
 
-## Installation
+## Getting Started 
 
 You can get it on npm.
 
@@ -79,6 +79,15 @@ client.token = 'TOKEN';
 
 [Read the documentation here](https://doc.esdoc.org/github.com/loverajoel/spotify-sdk/)
 
+## Browser Support 
+
+This SDK use Babel and Polyfill in order to add comptiblity with old browseres.
+
+| <img src="http://vignette2.wikia.nocookie.net/inciclopedia/images/4/45/Google_Chrome_Logo.png/revision/20111125001822" width="48px" height="48px" alt="Chrome logo"> | <img src="http://people.mozilla.org/~faaborg/files/shiretoko/firefoxIcon/firefox-512.png" width="48px" height="48px" alt="Firefox logo"> | <img src="http://vignette1.wikia.nocookie.net/fallout/images/a/a0/Internet_Explorer_9_logo.png/revision/latest?cb=20110908011258&path-prefix=es" width="48px" height="48px" alt="Internet Explorer logo"> | <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Opera_O.png" width="48px" height="48px" alt="Opera logo"> | <img src="http://icons.iconarchive.com/icons/hamzasaleem/stock-style-2/512/Safari-icon.png" width="48px" height="48px" alt="Safari logo"> |
+|:---:|:---:|:---:|:---:|:---:|
+| 42+ ✔ | 41+ ✔ | 9+ ✔ | 29+ ✔ | 8 ✔ |
+
+
 ## Development
 
 `git clone git@github.com:loverajoel/spotify-sdk.git`
@@ -86,6 +95,11 @@ client.token = 'TOKEN';
 `npm install`
 
 `npm run watch`
+
+## Contributing 
+
+Pull requests and issues are very welcome.
+If you have found an bug, please open an issue.
 
 ## License
 
