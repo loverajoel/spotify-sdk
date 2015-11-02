@@ -7,6 +7,10 @@
     "spotify",
     "es6"
   ],
+  "dependencies": {
+    "core-js": "^1.2.0",
+    "whatwg-fetch": "^0.9.0"
+  },
   "devDependencies": {
     "babel": "5.8.23",
     "babelify": "6.3.0",
@@ -21,7 +25,7 @@
   },
   "scripts": {
     "watch": "gulp watch",
-    "build": "babel -d lib/ src/",
+    "build": "NODE_ENV=production babel -d lib/ src/",
     "prepublish": "npm run build"
   },
   "author": "loverajoel",
