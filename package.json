@@ -1,34 +1,34 @@
 {
   "name": "spotify-sdk",
-  "version": "0.0.23",
+  "version": "0.0.28",
   "repository": "loverajoel/spotify-sdk",
   "keywords": [
     "spotify-sdk",
     "spotify",
     "es6"
   ],
+  "dependencies": {
+    "core-js": "^1.2.0",
+    "whatwg-fetch": "^0.9.0"
+  },
   "devDependencies": {
-    "babel": "latest",
-    "babelify": "latest",
-    "browser-sync": "latest",
-    "browserify": "latest",
+    "babel": "5.8.23",
+    "babelify": "6.3.0",
+    "browser-sync": "2.9.7",
+    "browserify": "11.2.0",
     "gulp": "latest",
     "gulp-rename": "latest",
-    "rimraf": "latest",
-    "watchify": "latest",
-    "vinyl-source-stream": "latest",
-    "lodash": "latest"
+    "rimraf": "2.4.3",
+    "watchify": "3.4.0",
+    "vinyl-source-stream": "1.1.0",
+    "lodash": "3.10.1"
   },
   "scripts": {
     "watch": "gulp watch",
-    "build": "babel -d lib/ src/",
+    "build": "NODE_ENV=production babel -d lib/ src/",
     "prepublish": "npm run build"
   },
   "author": "loverajoel",
   "license": "MIT",
-  "main": "lib/index.js",
-  "dependencies": {
-    "core-js": "^1.2.0",
-    "whatwg-fetch": "^0.9.0"
-  }
+  "main": "lib/index.js"
 }
