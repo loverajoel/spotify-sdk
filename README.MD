@@ -1,6 +1,6 @@
 #Spotify SDK
 
-[![npm version](https://badge.fury.io/js/spotify-sdk.svg)](http://badge.fury.io/js/spotify-sdk)
+[![npm version](https://badge.fury.io/js/spotify-sdk.svg)](http://badge.fury.io/js/spotify-sdk)  [![Documentation Status](https://doc.esdoc.org/github.com/loverajoel/spotify-sdk/badge.svg)](https://doc.esdoc.org/github.com/loverajoel/spotify-sdk/)
 
 Entity oriented SDK to work with the [Spotify Web API](https://developer.spotify.com/web-api/).
 
