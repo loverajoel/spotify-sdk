@@ -1,67 +1,67 @@
-/*
- * PlaylistHandler
- * Methods for retrieving information about playlists and for managing playlists.
- *
- * Doc: https://developer.spotify.com/web-api/playlist-endpoints/
- */
 'use strict';
 
 import Playlist from '../helpers/Playlist';
 import Client from '../Client';
 
+/**
+ * Methods for retrieving information about playlists and for managing playlists.
+ *
+ * @see https://developer.spotify.com/web-api/playlist-endpoints/
+ */
 class PlaylistHandler {
 
-    /*
-     * Get a collection of playlists that match a keyword string.
-     * Doc: https://developer.spotify.com/web-api/search-item/
+    /**
+     * Get a collection of artists that match a keyword string.
+     * 
+     * @see https://developer.spotify.com/web-api/search-item/
      *
      * @public
-     * @param {string} name Name of the playlist.
-     * @param {object} query Optional query parameters.
-     * @return {Collection} playlistCollection
+     * @param {String} name Name of the playlist.
+     * @param {Object} [query] Query parameters.
+     * @return {Promise} playlistCollection
      */
     search(name, query) {
         return Client.instance.request(`/search?type=playlist&q=${encodeURIComponent(name)}`, 'GET', query);
     }
 
-    /*
+    /**
      * Get a list of Spotify featured playlists.
-     * Doc: https://developer.spotify.com/web-api/get-list-featured-playlists/
+     * @see https://developer.spotify.com/web-api/get-list-featured-playlists/
      *
      * @public
      * @required {OAuth}
-     * @param {object} query Optional query parameters.
-     * @return {Collection} playlistCollection
+     * @param {Object} [query] Query parameters.
+     * @return {Promise} playlistCollection
      */
     featuredPlaylists(query) {
         return Client.instance.request(`/browse/featured-playlists`, 'GET', query);
     }
 
-    /*
+    /**
      * Get a list of Spotify playlists tagged with a particular category.
-     * Doc: https://developer.spotify.com/web-api/get-categorys-playlists/
+     * @see https://developer.spotify.com/web-api/get-categorys-playlists/
      *
      * @public
      * @required {OAuth}
      * @param {int} id Category id
-     * @param {object} query Optional query parameters.
-     * @return {Collection} playlistCollection
+     * @param {Object} [query] Query parameters.
+     * @return {Promise} playlistCollection
      */
     categoriesPlaylists(id, query) {
         return Client.instance.request(`/browse/categories/${id}/playlists`, 'GET', query);
     }
 
-    /*
+    /**
      * Add one or more tracks to a user’s playlist.
-     * Doc: https://developer.spotify.com/web-api/add-tracks-to-playlist/
+     * @see https://developer.spotify.com/web-api/add-tracks-to-playlist/
      *
      * @public 
      * @required {OAuth}
      * @param {array} tracks List of uri tracks
-     * @param {string} userId User id
-     * @param {string} playlistId Playlist id
-     * @param {object} query Optional query parameters.
-     * @return {} 
+     * @param {String} userId User id
+     * @param {String} playlistId Playlist id
+     * @param {Object} [query] Query parameters.
+     * @return {Promise} JSON response
      */
     addTracks(tracks, userId, playlistId, query) {
         return Client.instance
@@ -72,17 +72,17 @@ class PlaylistHandler {
             );
     }
 
-    /*
+    /**
      * Remove one or more tracks from a user’s playlist.
-     * Doc: https://developer.spotify.com/web-api/remove-tracks-playlist/
+     * @see https://developer.spotify.com/web-api/remove-tracks-playlist/
      *
      * @public 
      * @required {OAuth}
      * @param {array} tracks List of uri tracks
-     * @param {string} userId User id
-     * @param {string} playlistId Playlist id
-     * @param {object} query Optional query parameters.
-     * @return {} 
+     * @param {String} userId User id
+     * @param {String} playlistId Playlist id
+     * @param {Object} [query] Query parameters.
+     * @return {Promise} JSON response
      */
     removeTracks(tracks, userId, playlistId, query) {
         return Client.instance
@@ -93,16 +93,16 @@ class PlaylistHandler {
             );
     }
 
-    /*
+    /**
      * Add a user as a follower of a playlist.
-     * Doc: https://developer.spotify.com/web-api/follow-playlist/
+     * @see https://developer.spotify.com/web-api/follow-playlist/
      *
      * @public 
      * @required {OAuth}
-     * @param {string} userId User id
-     * @param {string} playlistId Playlist id
-     * @param {object} query Optional query parameters.
-     * @return {} 
+     * @param {String} userId User id
+     * @param {String} playlistId Playlist id
+     * @param {Object} [query] Query parameters.
+     * @return {Promise} JSON response
      */
     follow(userId, playlistId, query) {
         return Client.instance
@@ -112,16 +112,16 @@ class PlaylistHandler {
             );
     }
 
-    /*
+    /**
      * Remove a user as a follower of a playlist.
-     * Doc: https://developer.spotify.com/web-api/unfollow-playlist/
+     * @see https://developer.spotify.com/web-api/unfollow-playlist/
      *
      * @public 
      * @required {OAuth}
-     * @param {string} userId User id
-     * @param {string} playlistId Playlist id
-     * @param {object} query Optional query parameters.
-     * @return {} 
+     * @param {String} userId User id
+     * @param {String} playlistId Playlist id
+     * @param {Object} [query] Query parameters.
+     * @return {Promise} JSON response
      */
     unfollow(userId, playlistId, query) {
         return Client.instance
@@ -131,17 +131,16 @@ class PlaylistHandler {
             );
     }
 
-    /*
+    /**
      * Create a playlist for a Spotify user.
-     * Doc: https://developer.spotify.com/web-api/create-playlist/
+     * @see https://developer.spotify.com/web-api/create-playlist/
      *
      * @public 
      * @required {OAuth}
-     * @param {string} userId User id
-     * @param {string} name Name of the future playlist
-     * @param {bool} public public or private
-     * @param {object} query Optional query parameters.
-     * @return {} 
+     * @param {String} userId User id
+     * @param {String} name Name of the future playlist
+     * @param {Bool} is_public public or private
+     * @return {Promise} JSON response
      */
     create(userId, name, is_public) {
         return Client.instance
@@ -152,18 +151,17 @@ class PlaylistHandler {
             );
     }
 
-    /*
+    /**
      * Change a playlist’s name and public/private state.
-     * Doc: https://developer.spotify.com/web-api/change-playlist-details/
+     * @see https://developer.spotify.com/web-api/change-playlist-details/
      *
      * @public 
      * @required {OAuth}
-     * @param {string} userId User id
-     * @param {string} playlistId Playlist id
-     * @param {string} name Name of the future playlist
-     * @param {bool} public public or private
-     * @param {object} query Optional query parameters.
-     * @return {} 
+     * @param {String} userId User id
+     * @param {String} playlistId Playlist id
+     * @param {String} name Name of the future playlist
+     * @param {Bool} is_public public or private
+     * @return {Promise} JSON response
      */
     edit(userId, playlistId, name, is_public) {
         return Client.instance
@@ -174,10 +172,12 @@ class PlaylistHandler {
             );
     }
 
-    /*
+    /**
+     * Convert a valid object to a Playlist entity
+     * 
      * @public 
-     * @param {object} item Object to convert in entity
-     * @return {Playlist}
+     * @param {Object} item Object to convert in entity
+     * @return {Object}
      */
     convert(item) {
         return new Playlist(item);
@@ -185,4 +185,7 @@ class PlaylistHandler {
 
 }
 
+/**
+ * Exports the PlaylistHandler class.
+ */
 export default PlaylistHandler;

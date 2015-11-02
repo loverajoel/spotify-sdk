@@ -1,23 +1,27 @@
-/*
- * User
- * Add methods to UserEntity
- */
 'use strict';
 
 import UserEntity from '../entities/UserEntity';
 import UserHandler from '../handlers/UserHandler';
 import Factory from '../Factory';
 
+/**
+ * Add helpers methods to UserEntity
+ */
 class User extends UserEntity {
 
+    /**
+     * @param {Object} data User object
+     */
     constructor(data) {
         super(data);
     }
 
-    /*
+    /**
+     * Get user Playlists
+     * 
      * @public 
-     * @param {object} id Optional Playlist id.
-     * @return {Collection} playlistCollection
+     * @param {String} id Playlist id.
+     * @return {Promise}
      */
     playlists(id) {
     	return new UserHandler().playlists(this.id, id);
@@ -25,4 +29,7 @@ class User extends UserEntity {
 
 }
 
+/**
+ * Exports the User class.
+ */
 export default User;

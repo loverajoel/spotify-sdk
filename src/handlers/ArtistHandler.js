@@ -1,37 +1,38 @@
-/*
- * ArtistHandler
- * Methods for retrieving information about one or more artists from the Spotify catalog.
- *
- * API Doc: https://developer.spotify.com/web-api/artist-endpoints/
- */
 'use strict';
 
 import Artist from '../helpers/Artist';
 import Client from '../Client';
 
+/**
+ * Methods for retrieving information about one or more artists from the Spotify catalog.
+ *
+ * @see https://developer.spotify.com/web-api/artist-endpoints/
+ */
 class ArtistHandler {
 
-    /*
+    /**
      * Get a collection of artists that match a keyword string.
-     * Doc: https://developer.spotify.com/web-api/search-item/
+     *
+     * @see https://developer.spotify.com/web-api/search-item/
      *
      * @public
-     * @param {string} name Name of the artist.
-     * @param {object} query Optional query parameters.
-     * @return {Collection} artistCollection
+     * @param {String} name Name of the artist.
+     * @param {Object} [query] Query parameters.
+     * @return {Promise} artistCollection
      */
     search(name, query) {
         return Client.instance.request(`/search?type=artist&q=${encodeURIComponent(name)}`, 'GET', query);
     }
 
-    /*
+    /**
      * Get a single/collection of artist/s identified by its unique/list of Spotify ID.
-     * Doc: https://developer.spotify.com/web-api/get-artist/
+     *
+     * @see https://developer.spotify.com/web-api/get-artist/
      *
      * @public 
-     * @param {string|array} ids Artist id/ids to retrive
-     * @param {object} query Optional query parameters.
-     * @return {Artist|Collection} Artist|artistCollection
+     * @param {String|Array} ids Artist id/ids to retrive
+     * @param {Object} [query] Query parameters.
+     * @return {Promise} Artist|artistCollection
      */
     get(ids, query) {
         if (Array.isArray(ids)) {
@@ -41,52 +42,56 @@ class ArtistHandler {
         }
     }
 
-    /*
+    /**
      * Get Spotify catalog information about an artist’s albums.
-     * Doc: https://developer.spotify.com/web-api/get-artists-albums/
+     *
+     * @see https://developer.spotify.com/web-api/get-artists-albums/
      *
      * @public 
-     * @param {string} id Artist id to retrive
-     * @param {object} query Optional query parameters.
-     * @return {Collection} albumsCollection
+     * @param {String} id Artist id to retrive
+     * @param {Object} [query] Query parameters.
+     * @return {Promise} albumsCollection
      */
     albums(id, query) {
         return Client.instance.request(`/artists/${id}/albums`, 'GET', query);
     }
 
-    /*
+    /**
      * Get Spotify catalog information about an artist’s top tracks by country.
-     * Doc: https://developer.spotify.com/web-api/get-artists-top-tracks/
+     *
+     * @see https://developer.spotify.com/web-api/get-artists-top-tracks/
      *
      * @public 
-     * @param {string} id Artist id to retrive top tracks
-     * @param {object} query Optional query parameters. * country is required
-     * @return {Collection} tracksCollection
+     * @param {String} id Artist id to retrive top tracks
+     * @param {Object} [query] Query parameters.
+     * @return {Promise} tracksCollection
      */
     topTracks(id, query) {
         return Client.instance.request(`/artists/${id}/top-tracks`, 'GET', query);
     }
 
-    /*
+    /**
      * Get Spotify catalog information about artists similar to a given artist.
-     * Doc: https://developer.spotify.com/web-api/get-related-artists/
+     *
+     * @see https://developer.spotify.com/web-api/get-related-artists/
      *
      * @public 
-     * @param {string} id Artist id to retrive related artists
-     * @return {Collection} albumsCollection
+     * @param {String} id Artist id to retrive related artists
+     * @param {Object} [query] Query parameters.
+     * @return {Promise} albumsCollection
      */
     relatedArtists(id, query) {
         return Client.instance.request(`/artists/${id}/related-artists`, 'GET', query);
     }
 
-    /*
+    /**
      * Add the current user as a follower of one or more artists.
-     * Doc: https://developer.spotify.com/web-api/follow-artists-users/
+     *
+     * @see https://developer.spotify.com/web-api/follow-artists-users/
      *
      * @public 
-     * @required {OAuth}
-     * @param {array} artists List of artists ids
-     * @return {} 
+     * @param {Array} artists List of artists ids
+     * @return {Promise} JSON reponse
      */
     follow(artists) {
         return Client.instance
@@ -97,14 +102,14 @@ class ArtistHandler {
             );
     }
 
-     /*
+     /**
      * Remove the current user as a follower of one or more artists.
-     * Doc: https://developer.spotify.com/web-api/unfollow-artists-users/
+     *
+     * @see https://developer.spotify.com/web-api/unfollow-artists-users/
      *
      * @public 
-     * @required {OAuth}
-     * @param {array} artists List of artists ids
-     * @return {} 
+     * @param {Array} artists List of artists ids
+     * @return {Promise} JSON reponse
      */
     unfollow(artists) {
         return Client.instance
@@ -115,10 +120,12 @@ class ArtistHandler {
             );
     }
 
-    /*
+    /**
+     * Convert a valid object to a Artist entity
+     * 
      * @public 
-     * @param {object} item Object to convert in entity
-     * @return {Playlist}
+     * @param {Object} item Object to convert in entity
+     * @return {Object} Artist
      */
     convert(item) {
         return new Artist(item);
@@ -126,4 +133,7 @@ class ArtistHandler {
 
 }
 
+/**
+ * Exports the AlbumHandler class.
+ */
 export default ArtistHandler;

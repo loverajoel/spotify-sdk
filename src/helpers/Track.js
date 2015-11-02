@@ -1,33 +1,36 @@
-/*
- * Track
- * Add methods to TrackEntity
- */
 'use strict';
 
 import TrackEntity from '../entities/TrackEntity';
 import TrackHandler from '../handlers/TrackHandler';
 import Factory from '../Factory';
 
+/**
+ * Add helpers methods to TrackEntity
+ */
 class Track extends TrackEntity {
 
+    /**
+     * @param {Object} data Track object
+     */
     constructor(data) {
         super(data);
     }
 
-    /*
+    /**
+     * Get a list of Tracks of an Artist.
+     * 
      * @public 
-     * @override
-     * @return {Collection} artistCollection
+     * @return {Promise}
      */
     get artists() {
         return Factory(this._artists);
     }
 
-    /*
+    /**
      * Convert duration from ms to m
      *
      * @public 
-     * @return {string} mm:ss
+     * @return {String} mm:ss
      */
     get durationM() {
         let x = ~~( Number( this._duration_ms ) / 1000 );
@@ -40,4 +43,7 @@ class Track extends TrackEntity {
 
 }
 
+/**
+ * Exports the Track class.
+ */
 export default Track;

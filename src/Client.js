@@ -5,8 +5,16 @@ import Factory from './Factory';
 var singleton = Symbol();
 var singletonEnforcer = Symbol();
 
+/**
+ * Client is the responsible of comunicate with the API.
+ */
 class Client {
     
+    /**
+     * Constructor
+     * 
+     * @param {Symbol} enforcer 
+     */
     constructor(enforcer) {
         this._token = null;
         this._clientId = null;
@@ -18,7 +26,12 @@ class Client {
             throw "Cannot construct singleton";   
         }
     }
-
+    
+    /**
+     * Get the current instance of Client
+     * 
+     * @return {Object} instance
+     */
     static get instance() {
         if(!this[singleton]) {
           this[singleton] = new Client(singletonEnforcer);
@@ -26,6 +39,11 @@ class Client {
         return this[singleton];
     }
 
+    /**
+     * Set settings
+     * 
+     * @param {Object} settings Settings
+     */
     set settings(settings) {
         this._token = settings.token;
         this._clientId = settings.clientId;
@@ -34,14 +52,30 @@ class Client {
         this._redirect_uri = settings.redirect_uri;
     }
 
+    /**
+     * Set token
+     * 
+     * @param {String} data Token
+     */
     set token(data) {
         this._token = data;
     }
 
+    /**
+     * Get the current token
+     * 
+     * @return {String} Current token
+     */
     get token() {
         return this._token;
     }
     
+    /**
+     * This method fires a new window that allow login
+     * 
+     * @param  {Function} callback
+     * @return {Function|Promise}
+     */
     login(callback) {
         let url_login = 'https://accounts.spotify.com/en/authorize?response_type=token&client_id='+
                 this._clientId+'&redirect_uri='+encodeURIComponent(this._redirect_uri)+
@@ -55,12 +89,24 @@ class Client {
         }
     }
 
+    /**
+     * @param  {String} url Endpoint
+     * @param  {String} method Method GET, POST, PUT or DELETE
+     * @param  {Object} body Objet to send in the body
+     * @return {Promise}
+     */
     request(url, method, body) {
-        return this.fetch(url, method, body).then((data) => {
+        return this.fetch(url, method, body).then(function(data) {
             return Factory(data);
         }.bind(this));
     }
 
+    /**
+     * Function that encode objects
+     * 
+     * @param  {Object} obj Object to encode
+     * @return {String} A encode object
+     */
     toQueryString(obj) {
       var str = [];
       for(var p in obj)
@@ -70,6 +116,12 @@ class Client {
       return str.join("&");
     }
 
+    /**
+     * @param  {String} endpoint Endpoint
+     * @param  {String} method Method GET, POST, PUT or DELETE
+     * @param  {Object} body Objet to send in the body
+     * @return {Promise}
+     */
     fetch(endpoint, method, body) {
         let _headers = { 'Accept': 'application/json'};
         let _url;
@@ -117,4 +169,7 @@ class Client {
     };
 }
 
+/**
+ * Exports the Client class.
+ */
 export default Client;

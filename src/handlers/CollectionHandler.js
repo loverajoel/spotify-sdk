@@ -2,8 +2,20 @@
 
 import Collection from '../helpers/Collection';
 
+/**
+ * Collection constructor
+ */
 class CollectionHandler {
 
+	/**
+     * Constructor
+     * 
+     * @public 
+     * @param {Array} items Entity list
+     * @param {Object} handler Entity handler
+     * @param {Object} source Original response
+     * @return {Array} Collection
+     */
 	constructor(items, handler, source) {
 		var collection = new Collection(source);
 		
@@ -20,4 +32,7 @@ class CollectionHandler {
 
 }
 
+/**
+ * Exports the CollectionHandler class.
+ */
 export default CollectionHandler;

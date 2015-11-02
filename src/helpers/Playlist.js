@@ -1,33 +1,39 @@
-/*
- * Plalist
- * Add methods to PlaylistEntity
- */
 'use strict';
 
 import PlaylistEntity from '../entities/PlaylistEntity';
 import PlaylistHandler from '../handlers/PlaylistHandler';
 import Factory from '../Factory';
 
+/**
+ * Add helpers methods to PlaylistEntity
+ */
 class Playlist extends PlaylistEntity {
 
+    /**
+     * @param {Object} data Playlist object
+     */
     constructor(data) {
         super(data);
     }
 
-    /*
+    /**
+     * Get a list of Tracks of a Playlist.
+     * 
      * @public 
      * @override
-     * @return {Collection} trackCollection
+     * @return {Promise}
      */
     get tracks() {
         return Factory(this._tracks);
     }
 
-    /*
+    /**
+     * Add one or more Tracks to a Playlist.
+     * 
      * @public 
-     * @param {array} tracks Tracks list
-     * @param {object} query Optional query parameters.
-     * @return {object}
+     * @param {Array} tracks Tracks list
+     * @param {Object} [query] Query parameters.
+     * @return {Promise}
      */
     addTrack(tracks, query) {
         let trackList = tracks.map(track => {
@@ -36,11 +42,13 @@ class Playlist extends PlaylistEntity {
         return new PlaylistHandler().addTracks(trackList, this.owner.id, this.id, query);
     }
 
-    /*
+    /**
+     * Remove one or more Tracks to a Playlist.
+     * 
      * @public 
-     * @param {array} tracks Tracks list
-     * @param {object} query Optional query parameters.
-     * @return {object}
+     * @param {Array} tracks Tracks list
+     * @param {Object} [query] Query parameters.
+     * @return {Promise}
      */
     removeTrack(tracks, query) {
         let trackList = tracks.map(track => {
@@ -49,32 +57,40 @@ class Playlist extends PlaylistEntity {
         return new PlaylistHandler().removeTracks(trackList, this.owner.id, this.id, query);
     }
 
-    /*
+    /**
+     * Follow a Playlist
+     * 
      * @public 
-     * @param {object} query Optional query parameters.
-     * @return {object}
+     * @param {Object} [query] query parameters.
+     * @return {Promise}
      */
     follow(query) {
         return new PlaylistHandler().follow(this.owner.id, this.id, query);
     }
 
-    /*
+    /**
+     * Unfollow a Playlist
+     * 
      * @public 
-     * @param {object} query Optional query parameters.
-     * @return {object}
+     * @param {Object} [query] Query parameters.
+     * @return {Promise}
      */
     unfollow(query) {
         return new PlaylistHandler().unfollow(this.owner.id, this.id, query);
     }
 
-    /*
+    /**
+     * Edit a Playlist
+     * 
      * @public 
-     * @return {object}
+     * @return {Promise}
      */
     edit() {
         return new PlaylistHandler().edit(this.owner.id, this.id, this.name, this.public);
     }
-
 }
 
+/**
+ * Exports the Playlist class.
+ */
 export default Playlist;

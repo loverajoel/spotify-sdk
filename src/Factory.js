@@ -8,6 +8,11 @@ import UserHandler from './handlers/UserHandler';
 import CollectionHandler from './handlers/CollectionHandler';
 import Client from './Client';
 
+/**
+ * Factory is the responsible of create new entities or collections
+ *
+ * @param {Object} data Entity object or Api response
+ */
 var Factory = function(data) {
     var _type;
     var _items;
@@ -71,6 +76,9 @@ var Factory = function(data) {
 
 };
 
+/**
+ * Exports a function that init a new Factory.
+ */
 export default function(data) {
     return new Factory(data);
 };

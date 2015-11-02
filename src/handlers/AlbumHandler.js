@@ -1,37 +1,38 @@
-/*
- * AlbumHandler
- * Methods for retrieving information about one or more albums from the Spotify catalog.
- *
- * API Doc: https://developer.spotify.com/web-api/album-endpoints/
- */
 'use strict';
 
 import Album from '../helpers/Album';
 import Client from '../Client';
 
+/**
+ * Methods for retrieving information about one or more albums from the Spotify catalog.
+ *
+ * @see https://developer.spotify.com/web-api/album-endpoints/
+ */
 class AlbumHandler {
 
-    /*
+    /**
      * Get a collection of albums that match a keyword string.
-     * Doc: https://developer.spotify.com/web-api/search-item/
+     *
+     * @see https://developer.spotify.com/web-api/search-item/
      *
      * @public
-     * @param {string} name Name of the album.
-     * @param {object} query Optional query parameters.
-     * @return {Collection} albumsCollection
+     * @param {String} name Name of the album.
+     * @param {Object} [query] Query parameters.
+     * @returns {Promise} albumsCollection
      */
     search(name, query) {
         return Client.instance.request(`/search?type=album&q=${encodeURIComponent(name)}`, 'GET', query);
     }
 
-    /*
+    /**
      * Get a single/collection of album/s identified by its unique/list of Spotify ID.
-     * Doc: https://developer.spotify.com/web-api/get-album/
+     *
+     * @see https://developer.spotify.com/web-api/get-album/
      *
      * @public 
-     * @param {string|array} ids Album id/ids to retrive
-     * @param {object} query Optional query parameters.
-     * @return {Album|Collection} Album|artistCollection
+     * @param {String|Array} ids Album id/ids to retrive
+     * @param {Object} [query] Query parameters.
+     * @returns {Promise} Album|albumsCollection
      */
     get(ids, query) {
         if (Array.isArray(ids)) {
@@ -41,23 +42,26 @@ class AlbumHandler {
         }
     }
 
-    /*
+    /**
      * Get a list of new album releases featured in Spotify.
-     * Doc: https://developer.spotify.com/web-api/get-list-new-releases/
+     *
+     * @see https://developer.spotify.com/web-api/get-list-new-releases/
      *
      * @public 
      * @required {OAuth}
-     * @param {object} query Optional query parameters.
-     * @return {Collection} albumsCollection
+     * @param {Object} [query] Query parameters.
+     * @returns {Promise} albumsCollection
      */
     newReleases(query) {
         return Client.instance.request(`/browse/new-releases`, 'GET', query);
     }
 
-    /*
+    /**
+     * Convert a valid object to a Album entity
+     * 
      * @public 
-     * @param {object} item Object to convert in entity
-     * @return {Album}
+     * @param {Object} item Object to convert in entity
+     * @returns {Object} Album
      */
     convert(item) {
         return new Album(item);
@@ -65,4 +69,7 @@ class AlbumHandler {
 
 }
 
+/**
+ * Exports the AlbumHandler class.
+ */
 export default AlbumHandler;
