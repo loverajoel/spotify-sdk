@@ -2,6 +2,8 @@
 
 [![npm version](https://badge.fury.io/js/spotify-sdk.svg)](http://badge.fury.io/js/spotify-sdk)  [![Documentation Status](https://doc.esdoc.org/github.com/loverajoel/spotify-sdk/badge.svg)](https://doc.esdoc.org/github.com/loverajoel/spotify-sdk/)
 
+> Unofficial SDK recommended for Spotify in his [developer center](https://developer.spotify.com/web-api/code-examples/)
+
 Entity oriented SDK to work with the [Spotify Web API](https://developer.spotify.com/web-api/).
 
 Entity oriented? What? Yes, you will always receive entities+helpers as the API's response.
@@ -25,13 +27,13 @@ user.me().then((myUser) => { // -> return a User entity with helpers
 
 [Complex example](https://github.com/loverajoel/spotify-sdk/blob/master/examples/oauth.js)
 
-## Showcase
+## Showcase - Projects using Spotify-SDK
 
-#### - MagicPlaylist
+#### - [MagicPlaylist](http://magicplaylist.co/)
 
-![MagicPlaylist](https://github.com/loverajoel/magicplaylist/blob/master/app/img/iphone%402x.png)
+#### - [20v](http://20v.co/)
 
-[Go to the site](http://magicplaylist.co/)
+#### - [Infinite Music Trivia](https://imt.rocks/)
 
 ## Getting Started 
 
