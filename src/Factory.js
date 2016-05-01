@@ -34,7 +34,7 @@ var Factory = function(data) {
         _source = data[_type];
     } else if (Array.isArray(data)){
         _type = data[0].type+'s';
-        _items = data; 
+        _items = data;
     } else if (Array.isArray(data.items) && data.items[0].type) {
         _type = data.items[0].type+'s';
         _items = data.items;
@@ -73,6 +73,9 @@ var Factory = function(data) {
         case 'undefineds':
             return data;
             break;
+        case 'audio_features':
+          return data;
+          break;
         default:
             return Client.instance.request(data.href);
     }

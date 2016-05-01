@@ -18,8 +18,8 @@ class Track extends TrackEntity {
 
     /**
      * Get a list of Tracks of an Artist.
-     * 
-     * @public 
+     *
+     * @public
      * @return {Promise}
      */
     get artists() {
@@ -29,7 +29,7 @@ class Track extends TrackEntity {
     /**
      * Convert duration from ms to m
      *
-     * @public 
+     * @public
      * @return {String} mm:ss
      */
     get durationM() {
@@ -39,6 +39,10 @@ class Track extends TrackEntity {
         x = ~~( x / 60 );
         let minutes = x % 60;
         return `${ minutes }:${ seconds }`;
+    }
+
+    audioFeatures() {
+      return new TrackHandler().audioFeatures(this.id);
     }
 
 }

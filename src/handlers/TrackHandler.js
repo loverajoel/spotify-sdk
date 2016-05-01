@@ -12,7 +12,7 @@ class TrackHandler {
 
     /**
      * Get a collection of tracks that match a keyword string.
-     * 
+     *
      * @see https://developer.spotify.com/web-api/search-item/
      *
      * @public
@@ -26,10 +26,10 @@ class TrackHandler {
 
     /**
      * Get a single/collection of track/s identified by its unique/list of Spotify ID.
-     * 
+     *
      * @see https://developer.spotify.com/web-api/get-albums-tracks/ FIXME: check the url
      *
-     * @public 
+     * @public
      * @param {String|Array} ids Track id/ids to retrive
      * @param {Object} [query] Query parameters.
      * @return {Promise} Track|trackCollection
@@ -43,9 +43,22 @@ class TrackHandler {
     }
 
     /**
+     * Get audio feature information for a single track identified by its unique Spotify ID
+     *
+     * @see https://developer.spotify.com/web-api/get-audio-features/
+     *
+     * @public
+     * @param {Int} id Track id
+     * @return {Promise} Track|trackCollection
+     */
+    audioFeatures(id) {
+      return Client.instance.request(`/audio-features/${id}`, 'GET');
+    }
+
+    /**
      * Convert a valid object to a Track entity
-     * 
-     * @public 
+     *
+     * @public
      * @param {Object} item Object to convert in entity
      * @return {Object}
      */
