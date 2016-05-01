@@ -27,6 +27,18 @@ class User extends UserEntity {
     	return new UserHandler().playlists(this.id, id);
     }
 
+    /**
+     * Check if a user follow an album, artist or user
+     *
+     * @public 
+     * @param {String} type artist, album or user
+     * @param {Array} ids User id list
+     * @return {Promise} JSON response
+     */
+    contains(type, ids) {
+        return new UserHandler().contains(type, ids);
+    }
+
 }
 
 /**

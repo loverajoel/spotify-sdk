@@ -69,6 +69,17 @@ class Artist extends ArtistEntity {
     unfollow(query) {
         return new ArtistHandler().unfollow([this.id], query);
     }
+
+    /**
+     * Verify if a user follow an Artist
+     * 
+     * @public 
+     * @param {Array} [ids] User ids list.
+     * @return {Promise}
+     */
+    contains(ids) {
+        return new ArtistHandler().contains(this.id, ids);
+    }
 }
 
 /**

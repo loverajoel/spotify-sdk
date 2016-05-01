@@ -132,6 +132,25 @@ class PlaylistHandler {
     }
 
     /**
+     * Check to see if one or more Spotify users are following a specified playlist.
+     * @see https://developer.spotify.com/web-api/check-user-following-playlist/
+     *
+     * @public 
+     * @required {OAuth}
+     * @param {Array} ids User id list
+     * @param {String} userId User id
+     * @param {String} playlistId Playlist id
+     * @return {Promise} JSON response
+     */
+    contains(userId, playlistId, ids) {
+        return Client.instance.request(
+            `/users/${userId}/playlists/${playlistId}/followers/contains`,
+            'GET',
+            {ids: ids}
+        );
+    }
+
+    /**
      * Create a playlist for a Spotify user.
      * @see https://developer.spotify.com/web-api/create-playlist/
      *

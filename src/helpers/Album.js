@@ -14,7 +14,7 @@ class Album extends AlbumEntity {
      */
     constructor(data) {
         super(data);
-    } 
+    }
 }
 
 /**

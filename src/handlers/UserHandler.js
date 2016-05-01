@@ -58,6 +58,39 @@ class UserHandler {
     }
 
     /**
+     * Check if a user follow an album, artist , track or user
+     * @see https://developer.spotify.com/web-api/check-users-saved-albums/
+     * @see https://developer.spotify.com/web-api/check-current-user-follows/
+     *
+     * @public 
+     * @required {OAuth} user-follow-read scope
+     * @param {String} type artist, album or user
+     * @param {Array} ids User id list
+     * @return {Promise} JSON response
+     */
+    contains(type, ids) {
+        if (type === 'album') {
+            return Client.instance.request(
+                `/me/albums/contains`,
+                'GET',
+                {ids: ids}
+            );
+        } else if (type === 'track') {
+            return Client.instance.request(
+                `/me/tracks/contains`,
+                'GET',
+                {ids: ids}
+            );
+        } else {
+            return Client.instance.request(
+                `/me/following/contains`,
+                'GET',
+                {ids: ids, type: type}
+            );
+        }
+    }
+
+    /**
      * Convert a valid object to a User entity
      * 
      * @public 

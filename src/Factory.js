@@ -70,6 +70,9 @@ var Factory = function(data) {
         case 'user':
             return new UserHandler().convert(_items);
             break;
+        case 'undefineds':
+            return data;
+            break;
         default:
             return Client.instance.request(data.href);
     }

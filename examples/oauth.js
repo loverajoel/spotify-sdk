@@ -14,10 +14,10 @@ import ArtistHandler from '../src/handlers/ArtistHandler';
 let client = Client.instance;
 
 client.settings = {
-    clientId: 'CLIENT_ID', 
-    secretId: 'SECRET_ID',
-    scopes: ['user-follow-modify'],
-    redirect_uri: 'http://localhost:3000/examples/oauth.html'
+    clientId: '6543157091a64e91ad449ca55b98a9c0', 
+    secretId: 'd4644085638d4eaaaa2cdea1ca65734e',
+    scopes: ['user-follow-modify user-follow-read user-library-read'],
+    redirect_uri: 'http:localhost:3000/examples/oauth.html'
 };
 
 /*
@@ -50,25 +50,25 @@ var user = new UserHandler();
  * #1 example
  * Get the current user.
  */
-user.me().then((userEntity) => {
-    console.log(userEntity);
-});
+ user.me().then((userEntity) => {
+     console.log(userEntity);
+ });
 
 /*
  * #2 example
  * Get the user by id, should return a User entity.
  */
-user.get('1258448899').then((userEntity) => {
-    console.log(userEntity);
-});
+ user.get('1258448899').then((userEntity) => {
+     console.log(userEntity);
+ });
 
 /*
  * #3 example
  * Get the playlists by user id, should return a Playlist collection.
  */
-user.playlists('1258448899').then((playlistCollection) => {
-    console.log(playlistCollection);
-});
+ user.playlists('1258448899').then((playlistCollection) => {
+     console.log(playlistCollection);
+ });
 
 /*
  * Awesome Exmaple
@@ -81,12 +81,20 @@ user.playlists('1258448899').then((playlistCollection) => {
  */
 
 user.me().then((user) => {
+    user.contains('user', ['11144364386']).then(res => {
+        console.log(res)
+    });
     user.playlists().then((playlistCollection) => {
         let PlaylistEntity = playlistCollection.first();
+
+        PlaylistEntity.contains(['1258448899']).then(res => {
+            console.log(res)
+        });
+
         PlaylistEntity.tracks.then(tracksCollection => {
             let ArtistEntity = tracksCollection[0].artists[0];
             ArtistEntity.albums().then(albumsCollection => {
-                console.log(albumsCollection); // Wooo!!!
+                console.log(albumsCollection);  //Wooo!!!
             });
         });
     });
@@ -107,25 +115,25 @@ new TrackHandler().search('Ginza').then(trackCollection => {
     myTrack = trackCollection.first();
 });
 
-user.me().then((user) => {
-    user.playlists('5ViEO6BLk3KN1W6PkkS4TQ').then((playlistEntity) => { 
-        playlistEntity.addTrack([myTrack]).then(() => {
-            playlistEntity.removeTrack([myTrack]);
-        });
-    });
-});
+ user.me().then((user) => {
+     user.playlists('5ViEO6BLk3KN1W6PkkS4TQ').then((playlistEntity) => { 
+         playlistEntity.addTrack([myTrack]).then(() => {
+             playlistEntity.removeTrack([myTrack]);
+         });
+     });
+ });
 
 /*
  * Follow a artist
  */
-var artist = new ArtistHandler();
+ var artist = new ArtistHandler();
 
 /*
  * #4 example
  * Get artit with the name 'Muse', follow and unfollow.
  */
-artist.search('Muse').then((artistCollection) => {
-    var muse = artistCollection.first();
-    muse.follow();
-    muse.unfollow();
-});
+ artist.search('Muse').then((artistCollection) => {
+     var muse = artistCollection.first();
+     muse.follow();
+     muse.unfollow();
+ });

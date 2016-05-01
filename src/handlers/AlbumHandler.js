@@ -48,7 +48,7 @@ class AlbumHandler {
      * @see https://developer.spotify.com/web-api/get-list-new-releases/
      *
      * @public 
-     * @required {OAuth}
+     * @required {OAuth} user-library-read
      * @param {Object} [query] Query parameters.
      * @returns {Promise} albumsCollection
      */

@@ -80,6 +80,17 @@ class Playlist extends PlaylistEntity {
     }
 
     /**
+     * Verify if a user follow a playlist
+     * 
+     * @public 
+     * @param {Array} [ids] User ids list.
+     * @return {Promise}
+     */
+    contains(ids) {
+        return new PlaylistHandler().contains(this.owner.id, this.id, ids);
+    }
+
+    /**
      * Edit a Playlist
      * 
      * @public 
