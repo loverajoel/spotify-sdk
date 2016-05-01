@@ -12,10 +12,10 @@ class UserHandler {
 
     /**
      * Get detailed profile information about the current user.
-     * 
+     *
      * @see https://developer.spotify.com/web-api/get-current-users-profile/
      *
-     * @public 
+     * @public
      * @required {OAuth}
      * @return {Promise} User
      */
@@ -25,10 +25,10 @@ class UserHandler {
 
     /**
      * Get public profile information about a Spotify user.
-     * 
+     *
      * @see https://developer.spotify.com/web-api/get-users-profile/
      *
-     * @public 
+     * @public
      * @param {String} id User id to retrive
      * @required {OAuth}
      * @return {Promise} User
@@ -39,10 +39,10 @@ class UserHandler {
 
     /**
      * Get a list of the playlists owned or followed by a Spotify user.
-     * 
+     *
      * @see https://developer.spotify.com/web-api/get-list-users-playlists/
      *
-     * @public 
+     * @public
      * @param {String} id User User id
      * @param {String} [playlistId] id to retrive playlists
      * @param {Object} [query] Query parameters.
@@ -62,7 +62,7 @@ class UserHandler {
      * @see https://developer.spotify.com/web-api/check-users-saved-albums/
      * @see https://developer.spotify.com/web-api/check-current-user-follows/
      *
-     * @public 
+     * @public
      * @required {OAuth} user-follow-read scope
      * @param {String} type artist, album or user
      * @param {Array} ids User id list
@@ -91,9 +91,23 @@ class UserHandler {
     }
 
     /**
+     * Get the current user’s top artists or tracks based on calculated affinity.
+     * @see https://developer.spotify.com/web-api/get-users-top-artists-and-tracks/
+     *
+     * @public
+     * @required {OAuth} user-top-read
+     * @param {String} type artists or tracks
+     * @param {Object} query limit, offset or time_range(long_term, medium_term, short_term)
+     * @return {Promise} JSON response
+     */
+    top(type, query) {
+      return Client.instance.request(`/me/top/${type}`, 'GET', query);
+    }
+
+    /**
      * Convert a valid object to a User entity
-     * 
-     * @public 
+     *
+     * @public
      * @param {object} item Object to convert in entity
      * @return {Object}
      */

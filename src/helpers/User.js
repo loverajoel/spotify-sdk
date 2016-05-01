@@ -18,8 +18,8 @@ class User extends UserEntity {
 
     /**
      * Get user Playlists
-     * 
-     * @public 
+     *
+     * @public
      * @param {String} id Playlist id.
      * @return {Promise}
      */
@@ -30,13 +30,26 @@ class User extends UserEntity {
     /**
      * Check if a user follow an album, artist or user
      *
-     * @public 
+     * @public
      * @param {String} type artist, album or user
      * @param {Array} ids User id list
      * @return {Promise} JSON response
      */
     contains(type, ids) {
         return new UserHandler().contains(type, ids);
+    }
+
+    /**
+     * Get a User’s Top Artists and Tracks
+     *
+     * @public
+     * @required {OAuth} user-top-read
+     * @param {String} type artists or tracks
+     * @param {Object} query limit, offset or time_range(long_term, medium_term, short_term)
+     * @return {Promise} JSON response
+     */
+    top(type, query) {
+        return new UserHandler().top(type, query);
     }
 
 }
