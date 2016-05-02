@@ -21,7 +21,7 @@ class TrackHandler {
      * @return {Promise} trackCollection
      */
     search(name, query) {
-        return Client.instance.request(`/search?type=track&q=${encodeURIComponent(name)}`, 'GET', query);
+      return Client.instance.request(`/search?type=track&q=${encodeURIComponent(name)}`, 'GET', query);
     }
 
     /**
@@ -35,11 +35,11 @@ class TrackHandler {
      * @return {Promise} Track|trackCollection
      */
     get(ids, query) {
-        if (Array.isArray(ids)) {
-            return Client.instance.request(`/tracks/?ids=${ids}`, 'GET', query);
-        } else {
-            return Client.instance.request(`/tracks/${ids}`, 'GET', query);
-        }
+      if (Array.isArray(ids)) {
+        return Client.instance.request(`/tracks/?ids=${ids}`, 'GET', query);
+      } else {
+        return Client.instance.request(`/tracks/${ids}`, 'GET', query);
+      }
     }
 
     /**
@@ -48,11 +48,15 @@ class TrackHandler {
      * @see https://developer.spotify.com/web-api/get-audio-features/
      *
      * @public
-     * @param {Int} id Track id
+     * @param {In/Arrayt} ids Track id or ids
      * @return {Promise} Track|trackCollection
      */
-    audioFeatures(id) {
-      return Client.instance.request(`/audio-features/${id}`, 'GET');
+    audioFeatures(ids) {
+      if (Array.isArray(ids)) {
+        return Client.instance.request(`/audio-features`, 'GET', {ids: ids});
+      } else {
+        return Client.instance.request(`/audio-features/${ids}`, 'GET');
+      }
     }
 
     /**
@@ -63,11 +67,11 @@ class TrackHandler {
      * @return {Object}
      */
     convert(item) {
-        if (item.uri) {
-            return new Track(item);
-        } else {
-            return new Track(item.track);
-        }
+      if (item.uri) {
+        return new Track(item);
+      } else {
+        return new Track(item.track);
+      }
     }
 
 }

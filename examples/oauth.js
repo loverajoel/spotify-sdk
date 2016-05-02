@@ -14,10 +14,10 @@ import ArtistHandler from '../src/handlers/ArtistHandler';
 let client = Client.instance;
 
 client.settings = {
-    clientId: '6543157091a64e91ad449ca55b98a9c0', 
+    clientId: '6543157091a64e91ad449ca55b98a9c0',
     secretId: 'd4644085638d4eaaaa2cdea1ca65734e',
-    scopes: ['user-follow-modify user-follow-read user-library-read'],
-    redirect_uri: 'http:localhost:3000/examples/oauth.html'
+    scopes: ['user-follow-modify user-follow-read user-library-read user-top-read'],
+    redirect_uri: 'http://localhost:3000/examples/oauth.html'
 };
 
 /*
@@ -39,6 +39,17 @@ function login() {
 	});
 }
 document.querySelector('#login').onclick = login;
+
+
+/*
+ * TrackHandlers Examples
+ *
+ */
+let track = new TrackHandler();
+
+track.audioFeatures(['2UzMpPKPhbcC8RbsmuURAZ']).then(response => {
+  console.log(response);
+});
 
 /*
  * UserHandler Examples
@@ -84,6 +95,11 @@ user.me().then((user) => {
     user.contains('user', ['11144364386']).then(res => {
         console.log(res)
     });
+    user.top('tracks').then(res => {
+      res.first().audioFeatures().then(response => {
+        console.log(response)
+      });
+    });
     user.playlists().then((playlistCollection) => {
         let PlaylistEntity = playlistCollection.first();
 
@@ -116,7 +132,7 @@ new TrackHandler().search('Ginza').then(trackCollection => {
 });
 
  user.me().then((user) => {
-     user.playlists('5ViEO6BLk3KN1W6PkkS4TQ').then((playlistEntity) => { 
+     user.playlists('5ViEO6BLk3KN1W6PkkS4TQ').then((playlistEntity) => {
          playlistEntity.addTrack([myTrack]).then(() => {
              playlistEntity.removeTrack([myTrack]);
          });

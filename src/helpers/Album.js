@@ -10,11 +10,11 @@ import Factory from '../Factory';
 class Album extends AlbumEntity {
 
 	/**
-     * @param {Object} data Album object
-     */
-    constructor(data) {
-        super(data);
-    }
+   * @param {Object} data Album object
+   */
+  constructor(data) {
+    super(data);
+  }
 }
 
 /**

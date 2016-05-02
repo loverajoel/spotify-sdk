@@ -8,21 +8,21 @@ import Collection from '../helpers/Collection';
 class CollectionHandler {
 
 	/**
-     * Constructor
-     * 
-     * @public 
-     * @param {Array} items Entity list
-     * @param {Object} handler Entity handler
-     * @param {Object} source Original response
-     * @return {Array} Collection
-     */
+   * Constructor
+   *
+   * @public
+   * @param {Array} items Entity list
+   * @param {Object} handler Entity handler
+   * @param {Object} source Original response
+   * @return {Array} Collection
+   */
 	constructor(items, handler, source) {
-		var collection = new Collection(source);
-		
+		let collection = new Collection(source);
+
 		items.map((item) => {
 			return collection.push(new handler().convert(item));
 		});
-		
+
 		if (collection.length) {
 			collection.type = collection[0].type;
 		}

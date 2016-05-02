@@ -13,7 +13,7 @@ import ArtistHandler from '../src/handlers/ArtistHandler';
 let client = Client.instance;
 
 client.settings = {
-	clientId: 'CLIENT_ID', 
+	clientId: 'CLIENT_ID',
     secretId: 'SECRET_ID'
 };
 
