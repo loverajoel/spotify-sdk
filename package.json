@@ -7,28 +7,50 @@
     "spotify",
     "es6"
   ],
-  "dependencies": {
-    "core-js": "^1.2.0",
-    "whatwg-fetch": "^0.9.0"
-  },
   "devDependencies": {
-    "babel": "5.8.23",
-    "babelify": "6.3.0",
-    "browser-sync": "2.9.7",
-    "browserify": "11.2.0",
-    "gulp": "latest",
-    "gulp-rename": "latest",
-    "rimraf": "2.4.3",
-    "watchify": "3.4.0",
-    "vinyl-source-stream": "1.1.0",
-    "lodash": "3.10.1"
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.3.26",
+    "babel-eslint": "^6.1.2",
+    "babel-loader": "^6.2.0",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "core-js": "^2.0.3",
+    "cross-env": "^2.0.0",
+    "eslint": "^2.9.0",
+    "eslint-config-rackt": "^1.1.1",
+    "eslint-plugin-import": "^1.12.0",
+    "eslint-plugin-jsx-a11y": "^1.0.0",
+    "eslint-plugin-react": "^5.2.2",
+    "expect": "^1.20.2",
+    "exports-loader": "^0.6.3",
+    "extract-text-webpack-plugin": "^0.9.1",
+    "imports-loader": "^0.6.5",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-cli": "^0.1.2",
+    "karma-coverage": "^0.5.5",
+    "karma-mocha": "^0.2.2",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.4.5",
+    "phantomjs": "^2.1.3",
+    "webpack": "^1.12.9"
+  },
+  "dependencies": {
+    "es5-shim": "^4.5.9",
+    "es6-shim": "^0.35.1",
+    "eslint-loader": "^1.3.0",
+    "node-fetch": "latest",
+    "json-loader": "^0.5.4"
   },
   "scripts": {
     "watch": "gulp watch",
-    "build": "NODE_ENV=production babel -d lib/ src/",
+    "build": "NODE_ENV=production ./node_modules/.bin/webpack --config ./webpack/build.js --progress --colors",
     "prepublish": "npm run build"
   },
   "author": "loverajoel",
   "license": "MIT",
-  "main": "lib/index.js"
+  "main": "lib/dist.js"
 }
