@@ -1,4 +1,5 @@
 import Factory from './Factory';
+// import fetch from 'node-fetch';
 
 let singleton = Symbol();
 let singletonEnforcer = Symbol();
