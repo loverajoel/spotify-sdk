@@ -1,6 +1,5 @@
 node_modules
 dist
-lib
 .tmp
 .DS_Store
 npm-debug.log
