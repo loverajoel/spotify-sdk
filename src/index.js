@@ -18,24 +18,24 @@ import Playlist from './helpers/Playlist';
 import User from './helpers/User';
 import Collection from './helpers/Collection';
 
-export default {
-	Client: Client,
-	ArtistHandler: ArtistHandler,
-	AlbumHandler: AlbumHandler,
-	TrackHandler: TrackHandler,
-	PlaylistHandler: PlaylistHandler,
-	UserHandler: UserHandler,
-	CollectionHandler: CollectionHandler,
-	ArtistEntity: ArtistEntity,
-	AlbumEntity: AlbumEntity,
-	TrackEntity: TrackEntity,
-	PlaylistEntity: PlaylistEntity,
-	UserEntity: UserEntity,
-	CollectionEntity: CollectionEntity,
-	Artist: Artist,
-	Album: Album,
-	Track: Track,
-	Playlist: Playlist,
-	User: User,
-	Collection: Collection
+export {
+	Client,
+	ArtistHandler,
+	AlbumHandler,
+	TrackHandler,
+	PlaylistHandler,
+	UserHandler,
+	CollectionHandler,
+	ArtistEntity,
+	AlbumEntity,
+	TrackEntity,
+	PlaylistEntity,
+	UserEntity,
+	CollectionEntity,
+	Artist,
+	Album,
+	Track,
+	Playlist,
+	User,
+	Collection
 };

@@ -14,8 +14,9 @@ module.exports = ({
   ],
   output: {
     path: './lib/',
-    filename: 'dist.js',
-    libraryTarget: 'umd',
+    filename: '/dist.js',
+    library: 'spotifySdk',
+    libraryTarget: 'umd'
   },
   module: {
     loaders: [{
@@ -34,17 +35,22 @@ module.exports = ({
     noParse: /node_modules\/quill\/dist/,
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
       }
     }),
     new webpack.ProvidePlugin({
-        'fetch': 'node-fetch',
-        'Map': 'core-js/fn/map',
-        'Symbol': 'core-js/fn/symbol',
-        'Promise': 'core-js/fn/promise',
-        'Object.assign': 'core-js/fn/object/assign'
+      'fetch': 'isomorphic-fetch',
+      'Map': 'core-js/fn/map',
+      'Symbol': 'core-js/fn/symbol',
+      'Promise': 'core-js/fn/promise',
+      'Object.assign': 'core-js/fn/object/assign'
     }),
   ],
   watch: false,
