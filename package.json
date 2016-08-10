@@ -3,7 +3,7 @@
   "version": "1.0.0-beta1",
   "repository": "loverajoel/spotify-sdk",
   "scripts": {
-    "watch": "gulp watch",
+    "start": "./node_modules/.bin/webpack-dev-server --config ./config/dev.conf.js --progress --colors --content-base examples/",
     "build": "./node_modules/.bin/webpack --config ./config/build.conf.js --progress --colors",
     "prepublish": "npm run build",
     "test": "./node_modules/mocha/bin/mocha --require ./config/test.conf.js --compilers -t 10000 js:babel-core/register ./src/**/*-test.js"
@@ -44,7 +44,8 @@
     "eslint-loader": "^1.3.0",
     "isomorphic-fetch": "^2.2.1",
     "json-loader": "^0.5.4",
-    "node-fetch": "latest"
+    "node-fetch": "latest",
+    "webpack-dev-server": "^1.14.1"
   },
   "author": "loverajoel",
   "license": "MIT",
