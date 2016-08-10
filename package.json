@@ -1,6 +1,6 @@
 {
   "name": "spotify-sdk",
-  "version": "0.0.29",
+  "version": "1.0.0-beta1",
   "repository": "loverajoel/spotify-sdk",
   "scripts": {
     "watch": "gulp watch",
