@@ -35,7 +35,7 @@ user.me().then((myUser) => { // -> return a User entity with helpers
 
 #### - [Infinite Music Trivia](https://imt.rocks/)
 
-## Getting Started 
+## Getting Started
 
 You can get it on npm.
 
@@ -81,7 +81,10 @@ client.token = 'TOKEN';
 
 [Read the documentation here](https://doc.esdoc.org/github.com/loverajoel/spotify-sdk/)
 
-## Browser Support 
+## Node Support
+Now you can use the sdk in node!
+
+## Browser Support
 
 This SDK use Babel and Polyfill in order to add comptiblity with old browseres.
 
@@ -98,7 +101,7 @@ This SDK use Babel and Polyfill in order to add comptiblity with old browseres.
 
 `npm run watch`
 
-## Contributing 
+## Contributing
 
 Pull requests and issues are very welcome.
 If you have found an bug, please open an issue.
