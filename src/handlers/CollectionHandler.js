@@ -1,5 +1,4 @@
 "user strict";
-
 import Collection from '../helpers/Collection';
 
 /**
@@ -17,7 +16,14 @@ class CollectionHandler {
    * @return {Array} Collection
    */
 	constructor(items, handler, source) {
-		let collection = new Collection(source);
+    let collectionHelper = new Collection(source);
+    let collection = Object.assign(new Array, collectionHelper);
+    // Super mega hack
+    collection.next = () => collectionHelper.next;
+    collection.previous = () => collectionHelper.previous;
+    collection.last = collectionHelper.last;
+    collection.first = collectionHelper.first;
+    collection.index = collectionHelper.index;
 
 		items.map((item) => {
 			return collection.push(new handler().convert(item));
@@ -26,6 +32,7 @@ class CollectionHandler {
 		if (collection.length) {
 			collection.type = collection[0].type;
 		}
+
 		// collection.source = source; FIXME: review this
 		return collection;
 	}

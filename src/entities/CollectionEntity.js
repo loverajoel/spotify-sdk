@@ -3,7 +3,7 @@
 /**
  * Properties and methods of the Collection Entity
  */
-class Collection extends Array {
+class Collection {
 
   /**
    * Constructor
@@ -11,7 +11,6 @@ class Collection extends Array {
    * @param {Object} data Api object
    */
   constructor(data = {}) {
-    super()
     this._href = data.href;
     this._limit = data.limit;
     this._next = data.next;
