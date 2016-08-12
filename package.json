@@ -1,6 +1,6 @@
 {
   "name": "spotify-sdk",
-  "version": "1.0.0-beta1",
+  "version": "1.0.0-beta2",
   "repository": "loverajoel/spotify-sdk",
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server --config ./config/dev.conf.js --progress --colors --content-base examples/",
