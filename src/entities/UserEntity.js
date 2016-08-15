@@ -25,6 +25,11 @@ class UserEntity {
     this._product = data.product;
     this._type = 'user';
     this._uri = data.uri;
+    this._data = data;
+  }
+
+  toJSON() {
+    return this._data;
   }
 
   /**

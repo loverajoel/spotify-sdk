@@ -55,4 +55,5 @@ module.exports = ({
   ],
   watch: false,
   devtool: 'source-map',
+  target: 'node'
 });

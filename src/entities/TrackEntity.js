@@ -31,6 +31,11 @@ class TrackEntity{
     this._track_number = data.track_number;
     this._type = 'track';
     this._uri = data.uri;
+    this._data = data;
+  }
+
+  toJSON() {
+    return this._data;
   }
 
   /**

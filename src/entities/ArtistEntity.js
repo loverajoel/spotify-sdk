@@ -9,7 +9,7 @@ class ArtistEntity {
 
     /**
      * Constructor
-     * 
+     *
      * @param {Object} data Artist object
      */
     constructor(data = {}) {
@@ -23,6 +23,11 @@ class ArtistEntity {
         this._popularity = data.popularity;
         this._type = data.type;
         this._uri = data.uri;
+        this._data = data;
+    }
+
+    toJSON() {
+      return this._data;
     }
 
     /**

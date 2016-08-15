@@ -27,6 +27,11 @@ class PlaylistEntity {
     this._tracks = data.tracks;
     this._type = data.type;
     this._uri = data.uri;
+    this._data = data;
+  }
+
+  toJSON() {
+    return this._data;
   }
 
   /**

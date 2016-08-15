@@ -17,6 +17,11 @@ class Collection {
     this._offset = data.offset;
     this._previous = data.previous;
     this._total = data.total;
+    this._data = data;
+  }
+
+  toJSON() {
+    return this._data;
   }
 
   /**
