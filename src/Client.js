@@ -1,8 +1,5 @@
 import Factory from './Factory';
 
-let singleton = Symbol();
-let singletonEnforcer = Symbol();
-
 /**
  * Client is the responsible of comunicate with the API.
  */
@@ -11,30 +8,14 @@ class Client {
   /**
    * Constructor
    *
-   * @param {Symbol} enforcer
+   * @param {String} tocken
    */
-  constructor(enforcer) {
-    this._token = null;
-    this._clientId = null;
-    this._secretId = null;
-    this._scopes = null;
-    this._redirect_uri = null;
-
-    if (enforcer != singletonEnforcer) {
-      throw "Cannot construct singleton";
-    }
-  }
-
-  /**
-   * Get the current instance of Client
-   *
-   * @return {Object} instance
-   */
-  static get instance() {
-    if (!this[singleton]) {
-      this[singleton] = new Client(singletonEnforcer);
-    }
-    return this[singleton];
+  constructor(token, clientId, secretId, scopes, redirect_uri) {
+    this._token = token;
+    this._clientId = clientId;
+    this._secretId = secretId;
+    this._scopes = scopes;
+    this._redirect_uri = redirect_uri;
   }
 
   /**
@@ -94,9 +75,9 @@ class Client {
    * @return {Promise}
    */
   request(url, method, body) {
-    return this.fetch(url, method, body).then(function (data) {
-      return Factory(data);
-    }.bind(this));
+    return this.fetch(url, method, body).then((data) => {
+      return Factory(data, new Client(this._token));
+    });
   }
 
   /**

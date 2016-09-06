@@ -1,6 +1,6 @@
 import Client from './Client';
 
-let client = Client.instance;
+let client = new Client();
 
 describe('Client singleton', () => {
 

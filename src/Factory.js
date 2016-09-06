@@ -4,14 +4,14 @@ import TrackHandler from './handlers/TrackHandler';
 import PlaylistHandler from './handlers/PlaylistHandler';
 import UserHandler from './handlers/UserHandler';
 import CollectionHandler from './handlers/CollectionHandler';
-import Client from './Client';
+
 
 /**
  * Factory is the responsible of create new entities or collections
  *
  * @param {Object} data Entity object or Api response
  */
-let Factory = function(data) {
+let Factory = function(data, Client) {
   let _type;
   let _items;
   let _source;
@@ -75,13 +75,13 @@ let Factory = function(data) {
       return data;
       break;
     default:
-      return Client.instance.request(data.href);
+      return Client.request(data.href);
   }
 };
 
 /**
  * Exports a function that init a new Factory.
  */
-export default function(data) {
-  return new Factory(data);
+export default function(data, client) {
+  return new Factory(data, client);
 };

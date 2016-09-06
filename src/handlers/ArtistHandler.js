@@ -1,7 +1,6 @@
 'use strict';
 
 import Artist from '../helpers/Artist';
-import Client from '../Client';
 
 /**
  * Methods for retrieving information about one or more artists from the Spotify catalog.
@@ -9,6 +8,10 @@ import Client from '../Client';
  * @see https://developer.spotify.com/web-api/artist-endpoints/
  */
 class ArtistHandler {
+
+  constructor(client) {
+    this._client = client;
+  }
 
   /**
    * Get a collection of artists that match a keyword string.
@@ -21,7 +24,7 @@ class ArtistHandler {
    * @return {Promise} artistCollection
    */
   search(name, query) {
-    return Client.instance.request(`/search?type=artist&q=${encodeURIComponent(name)}`, 'GET', query);
+    return this._client.request(`/search?type=artist&q=${encodeURIComponent(name)}`, 'GET', query);
   }
 
   /**
@@ -36,9 +39,9 @@ class ArtistHandler {
    */
   get(ids, query) {
     if (Array.isArray(ids)) {
-      return Client.instance.request(`/artists/?ids=${ids}`, 'GET', query);
+      return this._client.request(`/artists/?ids=${ids}`, 'GET', query);
     } else {
-      return Client.instance.request(`/artists/${ids}`, 'GET', query);
+      return this._client.request(`/artists/${ids}`, 'GET', query);
     }
   }
 
@@ -53,7 +56,7 @@ class ArtistHandler {
    * @return {Promise} albumsCollection
    */
   albums(id, query) {
-    return Client.instance.request(`/artists/${id}/albums`, 'GET', query);
+    return this._client.request(`/artists/${id}/albums`, 'GET', query);
   }
 
   /**
@@ -67,7 +70,7 @@ class ArtistHandler {
    * @return {Promise} tracksCollection
    */
   topTracks(id, query) {
-    return Client.instance.request(`/artists/${id}/top-tracks`, 'GET', query);
+    return this._client.request(`/artists/${id}/top-tracks`, 'GET', query);
   }
 
   /**
@@ -81,7 +84,7 @@ class ArtistHandler {
    * @return {Promise} albumsCollection
    */
   relatedArtists(id, query) {
-    return Client.instance.request(`/artists/${id}/related-artists`, 'GET', query);
+    return this._client.request(`/artists/${id}/related-artists`, 'GET', query);
   }
 
   /**
@@ -94,7 +97,7 @@ class ArtistHandler {
    * @return {Promise} JSON reponse
    */
   follow(artists) {
-    return Client.instance
+    return this._client
       .request(
         `/me/following?type=artist`,
         'PUT',
@@ -112,7 +115,7 @@ class ArtistHandler {
    * @return {Promise} JSON reponse
    */
   unfollow(artists) {
-    return Client.instance
+    return this._client
       .request(
         `/me/following?type=artist`,
         'DELETE',

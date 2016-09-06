@@ -1,8 +1,8 @@
 import Client from './../Client';
 import TrackHandler from './TrackHandler';
 
-let client = Client.instance;
-var track = new TrackHandler();
+const client = new Client();
+const track = new TrackHandler(client);
 
 describe('TrackHandler', () => {
 
@@ -16,7 +16,6 @@ describe('TrackHandler', () => {
   it('should return a valid track', (done) => {
     track.search('R U mine?', {limit: 5}).then((trackCollection) => {
       const track = trackCollection.first();
-      console.log(track.name)
       expect(track.name).toBeAn('string')
       done();
     });

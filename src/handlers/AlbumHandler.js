@@ -1,7 +1,6 @@
 'use strict';
 
 import Album from '../helpers/Album';
-import Client from '../Client';
 
 /**
  * Methods for retrieving information about one or more albums from the Spotify catalog.
@@ -9,6 +8,10 @@ import Client from '../Client';
  * @see https://developer.spotify.com/web-api/album-endpoints/
  */
 class AlbumHandler {
+
+  constructor(client) {
+    this._client = client;
+  }
 
   /**
    * Get a collection of albums that match a keyword string.
@@ -21,7 +24,7 @@ class AlbumHandler {
    * @returns {Promise} albumsCollection
    */
   search(name, query) {
-    return Client.instance.request(`/search?type=album&q=${encodeURIComponent(name)}`, 'GET', query);
+    return this._client.request(`/search?type=album&q=${encodeURIComponent(name)}`, 'GET', query);
   }
 
   /**
@@ -36,9 +39,9 @@ class AlbumHandler {
    */
   get(ids, query) {
     if (Array.isArray(ids)) {
-      return Client.instance.request(`/albums/?ids=${ids}`, 'GET', query);
+      return this._client.request(`/albums/?ids=${ids}`, 'GET', query);
     } else {
-      return Client.instance.request(`/albums/${ids}`, 'GET', query);
+      return this._client.request(`/albums/${ids}`, 'GET', query);
     }
   }
 
@@ -53,7 +56,7 @@ class AlbumHandler {
    * @returns {Promise} albumsCollection
    */
   newReleases(query) {
-    return Client.instance.request(`/browse/new-releases`, 'GET', query);
+    return this._client.request(`/browse/new-releases`, 'GET', query);
   }
 
   /**

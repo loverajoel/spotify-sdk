@@ -1,7 +1,6 @@
 'use strict';
 
 import Playlist from '../helpers/Playlist';
-import Client from '../Client';
 
 /**
  * Methods for retrieving information about playlists and for managing playlists.
@@ -9,6 +8,10 @@ import Client from '../Client';
  * @see https://developer.spotify.com/web-api/playlist-endpoints/
  */
 class PlaylistHandler {
+
+  constructor(client) {
+    this._client = client;
+  }
 
   /**
    * Get a collection of artists that match a keyword string.
@@ -21,7 +24,7 @@ class PlaylistHandler {
    * @return {Promise} playlistCollection
    */
   search(name, query) {
-    return Client.instance.request(`/search?type=playlist&q=${encodeURIComponent(name)}`, 'GET', query);
+    return this._client.request(`/search?type=playlist&q=${encodeURIComponent(name)}`, 'GET', query);
   }
 
   /**
@@ -34,7 +37,7 @@ class PlaylistHandler {
    * @return {Promise} playlistCollection
    */
   featuredPlaylists(query) {
-    return Client.instance.request(`/browse/featured-playlists`, 'GET', query);
+    return this._client.request(`/browse/featured-playlists`, 'GET', query);
   }
 
   /**
@@ -48,7 +51,7 @@ class PlaylistHandler {
    * @return {Promise} playlistCollection
    */
   categoriesPlaylists(id, query) {
-    return Client.instance.request(`/browse/categories/${id}/playlists`, 'GET', query);
+    return this._client.request(`/browse/categories/${id}/playlists`, 'GET', query);
   }
 
   /**
@@ -64,7 +67,7 @@ class PlaylistHandler {
    * @return {Promise} JSON response
    */
   addTracks(tracks, userId, playlistId, query) {
-    return Client.instance
+    return this._client
       .request(
         `/users/${userId}/playlists/${playlistId}/tracks`,
         'POST',
@@ -85,7 +88,7 @@ class PlaylistHandler {
    * @return {Promise} JSON response
    */
   removeTracks(tracks, userId, playlistId, query) {
-    return Client.instance
+    return this._client
       .request(
         `/users/${userId}/playlists/${playlistId}/tracks`,
         'DELETE',
@@ -105,7 +108,7 @@ class PlaylistHandler {
    * @return {Promise} JSON response
    */
   follow(userId, playlistId, query) {
-    return Client.instance
+    return this._client
       .request(
         `/users/${userId}/playlists/${playlistId}/followers`,
         'PUT'
@@ -124,7 +127,7 @@ class PlaylistHandler {
    * @return {Promise} JSON response
    */
   unfollow(userId, playlistId, query) {
-    return Client.instance
+    return this._client
       .request(
         `/users/${userId}/playlists/${playlistId}/followers`,
         'DELETE'
@@ -143,7 +146,7 @@ class PlaylistHandler {
    * @return {Promise} JSON response
    */
   contains(userId, playlistId, ids) {
-    return Client.instance.request(
+    return this._client.request(
       `/users/${userId}/playlists/${playlistId}/followers/contains`,
       'GET',
       {ids: ids}
@@ -162,7 +165,7 @@ class PlaylistHandler {
    * @return {Promise} JSON response
    */
   create(userId, name, is_public) {
-    return Client.instance
+    return this._client
       .request(
         `/users/${userId}/playlists`,
         'POST',
@@ -183,7 +186,7 @@ class PlaylistHandler {
    * @return {Promise} JSON response
    */
   edit(userId, playlistId, name, is_public) {
-    return Client.instance
+    return this._client
       .request(
         `/users/${userId}/playlists`,
         'PUT',

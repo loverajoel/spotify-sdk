@@ -1,7 +1,6 @@
 'use strict';
 
 import Track from '../helpers/Track';
-import Client from '../Client';
 
 /**
  * Methods for retrieving information about one or more tracks from the Spotify catalog.
@@ -9,6 +8,10 @@ import Client from '../Client';
  * @see https://developer.spotify.com/web-api/track-endpoints/
  */
 class TrackHandler {
+
+    constructor(client) {
+      this._client = client;
+    }
 
     /**
      * Get a collection of tracks that match a keyword string.
@@ -21,7 +24,7 @@ class TrackHandler {
      * @return {Promise} trackCollection
      */
     search(name, query) {
-      return Client.instance.request(`/search?type=track&q=${encodeURIComponent(name)}`, 'GET', query);
+      return this._client.request(`/search?type=track&q=${encodeURIComponent(name)}`, 'GET', query);
     }
 
     /**
@@ -36,9 +39,9 @@ class TrackHandler {
      */
     get(ids, query) {
       if (Array.isArray(ids)) {
-        return Client.instance.request(`/tracks/?ids=${ids}`, 'GET', query);
+        return this._client.request(`/tracks/?ids=${ids}`, 'GET', query);
       } else {
-        return Client.instance.request(`/tracks/${ids}`, 'GET', query);
+        return this._client.request(`/tracks/${ids}`, 'GET', query);
       }
     }
 
@@ -53,9 +56,9 @@ class TrackHandler {
      */
     audioFeatures(ids) {
       if (Array.isArray(ids)) {
-        return Client.instance.request(`/audio-features`, 'GET', {ids: ids});
+        return this._client.request(`/audio-features`, 'GET', {ids: ids});
       } else {
-        return Client.instance.request(`/audio-features/${ids}`, 'GET');
+        return this._client.request(`/audio-features/${ids}`, 'GET');
       }
     }
 

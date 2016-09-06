@@ -1,7 +1,6 @@
 'use strict';
 
 import User from '../helpers/User';
-import Client from '../Client';
 
 /**
  * Methods for retrieving information about one or more user/s from the Spotify catalog.
@@ -9,6 +8,10 @@ import Client from '../Client';
  * @see https://developer.spotify.com/web-api/user-profile-endpoints/
  */
 class UserHandler {
+
+    constructor(client) {
+      this._client = client;
+    }
 
   /**
    * Get detailed profile information about the current user.
@@ -20,7 +23,7 @@ class UserHandler {
    * @return {Promise} User
    */
   me() {
-    return Client.instance.request(`/me`);
+    return this._client.request(`/me`);
   }
 
   /**
@@ -34,7 +37,7 @@ class UserHandler {
    * @return {Promise} User
    */
   get(id) {
-    return Client.instance.request(`/users/${id}`);
+    return this._client.request(`/users/${id}`);
   }
 
   /**
@@ -51,9 +54,9 @@ class UserHandler {
    */
   playlists(id, playlistId, query) {
     if (playlistId) {
-      return Client.instance.request(`/users/${id}/playlists/${playlistId}`, 'GET', query);
+      return this._client.request(`/users/${id}/playlists/${playlistId}`, 'GET', query);
     } else {
-      return Client.instance.request(`/users/${id}/playlists`, 'GET', query);
+      return this._client.request(`/users/${id}/playlists`, 'GET', query);
     }
   }
 
@@ -70,19 +73,19 @@ class UserHandler {
    */
   contains(type, ids) {
     if (type === 'album') {
-      return Client.instance.request(
+      return this._client.request(
         `/me/albums/contains`,
         'GET',
         {ids: ids}
       );
     } else if (type === 'track') {
-      return Client.instance.request(
+      return this._client.request(
         `/me/tracks/contains`,
         'GET',
         {ids: ids}
       );
     } else {
-      return Client.instance.request(
+      return this._client.request(
         `/me/following/contains`,
         'GET',
         {ids: ids, type: type}
@@ -101,7 +104,7 @@ class UserHandler {
    * @return {Promise} JSON response
    */
   top(type, query) {
-    return Client.instance.request(`/me/top/${type}`, 'GET', query);
+    return this._client.request(`/me/top/${type}`, 'GET', query);
   }
 
   /**
