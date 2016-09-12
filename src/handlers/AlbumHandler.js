@@ -66,8 +66,8 @@ class AlbumHandler {
    * @param {Object} item Object to convert in entity
    * @returns {Object} Album
    */
-  convert(item) {
-    return new Album(item);
+  convert(item, client) {
+    return new Album(item, client);
   }
 
 }

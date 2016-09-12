@@ -67,6 +67,7 @@ class PlaylistHandler {
    * @return {Promise} JSON response
    */
   addTracks(tracks, userId, playlistId, query) {
+    console.log('addTracks URIS', tracks)
     return this._client
       .request(
         `/users/${userId}/playlists/${playlistId}/tracks`,
@@ -201,8 +202,8 @@ class PlaylistHandler {
    * @param {Object} item Object to convert in entity
    * @return {Object}
    */
-  convert(item) {
-    return new Playlist(item);
+  convert(item, Client) {
+    return new Playlist(item, Client);
   }
 
 }

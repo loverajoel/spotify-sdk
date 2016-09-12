@@ -12,8 +12,9 @@ class User extends UserEntity {
   /**
    * @param {Object} data User object
    */
-  constructor(data) {
+  constructor(data, client) {
     super(data);
+    this._client = client;
   }
 
   /**
@@ -24,7 +25,7 @@ class User extends UserEntity {
    * @return {Promise}
    */
   playlists(id) {
-  	return new UserHandler().playlists(this.id, id);
+  	return new UserHandler(this._client).playlists(this.id, id);
   }
 
   /**
@@ -36,7 +37,7 @@ class User extends UserEntity {
    * @return {Promise} JSON response
    */
   contains(type, ids) {
-    return new UserHandler().contains(type, ids);
+    return new UserHandler(this._client).contains(type, ids);
   }
 
   /**
@@ -49,7 +50,7 @@ class User extends UserEntity {
    * @return {Promise} JSON response
    */
   top(type, query) {
-    return new UserHandler().top(type, query);
+    return new UserHandler(this._client).top(type, query);
   }
 }
 

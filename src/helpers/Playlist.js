@@ -12,8 +12,9 @@ class Playlist extends PlaylistEntity {
   /**
    * @param {Object} data Playlist object
    */
-  constructor(data) {
+  constructor(data, client) {
     super(data);
+    this._client = client;
   }
 
   /**
@@ -24,7 +25,7 @@ class Playlist extends PlaylistEntity {
    * @return {Promise}
    */
   get tracks() {
-    return Factory(this._tracks);
+    return Factory(this._tracks, this._client);
   }
 
   /**
@@ -39,7 +40,8 @@ class Playlist extends PlaylistEntity {
     let trackList = tracks.map(track => {
       return track.uri;
     });
-    return new PlaylistHandler().addTracks(trackList, this.owner.id, this.id, query);
+    console.log(trackList, this.owner.id, this.id)
+    return new PlaylistHandler(this._client).addTracks(trackList, this.owner.id, this.id, query);
   }
 
   /**

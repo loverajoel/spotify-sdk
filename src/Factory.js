@@ -45,13 +45,13 @@ let Factory = function(data, Client) {
 
   switch(_type) {
     case 'track':
-      return new TrackHandler().convert(_items, Client);
+      return new TrackHandler(Client).convert(_items, Client);
       break;
     case 'tracks':
       return new CollectionHandler(_items, TrackHandler, _source, Client);
       break;
     case 'playlist':
-      return new PlaylistHandler().convert(_items);
+      return new PlaylistHandler(Client).convert(_items, Client);
       break;
     case 'playlists':
       return new CollectionHandler(_items, PlaylistHandler, _source);
@@ -60,13 +60,13 @@ let Factory = function(data, Client) {
       return new CollectionHandler(_items, ArtistHandler, _source, Client);
       break;
     case 'album':
-      return new AlbumHandler().convert(_items);
+      return new AlbumHandler(Client).convert(_items, Client);
       break;
     case 'albums':
       return new CollectionHandler(_items, AlbumHandler, _source);
       break;
     case 'user':
-      return new UserHandler().convert(_items);
+      return new UserHandler(Client).convert(_items, Client);
       break;
     case 'undefineds':
       return data;

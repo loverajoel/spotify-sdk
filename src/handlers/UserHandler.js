@@ -114,8 +114,8 @@ class UserHandler {
    * @param {object} item Object to convert in entity
    * @return {Object}
    */
-  convert(item) {
-    return new User(item);
+  convert(item, client) {
+    return new User(item, client);
   }
 }
 
