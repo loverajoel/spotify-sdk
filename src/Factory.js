@@ -45,10 +45,10 @@ let Factory = function(data, Client) {
 
   switch(_type) {
     case 'track':
-      return new TrackHandler().convert(_items);
+      return new TrackHandler().convert(_items, Client);
       break;
     case 'tracks':
-      return new CollectionHandler(_items, TrackHandler, _source);
+      return new CollectionHandler(_items, TrackHandler, _source, Client);
       break;
     case 'playlist':
       return new PlaylistHandler().convert(_items);
@@ -57,7 +57,7 @@ let Factory = function(data, Client) {
       return new CollectionHandler(_items, PlaylistHandler, _source);
       break;
     case 'artists':
-      return new CollectionHandler(_items, ArtistHandler, _source);
+      return new CollectionHandler(_items, ArtistHandler, _source, Client);
       break;
     case 'album':
       return new AlbumHandler().convert(_items);

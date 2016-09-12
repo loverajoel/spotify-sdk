@@ -69,11 +69,11 @@ class TrackHandler {
      * @param {Object} item Object to convert in entity
      * @return {Object}
      */
-    convert(item) {
+    convert(item, client) {
       if (item.uri) {
-        return new Track(item);
+        return new Track(item, client);
       } else {
-        return new Track(item.track);
+        return new Track(item.track, client);
       }
     }
 

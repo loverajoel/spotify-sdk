@@ -12,8 +12,9 @@ class Artist extends ArtistEntity {
   /**
    * @param {Object} data Artist object
    */
-  constructor(data) {
+  constructor(data, client) {
     super(data);
+    this._client = client;
   }
 
   /**
@@ -23,7 +24,7 @@ class Artist extends ArtistEntity {
    * @return {Promise}
    */
   albums() {
-    return new ArtistHandler().albums(this.id);
+    return new ArtistHandler(this._client).albums(this.id);
   }
 
   /**
@@ -34,7 +35,7 @@ class Artist extends ArtistEntity {
    * @return {Promise}
    */
   topTracks(query) {
-    return new ArtistHandler().topTracks(this.id, query);
+    return new ArtistHandler(this._client).topTracks(this.id, query);
   }
 
   /**
@@ -45,7 +46,7 @@ class Artist extends ArtistEntity {
    * @return {Promise}
    */
   relatedArtists(query) {
-    return new ArtistHandler().relatedArtists(this.id, query);
+    return new ArtistHandler(this._client).relatedArtists(this.id, query);
   }
 
   /**
@@ -56,7 +57,7 @@ class Artist extends ArtistEntity {
    * @return {Promise}
    */
   follow(query) {
-    return new ArtistHandler().follow([this.id], query);
+    return new ArtistHandler(this._client).follow([this.id], query);
   }
 
   /**
@@ -67,7 +68,7 @@ class Artist extends ArtistEntity {
    * @return {Promise}
    */
   unfollow(query) {
-    return new ArtistHandler().unfollow([this.id], query);
+    return new ArtistHandler(this._client).unfollow([this.id], query);
   }
 
   /**
@@ -78,7 +79,7 @@ class Artist extends ArtistEntity {
    * @return {Promise}
    */
   contains(ids) {
-    return new ArtistHandler().contains(this.id, ids);
+    return new ArtistHandler(this._client).contains(this.id, ids);
   }
 }
 

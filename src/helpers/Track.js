@@ -12,8 +12,9 @@ class Track extends TrackEntity {
   /**
    * @param {Object} data Track object
    */
-  constructor(data) {
+  constructor(data, client) {
     super(data);
+    this._client = client;
   }
 
   /**
@@ -23,7 +24,7 @@ class Track extends TrackEntity {
    * @return {Promise}
    */
   get artists() {
-    return Factory(this._artists);
+    return Factory(this._artists, this._client);
   }
 
   /**

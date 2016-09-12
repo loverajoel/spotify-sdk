@@ -21,4 +21,20 @@ describe('TrackHandler', () => {
     });
   });
 
+  it('should return the first artist', (done) => {
+    track.search('R U mine?', {limit: 5}).then((trackCollection) => {
+      const tracks = trackCollection;
+      tracks.first().artists.first().relatedArtists().then(relatedArtists => {
+        relatedArtists[1].topTracks({ country: 'US' }).then(response => {
+          // console.log(response)
+          done();
+        }).catch(response => {
+          // console.log(response)
+          done();
+        })
+      })
+      // expect(track.name).toBeAn('string')
+    });
+  });
+
 });

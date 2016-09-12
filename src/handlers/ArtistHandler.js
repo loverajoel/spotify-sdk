@@ -131,7 +131,7 @@ class ArtistHandler {
    * @return {Object} Artist
    */
   convert(item) {
-    return new Artist(item);
+    return new Artist(item, this._client);
   }
 
 }
