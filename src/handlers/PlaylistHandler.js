@@ -196,6 +196,22 @@ class PlaylistHandler {
   }
 
   /**
+   * Update a playlist for a Spotify user.
+   * @see https://developer.spotify.com/web-api/create-playlist/
+   *
+   * @public
+   * @required {OAuth}
+   */
+  update(userId, playlistId, uris) {
+    return this._client
+      .request(
+        `/users/${userId}/playlists/${playlistId}`,
+        'POST',
+        {uris: uris}
+     );
+  }
+
+  /**
    * Convert a valid object to a Playlist entity
    *
    * @public
