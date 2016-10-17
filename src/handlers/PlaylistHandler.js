@@ -189,7 +189,7 @@ class PlaylistHandler {
   edit(userId, playlistId, name, is_public) {
     return this._client
       .request(
-        `/users/${userId}/playlists`,
+        `/users/${userId}/playlists/${playlistId}`,
         'PUT',
         {name: name, public: is_public}
       );
