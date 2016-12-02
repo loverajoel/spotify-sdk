@@ -105,6 +105,30 @@ class UserHandler {
   }
 
   /**
+   * Get the current user’s saved tracks.
+   * @see https://developer.spotify.com/web-api/get-users-saved-tracks/
+   *
+   * @public
+   * @required {OAuth}
+   * @return {Promise} Tracks saved
+   */
+  tracks() {
+    return Client.instance.request(`/me/tracks`);
+  }
+
+  /**
+   * Get the current user’s saved albums.
+   * @see https://developer.spotify.com/web-api/get-users-saved-albums/
+   *
+   * @public
+   * @required {OAuth}
+   * @return {Promise} Albums saved
+   */
+  albums() {
+    return Client.instance.request(`/me/albums`);
+  }
+
+  /**
    * Convert a valid object to a User entity
    *
    * @public

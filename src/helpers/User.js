@@ -51,6 +51,28 @@ class User extends UserEntity {
   top(type, query) {
     return new UserHandler().top(type, query);
   }
+
+  /**
+   * Get user’s Saved Tracks
+   *
+   * @public
+   * @required {OAuth}
+   * @return {Promise}
+   */
+  tracks() {
+    return new UserHandler().tracks();
+  }
+
+  /**
+   * Get user’s Saved Albums
+   *
+   * @public
+   * @required {OAuth}
+   * @return {Promise}
+   */
+  albums() {
+    return new UserHandler().albums();
+  }
 }
 
 /**
