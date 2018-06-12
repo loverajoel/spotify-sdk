@@ -14,7 +14,7 @@ let client = Client.instance;
 
 client.settings = {
 	clientId: 'CLIENT_ID',
-    secretId: 'SECRET_ID'
+  secretId: 'SECRET_ID'
 };
 
 /*
