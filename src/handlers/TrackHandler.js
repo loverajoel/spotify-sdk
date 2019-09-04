@@ -63,6 +63,13 @@ class TrackHandler {
     }
 
     /**
+    * Get recomendations
+     */
+    recomendations(params) {
+      return this._client.request(`/recommendations`, 'GET', params);
+    }
+
+    /**
      * Convert a valid object to a Track entity
      *
      * @public
