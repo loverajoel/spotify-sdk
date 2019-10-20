@@ -15,7 +15,7 @@ class CollectionHandler {
    * @param {Object} source Original response
    * @return {Array} Collection
    */
-	constructor(items, handler, source) {
+	constructor(items, entity, source) {
     let collectionHelper = new Collection(source);
     let collection = Object.assign(new Array, collectionHelper);
     // Super mega hack
@@ -26,7 +26,7 @@ class CollectionHandler {
     collection.index = collectionHelper.index;
 
 		items.map((item) => {
-			return collection.push(new handler().convert(item));
+			return collection.push(new entity(item));
 		});
 
 		if (collection.length) {

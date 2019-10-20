@@ -1,29 +1,23 @@
 'use strict';
 
-import TrackEntity from '../entities/TrackEntity';
-import TrackHandler from '../handlers/TrackHandler';
-import Factory from '../Factory';
+import Tracks from './Tracks';
 
 /**
  * Add helpers methods to TrackEntity
  */
-class Track extends TrackEntity {
-
-  /**
-   * @param {Object} data Track object
-   */
+class Track {
+  
   constructor(data) {
-    super(data);
+    return Object.assign(this, data);
   }
-
   /**
    * Get a list of Tracks of an Artist.
    *
    * @public
    * @return {Promise}
    */
-  get artists() {
-    return Factory(this._artists);
+  getArtists() {
+    // return Factory(this._artists);
   }
 
   /**
@@ -42,7 +36,7 @@ class Track extends TrackEntity {
   }
 
   audioFeatures() {
-    return new TrackHandler().audioFeatures(this.id);
+    return new Tracks().getAudioFeatures(this.id);
   }
 }
 

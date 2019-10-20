@@ -1,6 +1,6 @@
 import ArtistHandler from './handlers/ArtistHandler';
 import AlbumHandler from './handlers/AlbumHandler';
-import TrackHandler from './handlers/TrackHandler';
+import Track from './entities/Track';
 import PlaylistHandler from './handlers/PlaylistHandler';
 import UserHandler from './handlers/UserHandler';
 import CollectionHandler from './handlers/CollectionHandler';
@@ -45,10 +45,10 @@ let Factory = function(data) {
 
   switch(_type) {
     case 'track':
-      return new TrackHandler().convert(_items);
+      return new Track(_items);
       break;
     case 'tracks':
-      return new CollectionHandler(_items, TrackHandler, _source);
+      return new CollectionHandler(_items, Track, _source);
       break;
     case 'playlist':
       return new PlaylistHandler().convert(_items);
