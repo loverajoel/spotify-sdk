@@ -1,12 +1,10 @@
 {
   "name": "spotify-sdk",
-  "version": "1.0.0-beta1",
+  "version": "2.0.0-beta",
   "repository": "loverajoel/spotify-sdk",
   "scripts": {
-    "start": "./node_modules/.bin/webpack-dev-server --config ./config/dev.conf.js --progress --colors --content-base examples/",
-    "build": "./node_modules/.bin/webpack --config ./config/build.conf.js --progress --colors",
-    "prepublish": "npm run build",
-    "test": "./node_modules/mocha/bin/mocha --require ./config/test.conf.js --compilers -t 10000 js:babel-core/register ./src/**/*-test.js"
+    "dev": "jest --watchAll",
+    "test": "jest"
   },
   "keywords": [
     "spotify-sdk",
@@ -14,40 +12,16 @@
     "es6"
   ],
   "devDependencies": {
-    "babel-cli": "^6.11.4",
-    "babel-core": "^6.3.26",
-    "babel-eslint": "^6.1.2",
-    "babel-loader": "^6.2.0",
-    "babel-plugin-transform-object-rest-spread": "^6.8.0",
-    "babel-preset-es2015": "^6.3.13",
-    "babel-preset-react": "^6.3.13",
-    "babel-register": "^6.11.6",
-    "core-js": "^2.0.3",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "babel-jest": "^24.9.0",
     "cross-env": "^2.0.0",
-    "eslint": "^2.9.0",
-    "eslint-config-rackt": "^1.1.1",
-    "eslint-plugin-import": "^1.12.0",
-    "eslint-plugin-jsx-a11y": "^1.0.0",
-    "eslint-plugin-react": "^5.2.2",
-    "expect": "^1.20.2",
-    "exports-loader": "^0.6.3",
-    "extract-text-webpack-plugin": "^0.9.1",
-    "imports-loader": "^0.6.5",
-    "mocha": "^2.4.5",
-    "phantomjs": "^2.1.3",
-    "webpack": "^1.12.9"
-  },
-  "dependencies": {
-    "babel-polyfill": "^6.9.1",
-    "es5-shim": "^4.5.9",
-    "es6-shim": "^0.35.1",
-    "eslint-loader": "^1.3.0",
-    "isomorphic-fetch": "^2.2.1",
-    "json-loader": "^0.5.4",
-    "node-fetch": "latest",
-    "webpack-dev-server": "^1.14.1"
+    "jest": "^24.9.0"
   },
   "author": "loverajoel",
   "license": "MIT",
-  "main": "lib/dist.js"
+  "main": "lib/dist.js",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
 }
