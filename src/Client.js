@@ -90,6 +90,25 @@ class Client {
     }
   }
 
+  // Temporal auth medhos
+  async getToken() {
+    const basicToken = Buffer.from(`6543157091a64e91ad449ca55b98a9c0:d4644085638d4eaaaa2cdea1ca65734e`).toString('base64')
+    const method = 'POST'
+    const headers = {
+      Authorization: `Basic ${basicToken}`,
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
+    const body = 'grant_type=client_credentials'
+    const spotifyResponse = await fetch('https://accounts.spotify.com/api/token', { method: 'POST', headers, body })
+
+    if (spotifyResponse.status !== 200) {
+      throw new Error(spotifyResponse.statusText)
+    }
+
+    const spotifyResponseJson = await spotifyResponse.json()
+    return spotifyResponseJson.access_token
+  }
+
   /**
    * @param  {String} url Endpoint
    * @param  {String} method Method GET, POST, PUT or DELETE
@@ -123,8 +142,8 @@ class Client {
    * @param  {Object} body Object to send in the body
    * @return {Promise}
    */
-  fetch(endpoint, method, body) {
-    let _headers = {'Accept': 'application/json'};
+  fetch(endpoint, method, body, headers) {
+    let _headers = headers ? headers : {'Accept': 'application/json'};
     let _url;
     let _body;
 
@@ -164,7 +183,7 @@ class Client {
       }
       return response.json();
     };
-
+    
     return fetch(_url, {
       method : method,
       headers: _headers,

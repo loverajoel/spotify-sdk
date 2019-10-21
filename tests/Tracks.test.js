@@ -2,11 +2,14 @@ import Client from './../src/Client';
 import { Tracks, Track, Collection2 } from './../src/index';
 
 let client = Client.instance;
-client.token = 'BQA1u2EpFbLf2Kx4fphOHoI49oLZd3tGJZDR7votw5nqDrPbAEa8pZcwa8NoNfUv-xlb1QrQzeHZ0jktQgz5JKSQw5D4gZLP9rJGUX-zKOqwAYjS98a6URmOgLmHq4w5dJwUtaOyu5hnXi1bjvJAHBIJaMG3dWhGFPbP0kNSCLG28Rjj0wBdv7C4j8ZBv-FDgFDhPhlh74E037dxzbWimrTRw0W92BJVkZ7klqRGSpb1T7Ykq527BvM9EEwegPXVvjL_px0xgdw07YNILyk';
 
 const tracksHandler = new Tracks(client);
 
 describe('Tracks', () => {
+
+  beforeAll(async () => {
+    client.token = await client.getToken();
+  });
 
   it('should return a Collection', async () => {
     const trackCollection = await tracksHandler.search('Julie London');
