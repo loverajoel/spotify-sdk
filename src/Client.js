@@ -133,7 +133,6 @@ class Client {
     if (this._token) {
       _headers.Authorization = `Bearer ${this._token}`;
     }
-
     if (endpoint.indexOf('https') > -1) {
       _url = endpoint;
     } else {

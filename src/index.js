@@ -9,6 +9,7 @@ import AlbumEntity from './entities/AlbumEntity';
 import PlaylistEntity from './entities/PlaylistEntity';
 import UserEntity from './entities/UserEntity';
 import CollectionEntity from './entities/CollectionEntity';
+import Collection2 from './entities/Collection';
 import Artist from './helpers/Artist';
 import Album from './helpers/Album';
 import Playlist from './helpers/Playlist';
@@ -36,5 +37,6 @@ export {
 	User,
 	Collection,
 	Tracks,
-	Track
+	Track,
+	Collection2
 };

@@ -1,7 +1,7 @@
 'use strict';
 
 import Client from '../Client';
-import Track from './Track';
+import Collection from './Collection';
 
 /**
  * Methods for retrieving information about one or more tracks from the Spotify catalog.
@@ -9,7 +9,6 @@ import Track from './Track';
  * @see https://developer.spotify.com/web-api/track-endpoints/
  */
 class Tracks {
-
   /**
    * Get a collection of tracks that match a keyword string.
    *
@@ -57,6 +56,19 @@ class Tracks {
     } else {
       return Client.instance.request(`/audio-features/${ids}`, 'GET');
     }
+  }
+
+  /**
+   * Get a detailed audio analysis for a single track identified by its unique Spotify ID
+   *
+   * @see https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-analysis/
+   *
+   * @public
+   * @param {In} ids Track
+   * @return {Promise} Track
+   */
+  getAudioAnalysis(id) {
+    return Client.instance.request(`/audio-analysis/${id}`, 'GET')
   }
 
   /**

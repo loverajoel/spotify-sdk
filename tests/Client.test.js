@@ -2,7 +2,7 @@ import Client from './../src/Client';
 
 let client = Client.instance;
 
-client.token = 'BQB4WNfgIlShVT7Bs90HOsWu0L7TtFNCe7ijx5nS-euyeNqGru_LjwdgxY4pH7pQMeEa0elvBG-GysUN8TVxja-3Oq2ab19OqayvDNNrhYMuU8TPCIFFUC1La6nE-fPEmVq0-41w5Arnm4AL_Dz6JBkRy6fkQT40DZrooVd38BeEwJqdwOXOpRjx3SbnxbRreTA7SMhJPDaS0X86v4nUx8rOddjl7193Zp-rLkD3-dLGsRQqvyS1FvOhEBBESccl8cDxNloQMdzx2rWokv0';
+client.token = 'BQA1u2EpFbLf2Kx4fphOHoI49oLZd3tGJZDR7votw5nqDrPbAEa8pZcwa8NoNfUv-xlb1QrQzeHZ0jktQgz5JKSQw5D4gZLP9rJGUX-zKOqwAYjS98a6URmOgLmHq4w5dJwUtaOyu5hnXi1bjvJAHBIJaMG3dWhGFPbP0kNSCLG28Rjj0wBdv7C4j8ZBv-FDgFDhPhlh74E037dxzbWimrTRw0W92BJVkZ7klqRGSpb1T7Ykq527BvM9EEwegPXVvjL_px0xgdw07YNILyk';
 
 // client singleton is a real singleton
 // request works
