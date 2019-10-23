@@ -52,10 +52,10 @@ describe('Tracks', () => {
     expect(audioFeatures.audio_features[0].type).toBe('audio_features');
   });
 
-  // it('should return the audio analysis of a single track id', async () => {
-  //   const audioAnalysis = await tracksHandler.getAudioAnalysis('4uc6eHBaQfXwWZANx4pCmS');
-  //   expect(audioAnalysis.type).toBe('audio_analysis');
-  //   expect(audioAnalysis.id).toBe('4uc6eHBaQfXwWZANx4pCmS');
-  // });
+  it('should return the audio analysis of a single track id', async () => {
+    const audioAnalysis = await tracksHandler.getAudioAnalysis('4uc6eHBaQfXwWZANx4pCmS');
+    expect(Array.isArray(audioAnalysis.bars)).toBe(true);
+    expect(Array.isArray(audioAnalysis.beats)).toBe(true);
+  });
 
 });

@@ -1,7 +1,6 @@
 'use strict';
 
 import Client from '../Client';
-import Collection from './Collection';
 
 /**
  * Methods for retrieving information about one or more tracks from the Spotify catalog.
@@ -77,6 +76,8 @@ class Tracks {
    * @public
    * @param {Object} item Object to convert in entity
    * @return {Object}
+   *
+   * @deprecated
    */
   convert(item) {
     if (item.uri) {
