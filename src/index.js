@@ -10,7 +10,7 @@ import PlaylistEntity from './entities/PlaylistEntity';
 import UserEntity from './entities/UserEntity';
 import CollectionEntity from './entities/CollectionEntity';
 import Collection2 from './entities/Collection';
-import Artist from './helpers/Artist';
+import Artist2 from './helpers/Artist';
 import Album from './helpers/Album';
 import Playlist from './helpers/Playlist';
 import User from './helpers/User';
@@ -18,6 +18,8 @@ import Collection from './helpers/Collection';
 
 import Tracks from './entities/Tracks';
 import Track from './entities/Track';
+import Artists from './entities/Artists';
+import Artist from './entities/Artist';
 
 export {
 	Client,
@@ -31,12 +33,13 @@ export {
 	PlaylistEntity,
 	UserEntity,
 	CollectionEntity,
-	Artist,
 	Album,
 	Playlist,
 	User,
 	Collection,
 	Tracks,
 	Track,
-	Collection2
+	Collection2,
+	Artists,
+	Artist
 };
