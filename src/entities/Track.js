@@ -2,6 +2,8 @@
 
 import Tracks from './Tracks';
 
+
+
 /**
  * Add helpers methods to TrackEntity
  */
@@ -11,13 +13,13 @@ class Track {
     return Object.assign(this, data);
   }
   /**
-   * Get a list of Tracks of an Artist.
+   * Get a list of Artsits of a Track.
    *
    * @public
    * @return {Promise}
    */
   getArtists() {
-    // return Factory(this._artists);
+    // return Factory(this.artists);
   }
 
   /**

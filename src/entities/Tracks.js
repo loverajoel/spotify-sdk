@@ -70,23 +70,6 @@ class Tracks {
     return Client.instance.request(`/audio-analysis/${id}`, 'GET')
   }
 
-  /**
-   * Convert a valid object to a Track entity
-   *
-   * @public
-   * @param {Object} item Object to convert in entity
-   * @return {Object}
-   *
-   * @deprecated
-   */
-  convert(item) {
-    if (item.uri) {
-      return new Track(item);
-    } else {
-      return new Track(item.track);
-    }
-  }
-
 }
 
 /**
