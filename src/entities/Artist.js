@@ -20,8 +20,8 @@ class Artist {
    * @public
    * @return {Promise}
    */
-  albums() {
-    return new Artists().albums(this.id);
+  getAlbums() {
+    return new Artists().getAlbums(this.id);
   }
 
   /**
@@ -31,8 +31,8 @@ class Artist {
    * @param {Object} [query] Query parameters.
    * @return {Promise}
    */
-  topTracks(query) {
-    return new Artists().topTracks(this.id, query);
+  getTopTracks(query) {
+    return new Artists().getTopTracks(this.id, query);
   }
 
   /**
@@ -42,8 +42,8 @@ class Artist {
    * @param {Object} [query] Query parameters.
    * @return {Promise}
    */
-  relatedArtists(query) {
-    return new Artists().relatedArtists(this.id, query);
+  getRelatedArtists(query) {
+    return new Artists().getRelatedArtists(this.id, query);
   }
 
   /**

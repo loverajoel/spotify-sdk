@@ -56,4 +56,41 @@ describe('Artists', () => {
     expect(artistsCollection.getFirst()).toBeInstanceOf(Artist);
   });
 
+  // follow
+  // unfollow
+
+});
+
+describe.only('Artist', () => {
+
+  beforeAll(async () => {
+    client.token = await client.getToken();
+  });
+    
+  // Factory realted
+  it.skip('should return a collection of Albums for the Artist', async () => {
+    const artistEntity = await artistsHandler.get('1LeVJ5GPeYDOVUjxx1y7Rp');
+    const albumCollection = await artistEntity.getAlbums();
+    expect(albumCollection).toBeInstanceOf(Collection2);
+    expect(albumCollection.getFirst()).toBeInstanceOf(Album);
+  });
+
+  it('should return a collection of top Tracks for the Artist', async () => {
+    const artistEntity = await artistsHandler.get('1LeVJ5GPeYDOVUjxx1y7Rp');
+    const trackCollection = await artistEntity.getTopTracks({ country: 'US' });
+    expect(trackCollection).toBeInstanceOf(Collection2);
+    expect(trackCollection.getFirst()).toBeInstanceOf(Track);
+  });
+
+  it('should return a collection of related Artists for the Artist', async () => {
+    const artistEntity = await artistsHandler.get('1LeVJ5GPeYDOVUjxx1y7Rp');
+    const artistCollection = await artistEntity.getRelatedArtists();
+    expect(artistCollection).toBeInstanceOf(Collection2);
+    expect(artistCollection.getFirst()).toBeInstanceOf(Artist);
+  });
+
+  // follow
+  // unfollow
+  // contains
+
 });

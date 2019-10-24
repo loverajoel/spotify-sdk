@@ -61,7 +61,7 @@ describe('Tracks', () => {
 });
 
 
-describe.only('Track', () => {
+describe('Track', () => {
 
   beforeAll(async () => {
     client.token = await client.getToken();
@@ -88,6 +88,5 @@ describe.only('Track', () => {
     expect(artistCollection).toBeInstanceOf(Collection2);
     expect(artistCollection.getFirst()).toBeInstanceOf(Artsit);
   });
-
 
 });
