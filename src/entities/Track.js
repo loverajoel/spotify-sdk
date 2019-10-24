@@ -1,7 +1,7 @@
 'use strict';
 
 import Tracks from './Tracks';
-
+import Artists from './Artists';
 
 /**
  * Add helpers methods to TrackEntity
@@ -12,15 +12,13 @@ class Track {
     return Object.assign(this, data);
   }
   /**
-   * Get a list of Artsits of a Track.
+   * Get a list of Artists of a Track.
    *
    * @public
    * @return {Promise}
    */
   getArtists() {
-    console.log(this.artists)
-    // TODO
-    // return Factory(this.artists);
+    return new Artists().get(this.artists.map(artist => artist.id));
   }
 
   /**

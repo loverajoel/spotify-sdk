@@ -1,5 +1,5 @@
 import Client from './../src/Client';
-import { Tracks, Track, Artsit, Collection2 } from './../src/index';
+import { Tracks, Track, Artist, Collection } from './../src/index';
 
 let client = Client.instance;
 
@@ -13,7 +13,7 @@ describe('Tracks', () => {
 
   it('should return a Collection', async () => {
     const trackCollection = await tracksHandler.search('Julie London');
-    expect(trackCollection).toBeInstanceOf(Collection2);
+    expect(trackCollection).toBeInstanceOf(Collection);
   });
   
   it('should return a collection of Track entities', async () => {
@@ -61,7 +61,7 @@ describe('Tracks', () => {
 });
 
 
-describe.only('Track', () => {
+describe('Track', () => {
 
   beforeAll(async () => {
     client.token = await client.getToken();
@@ -81,12 +81,11 @@ describe.only('Track', () => {
     expect(audioFeatures.type).toBe('audio_features');
   });
 
-  //TODO  Decide how will work the Factory 
-  it.only('should return a collection of Artsits for the track', async () => {
+  it('should return a collection of Artist for the track', async () => {
     const trackEntity = await tracksHandler.get('4P8apt1P3y4m7vQDJi2inx');
     const artistCollection = await trackEntity.getArtists();
-    expect(artistCollection).toBeInstanceOf(Collection2);
-    expect(artistCollection.getFirst()).toBeInstanceOf(Artsit);
+    expect(artistCollection).toBeInstanceOf(Collection);
+    expect(artistCollection.getFirst()).toBeInstanceOf(Artist);
   });
 
 });
