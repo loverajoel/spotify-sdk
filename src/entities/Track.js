@@ -3,7 +3,6 @@
 import Tracks from './Tracks';
 
 
-
 /**
  * Add helpers methods to TrackEntity
  */
@@ -19,6 +18,7 @@ class Track {
    * @return {Promise}
    */
   getArtists() {
+    // TODO
     // return Factory(this.artists);
   }
 
@@ -29,7 +29,7 @@ class Track {
    * @return {String} mm:ss
    */
   get durationM() {
-    let x = ~~( Number( this._duration_ms ) / 1000 );
+    let x = ~~( Number( this.duration_ms ) / 1000 );
     let seconds = x % 60;
     seconds = `${ seconds }`.length == 1? `0${ seconds }`: seconds;
     x = ~~( x / 60 );
@@ -37,7 +37,7 @@ class Track {
     return `${ minutes }:${ seconds }`;
   }
 
-  audioFeatures() {
+  getAudioFeatures() {
     return new Tracks().getAudioFeatures(this.id);
   }
 }

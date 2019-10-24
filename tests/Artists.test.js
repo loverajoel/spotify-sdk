@@ -5,7 +5,7 @@ let client = Client.instance;
 
 const artistsHandler = new Artists(client);
 
-describe.only('Artists', () => {
+describe('Artists', () => {
 
   beforeAll(async () => {
     client.token = await client.getToken();

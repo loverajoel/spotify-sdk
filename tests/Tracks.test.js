@@ -1,5 +1,5 @@
 import Client from './../src/Client';
-import { Tracks, Track, Collection2 } from './../src/index';
+import { Tracks, Track, Artsit, Collection2 } from './../src/index';
 
 let client = Client.instance;
 
@@ -57,5 +57,37 @@ describe('Tracks', () => {
     expect(Array.isArray(audioAnalysis.bars)).toBe(true);
     expect(Array.isArray(audioAnalysis.beats)).toBe(true);
   });
+
+});
+
+
+describe.only('Track', () => {
+
+  beforeAll(async () => {
+    client.token = await client.getToken();
+  });
+
+  it('should return a the duration on minutes', async () => {
+    const trackEntity = await tracksHandler.get('4P8apt1P3y4m7vQDJi2inx');
+    expect(trackEntity).toBeInstanceOf(Track);
+    expect(trackEntity.id).toBe('4P8apt1P3y4m7vQDJi2inx');
+    expect(trackEntity.durationM).toBe('3:01');
+  });
+
+  it('should return the audio features of a track', async () => {
+    const trackEntity = await tracksHandler.get('4P8apt1P3y4m7vQDJi2inx');
+    const audioFeatures = await trackEntity.getAudioFeatures();
+    expect(audioFeatures.id).toBe('4P8apt1P3y4m7vQDJi2inx');
+    expect(audioFeatures.type).toBe('audio_features');
+  });
+
+  //TODO  Decide how will work the Factory 
+  it.skip('should return a collection of Artsits for the track', async () => {
+    const trackEntity = await tracksHandler.get('4P8apt1P3y4m7vQDJi2inx');
+    const artistCollection = await trackEntity.getArtists();
+    expect(artistCollection).toBeInstanceOf(Collection2);
+    expect(artistCollection.getFirst()).toBeInstanceOf(Artsit);
+  });
+
 
 });
