@@ -1,11 +1,3 @@
-import ArtistHandler from './handlers/ArtistHandler';
-import AlbumHandler from './handlers/AlbumHandler';
-
-import PlaylistHandler from './handlers/PlaylistHandler';
-import UserHandler from './handlers/UserHandler';
-import CollectionHandler from './handlers/CollectionHandler';
-
-
 import Client from './Client';
 import Track from './entities/Track';
 import Artist from './entities/Artist';

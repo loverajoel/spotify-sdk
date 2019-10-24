@@ -18,6 +18,7 @@ class Track {
    * @return {Promise}
    */
   getArtists() {
+    console.log(this.artists)
     // TODO
     // return Factory(this.artists);
   }

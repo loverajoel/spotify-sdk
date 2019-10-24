@@ -61,7 +61,7 @@ describe('Tracks', () => {
 });
 
 
-describe('Track', () => {
+describe.only('Track', () => {
 
   beforeAll(async () => {
     client.token = await client.getToken();
@@ -82,7 +82,7 @@ describe('Track', () => {
   });
 
   //TODO  Decide how will work the Factory 
-  it.skip('should return a collection of Artsits for the track', async () => {
+  it.only('should return a collection of Artsits for the track', async () => {
     const trackEntity = await tracksHandler.get('4P8apt1P3y4m7vQDJi2inx');
     const artistCollection = await trackEntity.getArtists();
     expect(artistCollection).toBeInstanceOf(Collection2);
