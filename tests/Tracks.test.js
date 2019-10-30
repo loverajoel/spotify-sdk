@@ -5,7 +5,7 @@ let client = Client.instance;
 
 const tracksHandler = new Tracks(client);
 
-describe.skip('Tracks', () => {
+describe('Tracks', () => {
 
   beforeAll(async () => {
     client.token = await client.getToken();
@@ -61,7 +61,7 @@ describe.skip('Tracks', () => {
 });
 
 
-describe.skip('Track', () => {
+describe('Track', () => {
 
   beforeAll(async () => {
     client.token = await client.getToken();

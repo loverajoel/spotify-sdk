@@ -6,7 +6,7 @@ let client = Client.instance;
 // request works
 // settings and token are setted correclty
 
-describe.skip('Client singleton', () => {
+describe('Client singleton', () => {
   beforeAll(async () => {
     client.token = await client.getToken();
   });

@@ -61,7 +61,7 @@ describe('Artists', () => {
 
 });
 
-describe.only('Artist', () => {
+describe('Artist', () => {
 
   beforeAll(async () => {
     client.token = await client.getToken();

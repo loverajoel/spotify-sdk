@@ -1,11 +1,11 @@
 import Client from './../src/Client';
-import { Album, Albums, Collection } from './../src/index';
+import { Album, Albums, Collection, Track } from './../src/index';
 
 let client = Client.instance;
 
 const albumsHandler = new Albums(client);
 
-describe.skip('Albums', () => {
+describe('Albums', () => {
 
   beforeAll(async () => {
     client.token = await client.getToken();
@@ -39,6 +39,11 @@ describe.skip('Albums', () => {
     expect(albumEntity.id).toBe('0rxKf57PZvWEoU8v3m5W2q');
   });
 
+  it('should return a collection of Tracks from the Album id', async () => {
+    const trackCollection = await albumsHandler.getTracks('0rxKf57PZvWEoU8v3m5W2q');
+    expect(trackCollection.length).toBe(13);
+    expect(trackCollection.getFirst()).toBeInstanceOf(Track);
+  });
 
   it('should return a collection of new released Albums', async () => {
     const albumsCollection = await albumsHandler.getNewReleases({ country: 'US' });
@@ -48,31 +53,18 @@ describe.skip('Albums', () => {
 
 });
 
-describe.skip('Artist', () => {
+describe('Album', () => {
 
   beforeAll(async () => {
     client.token = await client.getToken();
   });
     
-  // it('should return a collection of Albums for the Artist', async () => {
-  //   const artistEntity = await albumsHandler.get('1LeVJ5GPeYDOVUjxx1y7Rp');
-  //   const albumCollection = await artistEntity.getAlbums();
-  //   expect(albumCollection).toBeInstanceOf(Collection);
-  //   expect(albumCollection.getFirst()).toBeInstanceOf(Album);
-  // });
-
-  it('should return a collection of top Tracks for the Artist', async () => {
-    const artistEntity = await albumsHandler.get('1LeVJ5GPeYDOVUjxx1y7Rp');
-    const trackCollection = await artistEntity.getTopTracks({ country: 'US' });
+  it('should return a collection of Tracks for the Album', async () => {
+    const albumEntity = await albumsHandler.get('0rxKf57PZvWEoU8v3m5W2q');
+    expect(albumEntity).toBeInstanceOf(Album);
+    const trackCollection = await albumEntity.getTracks();
     expect(trackCollection).toBeInstanceOf(Collection);
     expect(trackCollection.getFirst()).toBeInstanceOf(Track);
-  });
-
-  it('should return a collection of related Artists for the Artist', async () => {
-    const artistEntity = await albumsHandler.get('1LeVJ5GPeYDOVUjxx1y7Rp');
-    const artistCollection = await artistEntity.getRelatedArtists();
-    expect(artistCollection).toBeInstanceOf(Collection);
-    expect(artistCollection.getFirst()).toBeInstanceOf(Artist);
   });
 
 });

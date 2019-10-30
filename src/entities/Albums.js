@@ -48,8 +48,18 @@ class Album {
     }
   }
 
-  getTracks(id) {
-   // do this 
+  /**
+   * Get Spotify catalog information about an album’s tracks. 
+   *
+   * @see https://developer.spotify.com/documentation/web-api/reference/albums/get-albums-tracks//
+   *
+   * @public
+   * @param {String} id Album id to retrive
+   * @param {Object} [query] Query parameters.
+   * @return {Promise} tracksCollection
+   */
+  getTracks(id, query) {
+   return Client.instance.request(`/albums/${id}/tracks`, 'GET', query);
   }
 
   /**
