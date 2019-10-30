@@ -1,6 +1,8 @@
 import Client from './Client';
 import Track from './entities/Track';
 import Artist from './entities/Artist';
+import Album from './entities/Album';
+
 import Collection from './entities/Collection';
 
 const getItems = (data, type) => {
@@ -11,8 +13,10 @@ const factoryMatches = (key, data) => {
   const keys = {
     track: (data) => new Track(data),
     tracks: (data) => new Collection(getItems(data, 'tracks').map(item => new Track(item))),
-    artists: (data) => new Collection(getItems(data, 'artists').map(item => new Artist(item))),
     artist: (data) => new Artist(data),
+    artists: (data) => new Collection(getItems(data, 'artists').map(item => new Artist(item))),
+    album: (data) => new Album(data),
+    albums: (data) => new Collection(getItems(data, 'albums').map(item => new Album(item))),
   };
   
   return keys[key] ? keys[key](data) : data;
