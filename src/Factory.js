@@ -6,7 +6,7 @@ import Album from './entities/Album';
 import Collection from './entities/Collection';
 
 const getItems = (data, type) => {
-  return Array.isArray(data[type]) ? data[type] : data[type].items;
+  return Array.isArray(data[type]) ? data[type] : (data[type] ? data[type].items : data.items);
 };
 
 const factoryMatches = (key, data) => {
@@ -23,7 +23,7 @@ const factoryMatches = (key, data) => {
 };
 
 const Factory = function (data) {
-  const type = data.type || Object.keys(data);
+  const type = data.type || (data.items && data.items.length > 0 ? data.items[0].type+'s' : false) || Object.keys(data);
 
   if (type) {
     return factoryMatches(type, data)

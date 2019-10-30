@@ -1,5 +1,5 @@
 import Client from './../src/Client';
-import { Artists, Artist, Track, Collection } from './../src/index';
+import { Artists, Artist, Track, Collection, Album } from './../src/index';
 
 let client = Client.instance;
 
@@ -61,18 +61,18 @@ describe('Artists', () => {
 
 });
 
-describe('Artist', () => {
+describe.only('Artist', () => {
 
   beforeAll(async () => {
     client.token = await client.getToken();
   });
     
-  // it('should return a collection of Albums for the Artist', async () => {
-  //   const artistEntity = await artistsHandler.get('1LeVJ5GPeYDOVUjxx1y7Rp');
-  //   const albumCollection = await artistEntity.getAlbums();
-  //   expect(albumCollection).toBeInstanceOf(Collection);
-  //   expect(albumCollection.getFirst()).toBeInstanceOf(Album);
-  // });
+  it('should return a collection of Albums for the Artist', async () => {
+    const artistEntity = await artistsHandler.get('1LeVJ5GPeYDOVUjxx1y7Rp');
+    const albumCollection = await artistEntity.getAlbums();
+    expect(albumCollection).toBeInstanceOf(Collection);
+    expect(albumCollection.getFirst()).toBeInstanceOf(Album);
+  });
 
   it('should return a collection of top Tracks for the Artist', async () => {
     const artistEntity = await artistsHandler.get('1LeVJ5GPeYDOVUjxx1y7Rp');

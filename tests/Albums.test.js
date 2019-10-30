@@ -5,7 +5,7 @@ let client = Client.instance;
 
 const albumsHandler = new Albums(client);
 
-describe.only('Albums', () => {
+describe.skip('Albums', () => {
 
   beforeAll(async () => {
     client.token = await client.getToken();
@@ -48,7 +48,7 @@ describe.only('Albums', () => {
 
 });
 
-describe('Artist', () => {
+describe.skip('Artist', () => {
 
   beforeAll(async () => {
     client.token = await client.getToken();
@@ -74,9 +74,5 @@ describe('Artist', () => {
     expect(artistCollection).toBeInstanceOf(Collection);
     expect(artistCollection.getFirst()).toBeInstanceOf(Artist);
   });
-
-  // follow
-  // unfollow
-  // contains
 
 });
