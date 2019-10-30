@@ -6,6 +6,8 @@ import Artists from './entities/Artists';
 import Artist from './entities/Artist';
 import Albums from './entities/Albums';
 import Album from './entities/Album';
+import Playlists from './entities/Playlists';
+import Playlist from './entities/Playlist';
 
 export {
 	Client,
@@ -15,5 +17,7 @@ export {
 	Artists,
 	Artist,
   Albums,
-  Album
+  Album,
+  Playlists,
+  Playlist
 };

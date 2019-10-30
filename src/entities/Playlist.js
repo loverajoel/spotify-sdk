@@ -1,30 +1,17 @@
 'use strict';
 
-import PlaylistEntity from '../entities/PlaylistEntity';
-import PlaylistHandler from '../handlers/PlaylistHandler';
-import Factory from '../Factory';
+import Playlists from './Playlists';
 
 /**
  * Add helpers methods to PlaylistEntity
  */
-class Playlist extends PlaylistEntity {
+class Playlist {
 
   /**
    * @param {Object} data Playlist object
    */
   constructor(data) {
-    super(data);
-  }
-
-  /**
-   * Get a list of Tracks of a Playlist.
-   *
-   * @public
-   * @override
-   * @return {Promise}
-   */
-  get tracks() {
-    return Factory(this._tracks);
+    return Object.assign(this, data);
   }
 
   /**

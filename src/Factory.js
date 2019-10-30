@@ -2,6 +2,7 @@ import Client from './Client';
 import Track from './entities/Track';
 import Artist from './entities/Artist';
 import Album from './entities/Album';
+import Playlist from './entities/Playlist';
 
 import Collection from './entities/Collection';
 
@@ -17,13 +18,16 @@ const factoryMatches = (key, data) => {
     artists: (data) => new Collection(getItems(data, 'artists').map(item => new Artist(item))),
     album: (data) => new Album(data),
     albums: (data) => new Collection(getItems(data, 'albums').map(item => new Album(item))),
+    playlist: (data) => new Playlist(data),
+    playlists: (data) => new Collection(getItems(data, 'playlists').map(item => new Playlist(item))),
   };
   
   return keys[key] ? keys[key](data) : data;
 };
 
 const Factory = function (data) {
-  const type = data.type || (data.items && data.items.length > 0 ? data.items[0].type+'s' : false) || Object.keys(data);
+  let type = data.type || (data.items && data.items.length > 0 ? data.items[0].type+'s' : false) || Object.keys(data);
+  type = Array.isArray(type) ? type.filter(t => t !== 'message') : type;
 
   if (type) {
     return factoryMatches(type, data)

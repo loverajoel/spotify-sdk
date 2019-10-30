@@ -1,14 +1,13 @@
 'use strict';
 
-import Playlist from '../helpers/Playlist';
-import Client from '../Client';
+import Client from './../Client';
 
 /**
  * Methods for retrieving information about playlists and for managing playlists.
  *
  * @see https://developer.spotify.com/web-api/playlist-endpoints/
  */
-class PlaylistHandler {
+class Playlists {
 
   /**
    * Get a collection of artists that match a keyword string.
@@ -25,6 +24,20 @@ class PlaylistHandler {
   }
 
   /**
+   * Get a single playlist identified by its unique  Spotify ID.
+   *
+   * @see https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlist/
+   *
+   * @public
+   * @param {String} id Playlist id to retrive
+   * @param {Object} [query] Query parameters.
+   * @return {Promise} Playlist
+   */
+  get(id, query) {
+    return Client.instance.request(`/playlists/${id}`, 'GET', query);
+  }
+
+  /**
    * Get a list of Spotify featured playlists.
    * @see https://developer.spotify.com/web-api/get-list-featured-playlists/
    *
@@ -33,7 +46,7 @@ class PlaylistHandler {
    * @param {Object} [query] Query parameters.
    * @return {Promise} playlistCollection
    */
-  featuredPlaylists(query) {
+  getFeaturedPlaylists(query) {
     return Client.instance.request(`/browse/featured-playlists`, 'GET', query);
   }
 
@@ -47,7 +60,7 @@ class PlaylistHandler {
    * @param {Object} [query] Query parameters.
    * @return {Promise} playlistCollection
    */
-  categoriesPlaylists(id, query) {
+  getPlaylistsByCategory(id, query) {
     return Client.instance.request(`/browse/categories/${id}/playlists`, 'GET', query);
   }
 
@@ -207,4 +220,4 @@ class PlaylistHandler {
 /**
  * Exports the PlaylistHandler class.
  */
-export default PlaylistHandler;
+export default Playlists;
