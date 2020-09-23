@@ -30,7 +30,7 @@ class ArtistHandler {
    * @see https://developer.spotify.com/web-api/get-artist/
    *
    * @public
-   * @param {String|Array} ids Artist id/ids to retrive
+   * @param {String|Array} ids Artist id/ids to retrieve
    * @param {Object} [query] Query parameters.
    * @return {Promise} Artist|artistCollection
    */
@@ -48,7 +48,7 @@ class ArtistHandler {
    * @see https://developer.spotify.com/web-api/get-artists-albums/
    *
    * @public
-   * @param {String} id Artist id to retrive
+   * @param {String} id Artist id to retrieve
    * @param {Object} [query] Query parameters.
    * @return {Promise} albumsCollection
    */
@@ -62,7 +62,7 @@ class ArtistHandler {
    * @see https://developer.spotify.com/web-api/get-artists-top-tracks/
    *
    * @public
-   * @param {String} id Artist id to retrive top tracks
+   * @param {String} id Artist id to retrieve top tracks
    * @param {Object} [query] Query parameters.
    * @return {Promise} tracksCollection
    */
@@ -76,7 +76,7 @@ class ArtistHandler {
    * @see https://developer.spotify.com/web-api/get-related-artists/
    *
    * @public
-   * @param {String} id Artist id to retrive related artists
+   * @param {String} id Artist id to retrieve related artists
    * @param {Object} [query] Query parameters.
    * @return {Promise} albumsCollection
    */
