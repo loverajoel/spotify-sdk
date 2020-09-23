@@ -30,7 +30,7 @@ class TrackHandler {
      * @see https://developer.spotify.com/web-api/get-albums-tracks/ FIXME: check the url
      *
      * @public
-     * @param {String|Array} ids Track id/ids to retrive
+     * @param {String|Array} ids Track id/ids to retrieve
      * @param {Object} [query] Query parameters.
      * @return {Promise} Track|trackCollection
      */

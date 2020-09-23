@@ -29,7 +29,7 @@ class UserHandler {
    * @see https://developer.spotify.com/web-api/get-users-profile/
    *
    * @public
-   * @param {String} id User id to retrive
+   * @param {String} id User id to retrieve
    * @required {OAuth}
    * @return {Promise} User
    */
@@ -44,7 +44,7 @@ class UserHandler {
    *
    * @public
    * @param {String} id User User id
-   * @param {String} [playlistId] id to retrive playlists
+   * @param {String} [playlistId] id to retrieve playlists
    * @param {Object} [query] Query parameters.
    * @required {OAuth}
    * @return {Promise} playlistCollection
