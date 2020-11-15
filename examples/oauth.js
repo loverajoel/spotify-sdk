@@ -1,6 +1,6 @@
 /*
  * Basic examples
- * Test a lot of handlers that don't require user login.
+ * Test a lot of handlers that require user login.
  *
  */
 'use strict'
