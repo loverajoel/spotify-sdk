@@ -33,8 +33,6 @@ user.me().then((myUser) => { // -> return a User entity with helpers
 
 #### - [20v](http://20v.co/)
 
-#### - [Infinite Music Trivia](https://imt.rocks/)
-
 ## Getting Started
 
 You can get it on npm.
