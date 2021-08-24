@@ -30,7 +30,7 @@ class AlbumHandler {
    * @see https://developer.spotify.com/web-api/get-album/
    *
    * @public
-   * @param {String|Array} ids Album id/ids to retrive
+   * @param {String|Array} ids Album id/ids to retrieve
    * @param {Object} [query] Query parameters.
    * @returns {Promise} Album|albumsCollection
    */
